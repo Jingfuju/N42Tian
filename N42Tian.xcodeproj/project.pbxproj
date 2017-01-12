@@ -12,6 +12,8 @@
 		1805D8B81E27227400A0924F /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1805D8B61E27227400A0924F /* ProductTableViewCell.xib */; };
 		1805D8BE1E28099200A0924F /* productInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8BD1E28099200A0924F /* productInfo.m */; };
 		1805D8C11E2810ED00A0924F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1805D8C01E2810ED00A0924F /* Assets.xcassets */; };
+		1805D8C91E281D6D00A0924F /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8C71E281D6D00A0924F /* ProductDetailViewController.m */; };
+		1805D8CA1E281D6D00A0924F /* ProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1805D8C81E281D6D00A0924F /* ProductDetailViewController.xib */; };
 		1F4AFE801E27082F0084DB8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4AFE7F1E27082F0084DB8D /* main.m */; };
 		1F4AFE831E27082F0084DB8D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4AFE821E27082F0084DB8D /* AppDelegate.m */; };
 		1F4AFE861E27082F0084DB8D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4AFE851E27082F0084DB8D /* HomeViewController.m */; };
@@ -29,6 +31,9 @@
 		1805D8BC1E28099200A0924F /* productInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = productInfo.h; sourceTree = "<group>"; };
 		1805D8BD1E28099200A0924F /* productInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = productInfo.m; sourceTree = "<group>"; };
 		1805D8C01E2810ED00A0924F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1805D8C61E281D6D00A0924F /* ProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailViewController.h; sourceTree = "<group>"; };
+		1805D8C71E281D6D00A0924F /* ProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailViewController.m; sourceTree = "<group>"; };
+		1805D8C81E281D6D00A0924F /* ProductDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailViewController.xib; sourceTree = "<group>"; };
 		1F4AFE7B1E27082F0084DB8D /* N42Tian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = N42Tian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F4AFE7F1E27082F0084DB8D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1F4AFE811E27082F0084DB8D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -53,6 +58,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1805D8C21E2818E000A0924F /* ProductDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1805D8C61E281D6D00A0924F /* ProductDetailViewController.h */,
+				1805D8C71E281D6D00A0924F /* ProductDetailViewController.m */,
+				1805D8C81E281D6D00A0924F /* ProductDetailViewController.xib */,
+			);
+			name = ProductDetailViewController;
+			sourceTree = "<group>";
+		};
 		1F4AFE721E27082F0084DB8D = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +112,7 @@
 		1F4AFE981E2709030084DB8D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1805D8C21E2818E000A0924F /* ProductDetailViewController */,
 				1F4AFE9B1E2709620084DB8D /* HomeViewController */,
 				1F4AFE9D1E2709D40084DB8D /* InfoViewController */,
 				1F4AFE9C1E2709930084DB8D /* CartViewController */,
@@ -236,6 +252,7 @@
 				1F4AFE911E27082F0084DB8D /* LaunchScreen.storyboard in Resources */,
 				1805D8B81E27227400A0924F /* ProductTableViewCell.xib in Resources */,
 				1805D8C11E2810ED00A0924F /* Assets.xcassets in Resources */,
+				1805D8CA1E281D6D00A0924F /* ProductDetailViewController.xib in Resources */,
 				1F4AFE8C1E27082F0084DB8D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,6 +267,7 @@
 				1F4AFE891E27082F0084DB8D /* CartViewController.m in Sources */,
 				1F4AFE831E27082F0084DB8D /* AppDelegate.m in Sources */,
 				1805D8BE1E28099200A0924F /* productInfo.m in Sources */,
+				1805D8C91E281D6D00A0924F /* ProductDetailViewController.m in Sources */,
 				1F4AFE861E27082F0084DB8D /* HomeViewController.m in Sources */,
 				1805D8B71E27227400A0924F /* ProductTableViewCell.m in Sources */,
 				1805D8B31E27110C00A0924F /* InfoViewController.m in Sources */,
