@@ -6,13 +6,13 @@
 //  Copyright © 2017 N42Tian. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "CartViewController.h"
 
-@interface SecondViewController ()
+@interface CartViewController ()
 
 @end
 
-@implementation SecondViewController
+@implementation CartViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
