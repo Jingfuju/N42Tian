@@ -68,8 +68,8 @@
 				1F4AFE821E27082F0084DB8D /* AppDelegate.m */,
 				1F4AFE8A1E27082F0084DB8D /* Main.storyboard */,
 				1F4AFE981E2709030084DB8D /* Controller */,
-				1F4AFE9A1E2709410084DB8D /* Models */,
 				1F4AFE991E27093F0084DB8D /* Views */,
+				1F4AFE9A1E2709410084DB8D /* Models */,
 				1F4AFE8D1E27082F0084DB8D /* Assets.xcassets */,
 				1F4AFE8F1E27082F0084DB8D /* LaunchScreen.storyboard */,
 				1F4AFE921E27082F0084DB8D /* Info.plist */,
@@ -89,9 +89,9 @@
 		1F4AFE981E2709030084DB8D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1F4AFE9B1E2709620084DB8D /* HomeViewController */,
 				1F4AFE9D1E2709D40084DB8D /* InfoViewController */,
 				1F4AFE9C1E2709930084DB8D /* CartViewController */,
-				1F4AFE9B1E2709620084DB8D /* HomeViewController */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -99,6 +99,9 @@
 		1F4AFE991E27093F0084DB8D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1F4AFEA11E271BF70084DB8D /* HomeViewController */,
+				1F4AFE9F1E271BC90084DB8D /* CartViewController */,
+				1F4AFE9E1E271B970084DB8D /* InfoViewController */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -135,6 +138,27 @@
 				1805D8B21E27110C00A0924F /* InfoViewController.m */,
 			);
 			name = InfoViewController;
+			sourceTree = "<group>";
+		};
+		1F4AFE9E1E271B970084DB8D /* InfoViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = InfoViewController;
+			sourceTree = "<group>";
+		};
+		1F4AFE9F1E271BC90084DB8D /* CartViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CartViewController;
+			sourceTree = "<group>";
+		};
+		1F4AFEA11E271BF70084DB8D /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = HomeViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
