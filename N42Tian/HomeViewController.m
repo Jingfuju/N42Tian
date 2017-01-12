@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "ProductTableViewCell.h"
+#import "productInfo.h"
 
 static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell";
 
@@ -18,6 +19,9 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
 @end
 
 @implementation HomeViewController
+{
+    NSMutableArray *_productInfos;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,6 +30,27 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
     
     UINib *cellNib = [UINib nibWithNibName:ProductTableViewCellIdentifier bundle:nil];
     [self.productTableView registerNib:cellNib forCellReuseIdentifier:ProductTableViewCellIdentifier];
+    
+    _productInfos = [[NSMutableArray alloc] initWithCapacity:10];
+    productInfo *item;
+    item = [[productInfo alloc] init];
+    item.productName = @"millet1100g";
+    item.productPrice = [NSDecimalNumber decimalNumberWithString:@"55.0"];
+    item.productImageName = @"1";
+    [_productInfos addObject:item];
+    
+    item = [[productInfo alloc] init];
+    item.productName = @"millet2200g";
+    item.productPrice = [NSDecimalNumber decimalNumberWithString:@"100.0"];
+    item.productImageName = @"2";
+    [_productInfos addObject:item];
+    
+    item = [[productInfo alloc] init];
+    item.productName = @"millet3300g";
+    item.productPrice = [NSDecimalNumber decimalNumberWithString:@"150.0"];
+    item.productImageName = @"3";
+    [_productInfos addObject:item];
+    
     
 }
 
@@ -43,8 +68,12 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ProductTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ProductTableViewCellIdentifier];
-    cell.productName.text = @"Rice";
-    cell.productPrice.text = @"1000";
+    productInfo *item = _productInfos[indexPath.row];
+    
+    cell.productName.text = item.productName;
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    cell.productPrice.text = [formatter stringFromNumber:item.productPrice];
+    cell.productImage.image = [UIImage imageNamed:item.productImageName];
     
     return cell;
 }

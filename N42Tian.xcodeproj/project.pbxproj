@@ -10,12 +10,13 @@
 		1805D8B31E27110C00A0924F /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8B21E27110C00A0924F /* InfoViewController.m */; };
 		1805D8B71E27227400A0924F /* ProductTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8B51E27227400A0924F /* ProductTableViewCell.m */; };
 		1805D8B81E27227400A0924F /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1805D8B61E27227400A0924F /* ProductTableViewCell.xib */; };
+		1805D8BE1E28099200A0924F /* productInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8BD1E28099200A0924F /* productInfo.m */; };
+		1805D8C11E2810ED00A0924F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1805D8C01E2810ED00A0924F /* Assets.xcassets */; };
 		1F4AFE801E27082F0084DB8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4AFE7F1E27082F0084DB8D /* main.m */; };
 		1F4AFE831E27082F0084DB8D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4AFE821E27082F0084DB8D /* AppDelegate.m */; };
 		1F4AFE861E27082F0084DB8D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4AFE851E27082F0084DB8D /* HomeViewController.m */; };
 		1F4AFE891E27082F0084DB8D /* CartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4AFE881E27082F0084DB8D /* CartViewController.m */; };
 		1F4AFE8C1E27082F0084DB8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F4AFE8A1E27082F0084DB8D /* Main.storyboard */; };
-		1F4AFE8E1E27082F0084DB8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F4AFE8D1E27082F0084DB8D /* Assets.xcassets */; };
 		1F4AFE911E27082F0084DB8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F4AFE8F1E27082F0084DB8D /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,9 @@
 		1805D8B41E27227400A0924F /* ProductTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductTableViewCell.h; sourceTree = "<group>"; };
 		1805D8B51E27227400A0924F /* ProductTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductTableViewCell.m; sourceTree = "<group>"; };
 		1805D8B61E27227400A0924F /* ProductTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
+		1805D8BC1E28099200A0924F /* productInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = productInfo.h; sourceTree = "<group>"; };
+		1805D8BD1E28099200A0924F /* productInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = productInfo.m; sourceTree = "<group>"; };
+		1805D8C01E2810ED00A0924F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F4AFE7B1E27082F0084DB8D /* N42Tian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = N42Tian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F4AFE7F1E27082F0084DB8D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1F4AFE811E27082F0084DB8D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -34,7 +38,6 @@
 		1F4AFE871E27082F0084DB8D /* CartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CartViewController.h; sourceTree = "<group>"; };
 		1F4AFE881E27082F0084DB8D /* CartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CartViewController.m; sourceTree = "<group>"; };
 		1F4AFE8B1E27082F0084DB8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1F4AFE8D1E27082F0084DB8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F4AFE901E27082F0084DB8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F4AFE921E27082F0084DB8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,13 +72,13 @@
 		1F4AFE7D1E27082F0084DB8D /* N42Tian */ = {
 			isa = PBXGroup;
 			children = (
+				1805D8C01E2810ED00A0924F /* Assets.xcassets */,
 				1F4AFE811E27082F0084DB8D /* AppDelegate.h */,
 				1F4AFE821E27082F0084DB8D /* AppDelegate.m */,
 				1F4AFE8A1E27082F0084DB8D /* Main.storyboard */,
 				1F4AFE981E2709030084DB8D /* Controller */,
 				1F4AFE991E27093F0084DB8D /* Views */,
 				1F4AFE9A1E2709410084DB8D /* Models */,
-				1F4AFE8D1E27082F0084DB8D /* Assets.xcassets */,
 				1F4AFE8F1E27082F0084DB8D /* LaunchScreen.storyboard */,
 				1F4AFE921E27082F0084DB8D /* Info.plist */,
 				1F4AFE7E1E27082F0084DB8D /* Supporting Files */,
@@ -114,6 +117,8 @@
 		1F4AFE9A1E2709410084DB8D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1805D8BC1E28099200A0924F /* productInfo.h */,
+				1805D8BD1E28099200A0924F /* productInfo.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -230,7 +235,7 @@
 			files = (
 				1F4AFE911E27082F0084DB8D /* LaunchScreen.storyboard in Resources */,
 				1805D8B81E27227400A0924F /* ProductTableViewCell.xib in Resources */,
-				1F4AFE8E1E27082F0084DB8D /* Assets.xcassets in Resources */,
+				1805D8C11E2810ED00A0924F /* Assets.xcassets in Resources */,
 				1F4AFE8C1E27082F0084DB8D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,6 +249,7 @@
 			files = (
 				1F4AFE891E27082F0084DB8D /* CartViewController.m in Sources */,
 				1F4AFE831E27082F0084DB8D /* AppDelegate.m in Sources */,
+				1805D8BE1E28099200A0924F /* productInfo.m in Sources */,
 				1F4AFE861E27082F0084DB8D /* HomeViewController.m in Sources */,
 				1805D8B71E27227400A0924F /* ProductTableViewCell.m in Sources */,
 				1805D8B31E27110C00A0924F /* InfoViewController.m in Sources */,
