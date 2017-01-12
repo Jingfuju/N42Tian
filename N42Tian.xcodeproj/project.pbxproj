@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1805D8B31E27110C00A0924F /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8B21E27110C00A0924F /* InfoViewController.m */; };
+		1805D8B71E27227400A0924F /* ProductTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8B51E27227400A0924F /* ProductTableViewCell.m */; };
+		1805D8B81E27227400A0924F /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1805D8B61E27227400A0924F /* ProductTableViewCell.xib */; };
 		1F4AFE801E27082F0084DB8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4AFE7F1E27082F0084DB8D /* main.m */; };
 		1F4AFE831E27082F0084DB8D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4AFE821E27082F0084DB8D /* AppDelegate.m */; };
 		1F4AFE861E27082F0084DB8D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4AFE851E27082F0084DB8D /* HomeViewController.m */; };
@@ -20,6 +22,9 @@
 /* Begin PBXFileReference section */
 		1805D8B11E27110C00A0924F /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		1805D8B21E27110C00A0924F /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		1805D8B41E27227400A0924F /* ProductTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductTableViewCell.h; sourceTree = "<group>"; };
+		1805D8B51E27227400A0924F /* ProductTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductTableViewCell.m; sourceTree = "<group>"; };
+		1805D8B61E27227400A0924F /* ProductTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
 		1F4AFE7B1E27082F0084DB8D /* N42Tian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = N42Tian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F4AFE7F1E27082F0084DB8D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1F4AFE811E27082F0084DB8D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -157,6 +162,9 @@
 		1F4AFEA11E271BF70084DB8D /* HomeViewController */ = {
 			isa = PBXGroup;
 			children = (
+				1805D8B41E27227400A0924F /* ProductTableViewCell.h */,
+				1805D8B51E27227400A0924F /* ProductTableViewCell.m */,
+				1805D8B61E27227400A0924F /* ProductTableViewCell.xib */,
 			);
 			name = HomeViewController;
 			sourceTree = "<group>";
@@ -192,7 +200,7 @@
 				TargetAttributes = {
 					1F4AFE7A1E27082F0084DB8D = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = D59V2786GD;
+						DevelopmentTeam = W2MFT9HK9F;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -221,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F4AFE911E27082F0084DB8D /* LaunchScreen.storyboard in Resources */,
+				1805D8B81E27227400A0924F /* ProductTableViewCell.xib in Resources */,
 				1F4AFE8E1E27082F0084DB8D /* Assets.xcassets in Resources */,
 				1F4AFE8C1E27082F0084DB8D /* Main.storyboard in Resources */,
 			);
@@ -236,6 +245,7 @@
 				1F4AFE891E27082F0084DB8D /* CartViewController.m in Sources */,
 				1F4AFE831E27082F0084DB8D /* AppDelegate.m in Sources */,
 				1F4AFE861E27082F0084DB8D /* HomeViewController.m in Sources */,
+				1805D8B71E27227400A0924F /* ProductTableViewCell.m in Sources */,
 				1805D8B31E27110C00A0924F /* InfoViewController.m in Sources */,
 				1F4AFE801E27082F0084DB8D /* main.m in Sources */,
 			);
@@ -355,7 +365,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = D59V2786GD;
+				DEVELOPMENT_TEAM = W2MFT9HK9F;
 				INFOPLIST_FILE = N42Tian/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = N42Tian.com.N42Tian;
@@ -367,7 +377,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = D59V2786GD;
+				DEVELOPMENT_TEAM = W2MFT9HK9F;
 				INFOPLIST_FILE = N42Tian/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = N42Tian.com.N42Tian;
