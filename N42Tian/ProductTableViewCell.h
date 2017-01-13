@@ -14,5 +14,9 @@
 @property (nonatomic, weak) IBOutlet UILabel *productPrice;
 @property (nonatomic, weak) IBOutlet UIImageView *productImage;
 @property (nonatomic, weak) IBOutlet UIButton *addToCartButton;
+@property (nonatomic, weak) IBOutlet UILabel *productSpec;
+@property (nonatomic, weak) IBOutlet UILabel *productSales;
+
+-(IBAction)setAddToCartButton;
 
 @end

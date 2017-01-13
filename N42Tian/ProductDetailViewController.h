@@ -10,4 +10,6 @@
 
 @interface ProductDetailViewController : UIViewController
 
+-(IBAction)close:(id)sender;
+
 @end
