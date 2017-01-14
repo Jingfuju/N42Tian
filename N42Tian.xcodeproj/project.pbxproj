@@ -16,6 +16,8 @@
 		1805D8CA1E281D6D00A0924F /* ProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1805D8C81E281D6D00A0924F /* ProductDetailViewController.xib */; };
 		1805D8CE1E299A2A00A0924F /* CartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8CC1E299A2A00A0924F /* CartTableViewCell.m */; };
 		1805D8CF1E299A2A00A0924F /* CartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1805D8CD1E299A2A00A0924F /* CartTableViewCell.xib */; };
+		1805D8D21E29A27000A0924F /* cartInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8D11E29A27000A0924F /* cartInfo.m */; };
+		1805D8D51E29A71C00A0924F /* cartProductInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8D41E29A71C00A0924F /* cartProductInfo.m */; };
 		1F4AFE801E27082F0084DB8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4AFE7F1E27082F0084DB8D /* main.m */; };
 		1F4AFE831E27082F0084DB8D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4AFE821E27082F0084DB8D /* AppDelegate.m */; };
 		1F4AFE861E27082F0084DB8D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4AFE851E27082F0084DB8D /* HomeViewController.m */; };
@@ -39,6 +41,10 @@
 		1805D8CB1E299A2A00A0924F /* CartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartTableViewCell.h; sourceTree = "<group>"; };
 		1805D8CC1E299A2A00A0924F /* CartTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartTableViewCell.m; sourceTree = "<group>"; };
 		1805D8CD1E299A2A00A0924F /* CartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartTableViewCell.xib; sourceTree = "<group>"; };
+		1805D8D01E29A27000A0924F /* cartInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cartInfo.h; sourceTree = "<group>"; };
+		1805D8D11E29A27000A0924F /* cartInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cartInfo.m; sourceTree = "<group>"; };
+		1805D8D31E29A71C00A0924F /* cartProductInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cartProductInfo.h; sourceTree = "<group>"; };
+		1805D8D41E29A71C00A0924F /* cartProductInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cartProductInfo.m; sourceTree = "<group>"; };
 		1F4AFE7B1E27082F0084DB8D /* N42Tian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = N42Tian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F4AFE7F1E27082F0084DB8D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1F4AFE811E27082F0084DB8D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -140,6 +146,10 @@
 			children = (
 				1805D8BC1E28099200A0924F /* productInfo.h */,
 				1805D8BD1E28099200A0924F /* productInfo.m */,
+				1805D8D01E29A27000A0924F /* cartInfo.h */,
+				1805D8D11E29A27000A0924F /* cartInfo.m */,
+				1805D8D31E29A71C00A0924F /* cartProductInfo.h */,
+				1805D8D41E29A71C00A0924F /* cartProductInfo.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -276,11 +286,13 @@
 				1F4AFE891E27082F0084DB8D /* CartViewController.m in Sources */,
 				1805D8CE1E299A2A00A0924F /* CartTableViewCell.m in Sources */,
 				1F4AFE831E27082F0084DB8D /* AppDelegate.m in Sources */,
+				1805D8D21E29A27000A0924F /* cartInfo.m in Sources */,
 				1805D8BE1E28099200A0924F /* productInfo.m in Sources */,
 				1805D8C91E281D6D00A0924F /* ProductDetailViewController.m in Sources */,
 				1F4AFE861E27082F0084DB8D /* HomeViewController.m in Sources */,
 				1805D8B71E27227400A0924F /* ProductTableViewCell.m in Sources */,
 				1805D8B31E27110C00A0924F /* InfoViewController.m in Sources */,
+				1805D8D51E29A71C00A0924F /* cartProductInfo.m in Sources */,
 				1F4AFE801E27082F0084DB8D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

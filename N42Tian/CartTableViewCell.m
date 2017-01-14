@@ -21,4 +21,9 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)cartAddQty:(id)sender {
+}
+
+- (IBAction)cartMinusQty:(id)sender {
+}
 @end

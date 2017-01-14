@@ -85,8 +85,6 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
      ProductDetailViewController *controller = [[ProductDetailViewController alloc] initWithNibName:@"ProductDetailViewController" bundle:nil];
     [self presentViewController:controller animated:YES completion:nil];
     
-    
-    
 }
 
 @end

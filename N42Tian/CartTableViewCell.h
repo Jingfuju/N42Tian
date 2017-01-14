@@ -10,4 +10,13 @@
 
 @interface CartTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *cartImageView;
+@property (weak, nonatomic) IBOutlet UILabel *cartItemName;
+@property (weak, nonatomic) IBOutlet UILabel *cartItemPrice;
+@property (weak, nonatomic) IBOutlet UILabel *cartSubTotalPrice;
+@property (weak, nonatomic) IBOutlet UIButton *cartSubTotalQty;
+
+- (IBAction)cartAddQty:(id)sender;
+- (IBAction)cartMinusQty:(id)sender;
+
 @end

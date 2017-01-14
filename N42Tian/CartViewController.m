@@ -7,6 +7,9 @@
 //
 
 #import "CartViewController.h"
+#import "CartTableViewCell.h"
+
+static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
 
 @interface CartViewController ()
 
@@ -19,6 +22,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.CartTableView.rowHeight = 120;
+    
+    UINib *cellNib = [UINib nibWithNibName:CartTableViewCellIdentifier bundle:nil];
+    [self.CartTableView registerNib:cellNib forCellReuseIdentifier:CartTableViewCellIdentifier];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,7 +41,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    CartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CartTableViewCellIdentifier];
+    
+    cell.cartItemName.text = @"millet";
+    cell.cartImageView.image = [UIImage imageNamed:@"1"];
+    cell.cartItemPrice.text = @"55";
+    cell.cartSubTotalQty.titleLabel.text = @"2";
+    cell.cartSubTotalPrice.text = @"110";
+    
+    return cell;
 }
 
 @end

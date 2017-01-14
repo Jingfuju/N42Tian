@@ -83,6 +83,10 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="474"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="8rJ-Kc-sve" id="FJ6-8b-jdJ"/>
+                                    <outlet property="delegate" destination="8rJ-Kc-sve" id="KIU-MS-fDE"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="√" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wir-fQ-Zti">
                                 <rect key="frame" x="16" y="576" width="12" height="21"/>
