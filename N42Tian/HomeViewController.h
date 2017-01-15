@@ -11,7 +11,7 @@
 
 @interface HomeViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, ProductTableViewCellDelegate>
 
-
+@property (nonatomic, strong) NSManagedObjectContext *managedOjbectContext;
 
 
 @end
