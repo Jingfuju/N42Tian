@@ -10,10 +10,11 @@
 #import "ProductTableViewCell.h"
 #import "productInfo.h"
 #import "ProductDetailViewController.h"
+#import "cartProductInfo.h"
 
 static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell";
 
-@interface HomeViewController ()
+@interface HomeViewController () 
 
 @property (weak, nonatomic) IBOutlet UITableView *productTableView;
 
@@ -31,6 +32,8 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
     
     UINib *cellNib = [UINib nibWithNibName:ProductTableViewCellIdentifier bundle:nil];
     [self.productTableView registerNib:cellNib forCellReuseIdentifier:ProductTableViewCellIdentifier];
+    
+    
     
     _productInfos = [[NSMutableArray alloc] initWithCapacity:10];
     productInfo *item;
@@ -70,6 +73,7 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
 {
     ProductTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ProductTableViewCellIdentifier];
     productInfo *item = _productInfos[indexPath.row];
+    cell.delegate = self;   //ProductTableViewCell Delegate Definition
     
     cell.productName.text = item.productName;
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
@@ -85,6 +89,23 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
      ProductDetailViewController *controller = [[ProductDetailViewController alloc] initWithNibName:@"ProductDetailViewController" bundle:nil];
     [self presentViewController:controller animated:YES completion:nil];
     
+}
+
+#pragma mark - ProductTableViewCell Delegate
+-(void)addToCart:(ProductTableViewCell *)productTableViewCell atIndexPath:(NSIndexPath *)indexPath {
+    productInfo *info = _productInfos[indexPath.row];
+   
+    return;
+}
+
+-(NSIndexPath *)getButtonIndexPath:(UIButton *) button {
+   
+    CGRect buttonFrame = [button convertRect:button.bounds toView:self.productTableView];
+    return [self.productTableView indexPathForRowAtPoint:buttonFrame.origin];
+}
+
+-(NSInteger)plusOne{
+    return 10;
 }
 
 @end

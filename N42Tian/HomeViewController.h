@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProductTableViewCell.h"
 
-@interface HomeViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface HomeViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, ProductTableViewCellDelegate>
 
 
 

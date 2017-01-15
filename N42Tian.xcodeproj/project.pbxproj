@@ -123,10 +123,10 @@
 		1F4AFE981E2709030084DB8D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				1805D8C21E2818E000A0924F /* ProductDetailViewController */,
 				1F4AFE9B1E2709620084DB8D /* HomeViewController */,
-				1F4AFE9D1E2709D40084DB8D /* InfoViewController */,
+				1805D8C21E2818E000A0924F /* ProductDetailViewController */,
 				1F4AFE9C1E2709930084DB8D /* CartViewController */,
+				1F4AFE9D1E2709D40084DB8D /* InfoViewController */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
