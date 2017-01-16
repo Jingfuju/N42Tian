@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "HomeViewController.h"
+#import "CartViewController.h"
 
 @interface AppDelegate ()
 
@@ -24,6 +25,9 @@
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
     HomeViewController *homeViewController = (HomeViewController *)tabBarController.viewControllers[0];
     homeViewController.managedOjbectContext = self.managedObjectContext;
+    
+    CartViewController *cartViewController = (CartViewController *)tabBarController.viewControllers[1];
+    cartViewController.managedObjectContext = self.managedObjectContext;
 
     return YES;
 }
@@ -84,7 +88,7 @@
 {
     if (_persistentStoreCoordinator == nil) {
         NSURL *storeURL = [NSURL fileURLWithPath:[self dataStorePath]];
-//        NSLog(@"%@", storeURL);
+        NSLog(@"%@", storeURL);
         _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
         
         NSError *error;
