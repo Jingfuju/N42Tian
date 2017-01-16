@@ -10,39 +10,57 @@
 #import "CartTableViewCell.h"
 #import "CartProductInfo+CoreDataClass.h"
 
+
 static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
 
-@interface CartViewController ()
+@interface CartViewController () <NSFetchedResultsControllerDelegate>
 
-@property (nonatomic, weak) IBOutlet UITableView *CartTableView;
-
+@property (nonatomic, weak) IBOutlet UITableView *cartTableView;
 
 
 @end
 
 @implementation CartViewController {
-    NSArray *_cartProductInfo;
+    NSFetchedResultsController *_fetchedResultsController;
 }
+
+-(NSFetchedResultsController *) fetchedResultsController {
+    if (_fetchedResultsController == nil) {
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
+        [fetchRequest setEntity:entity];
+        
+        
+        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+        [fetchRequest setSortDescriptors:@[sortDescriptor]];
+        [fetchRequest setFetchBatchSize:20];
+        
+        _fetchedResultsController = [[NSFetchedResultsController alloc]initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"CartProductInfos"];
+        _fetchedResultsController.delegate = self;
+    }
+    return _fetchedResultsController;
+}
+
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    self.CartTableView.rowHeight = 120;
+    [self performFetch];
+    
+    
+    self.cartTableView.rowHeight = 120;
     
     UINib *cellNib = [UINib nibWithNibName:CartTableViewCellIdentifier bundle:nil];
-    [self.CartTableView registerNib:cellNib forCellReuseIdentifier:CartTableViewCellIdentifier];
-    
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
-    [fetchRequest setEntity:entity];
-    
+    [self.cartTableView registerNib:cellNib forCellReuseIdentifier:CartTableViewCellIdentifier];
+}
+
+-(void)performFetch {
     NSError *error;
-    NSArray *foundObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error]; if (foundObjects == nil) {
+    if (![self.fetchedResultsController performFetch:&error]) {
         NSLog(@"FATAL_CORE_DATA_ERROR");
         abort();
     }
-    
-    _cartProductInfo = foundObjects;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,30 +70,90 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
 
 #pragma mark - UITableView Data Source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{   NSLog(@"%d",[_cartProductInfo count]);
-    return [_cartProductInfo count];
+{
+    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections] [section];
+    return [sectionInfo numberOfObjects];
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CartTableViewCellIdentifier];
-    CartProductInfo *cartItem = _cartProductInfo[indexPath.row];
+    [self configureCell:cell atIndexPath:indexPath];
+    
+    return cell;
+}
+
+-(void)configureCell:(CartTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    CartProductInfo *cartItem = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     cell.cartItemName.text = cartItem.name;
     cell.cartImageView.image = [UIImage imageNamed:@"1"];
     cell.cartItemPrice.text = @"55";
     cell.cartSubTotalQty.titleLabel.text = @"2";
     cell.cartSubTotalPrice.text = @"110";
-    
-    return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+#pragma mark - NSFetchedResultsControllerDelegate
+-(void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
+    NSLog(@"***Controller will change content");
+    [self.cartTableView beginUpdates];
+}
+
+-(void)controller:(NSFetchedResultsController *)controller didChangeObject:(nonnull id)anObject atIndexPath:(nullable NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(nullable NSIndexPath *)newIndexPath {
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            NSLog(@"**NSFetchedResultsChangeInsert (Object");
+            [self.cartTableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        
+        case NSFetchedResultsChangeDelete:
+            NSLog(@"**NSFetchedResultsChangeDelete (object)");
+            [self.cartTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        
+        case NSFetchedResultsChangeUpdate:
+            NSLog(@"**NSFetchedResultsChangeUpdate (Object)");
+            [self configureCell:[self.cartTableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            break;
+        case NSFetchedResultsChangeMove:
+            NSLog(@"**NSFetchedResultsChangeMove (Object)");
+            [self.cartTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [self.cartTableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        default:
+            break;
+    }
+}
+
+-(void)controller:(NSFetchedResultsController *)controller didChangeSection:(nonnull id<NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            NSLog(@"**NSFetchedResultsChangeInsert (Section)");
+            [self.cartTableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        case NSFetchedResultsChangeDelete:
+            NSLog(@"**NSFetchedResultsChangeDelete (Section)");
+            [self.cartTableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+    }
+}
+
+-(void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    NSLog(@"** controllerDidChangeContent");
+    [self.cartTableView endUpdates];
+}
+
 -(void)dealloc {
     NSLog(@"CartViewController is deallocated");
+    _fetchedResultsController.delegate = nil;
 }
+
+
 
 @end
