@@ -13,7 +13,7 @@
 @protocol ProductTableViewCellDelegate <NSObject>
 
 -(NSInteger)plusOne;
--(void)addToCart:(ProductTableViewCell *)productTableViewCell atIndexPath:(NSIndexPath *)indexPath;
+-(void)addToCart:(ProductTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 -(NSIndexPath *)getButtonIndexPath:(UIButton *) button;
 
 @end

@@ -84,18 +84,34 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     return cell;
 }
 
+#pragma mark - UITableView Delegate
+
 -(void)configureCell:(CartTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     CartProductInfo *cartItem = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     cell.cartItemName.text = cartItem.name;
+    cell.cartSubTotalQty.titleLabel.text = @"100";
+//    [NSString stringWithFormat:@"%d",cartItem.quantity];
     cell.cartImageView.image = [UIImage imageNamed:@"1"];
     cell.cartItemPrice.text = @"55";
-    cell.cartSubTotalQty.titleLabel.text = @"2";
     cell.cartSubTotalPrice.text = @"110";
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        CartProductInfo *info = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [self.managedObjectContext deleteObject:info];
+        
+        NSError *error;
+        if(![self.managedObjectContext save:&error]) {
+            NSLog(@"FATAL_CORE_DATA_ERROR");
+            abort();
+        }
+    }
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate

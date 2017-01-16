@@ -65,6 +65,8 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - UITableView Data Source
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 3;
@@ -93,11 +95,12 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
 }
 
 #pragma mark - ProductTableViewCell Delegate
--(void)addToCart:(ProductTableViewCell *)productTableViewCell atIndexPath:(NSIndexPath *)indexPath {
+-(void)addToCart:(ProductTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     productInfo *items = _productInfos[indexPath.row];
     CartProductInfo *cartItem = [NSEntityDescription insertNewObjectForEntityForName:@"CartProductInfo" inManagedObjectContext:self.managedOjbectContext];
     
     cartItem.name = items.productName;
+    cartItem.quantity +=1;
     NSError *error;
     if (![self.managedOjbectContext save:&error]) {
         NSLog(@"Error: %@",error);
@@ -106,6 +109,8 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
     
     return;
 }
+
+
 
 -(NSIndexPath *)getButtonIndexPath:(UIButton *) button {
    

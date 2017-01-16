@@ -85,7 +85,7 @@
                 <outlet property="cartItemName" destination="Not-mT-TSF" id="Bhd-JZ-1mf"/>
                 <outlet property="cartItemPrice" destination="Tvv-1q-BGU" id="7QP-ID-lij"/>
                 <outlet property="cartSubTotalPrice" destination="TgK-lj-VMF" id="qIa-El-37U"/>
-                <outlet property="cartSubTotalQty" destination="cN4-Gj-zHz" id="VTT-b7-LHd"/>
+                <outlet property="cartSubTotalQty" destination="cN4-Gj-zHz" id="Ltq-1M-2yC"/>
             </connections>
             <point key="canvasLocation" x="-77" y="9"/>
         </tableViewCell>
