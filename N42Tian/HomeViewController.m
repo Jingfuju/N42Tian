@@ -10,7 +10,7 @@
 #import "ProductTableViewCell.h"
 #import "productInfo.h"
 #import "ProductDetailViewController.h"
-#import "cartProductInfo.h"
+#import "CartProductInfo+CoreDataClass.h"
 
 static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell";
 
@@ -23,6 +23,7 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
 @implementation HomeViewController
 {
     NSMutableArray *_productInfos;
+    
 }
 
 - (void)viewDidLoad {
@@ -93,8 +94,16 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
 
 #pragma mark - ProductTableViewCell Delegate
 -(void)addToCart:(ProductTableViewCell *)productTableViewCell atIndexPath:(NSIndexPath *)indexPath {
-    productInfo *info = _productInfos[indexPath.row];
-   
+    productInfo *items = _productInfos[indexPath.row];
+    CartProductInfo *cartItem = [NSEntityDescription insertNewObjectForEntityForName:@"CartProductInfo" inManagedObjectContext:self.managedOjbectContext];
+    
+    cartItem.name = items.productName;
+    NSError *error;
+    if (![self.managedOjbectContext save:&error]) {
+        NSLog(@"Error: %@",error);
+        abort();
+    }
+    
     return;
 }
 
