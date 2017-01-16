@@ -101,12 +101,12 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
     
     cartItem.name = items.productName;
     cartItem.quantity +=1;
+    
     NSError *error;
     if (![self.managedOjbectContext save:&error]) {
         NSLog(@"Error: %@",error);
         abort();
     }
-    
     return;
 }
 

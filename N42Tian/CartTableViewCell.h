@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *cartItemPrice;
 @property (weak, nonatomic) IBOutlet UILabel *cartSubTotalPrice;
 @property (weak, nonatomic) IBOutlet UIButton *cartSubTotalQty;
+@property (weak, nonatomic) IBOutlet UILabel *quantityLabel;
 
 
 - (IBAction)cartAddQty:(id)sender;

@@ -90,11 +90,12 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     CartProductInfo *cartItem = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     cell.cartItemName.text = cartItem.name;
-    cell.cartSubTotalQty.titleLabel.text = @"100";
-//    [NSString stringWithFormat:@"%d",cartItem.quantity];
+    cell.quantityLabel.text = [NSString stringWithFormat:@"%d",cartItem.quantity];
+    
     cell.cartImageView.image = [UIImage imageNamed:@"1"];
     cell.cartItemPrice.text = @"55";
     cell.cartSubTotalPrice.text = @"110";
+    cell.cartSubTotalQty.titleLabel.text =@"";
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
