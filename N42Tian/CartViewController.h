@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CartTableViewCell.h"
 
-
-@interface CartViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface CartViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, CartTableViewCellDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 

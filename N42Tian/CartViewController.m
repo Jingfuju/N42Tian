@@ -42,8 +42,6 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
 }
 
 
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self performFetch];
@@ -79,6 +77,7 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CartTableViewCellIdentifier];
+    cell.delegate = self;
     [self configureCell:cell atIndexPath:indexPath];
     
     return cell;
@@ -169,6 +168,54 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
 -(void)dealloc {
     NSLog(@"CartViewController is deallocated");
     _fetchedResultsController.delegate = nil;
+}
+
+#pragma mark - CartTableViewCell Delegate
+-(void)addOneMore:(CartTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    CartProductInfo *info = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    info.quantity +=1;
+    
+    NSError *error;
+    if(![self.managedObjectContext save:&error]) {
+        NSLog(@"FATAL_CORE_DATA_ERROR");
+        abort();
+    }
+    return;
+}
+
+-(void)removeOneMore:(CartTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    CartProductInfo *info = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    if (info.quantity >= 2) {
+        info.quantity -=1;
+    } else if (info.quantity == 1) {
+        NSLog(@"Product quantity is 1");
+        [self removeProductAlert];
+    } else {
+        NSLog(@"Error, YOU need to check the functionnality of your CoreData");
+    }
+    
+    NSError *error;
+    if(![self.managedObjectContext save:&error]) {
+        NSLog(@"FATAL_CORE_DATA_ERROR");
+        abort();
+    }
+    return;
+}
+
+-(void)removeProductAlert {
+    UIAlertView *alertView = [[UIAlertView alloc]
+                              initWithTitle:@"Cart Management"
+                              message:@"Do you really want to remove this product from your cart?"
+                              delegate:nil
+                              cancelButtonTitle:@"Cancel"
+                              otherButtonTitles: @"Remove", nil];
+    [alertView show];
+}
+
+
+-(NSIndexPath *)getButtonIndexPath:(UIButton *)button {
+    CGRect buttonFrame = [button convertRect:button.bounds toView:self.cartTableView];
+    return [self.cartTableView indexPathForRowAtPoint:buttonFrame.origin];
 }
 
 

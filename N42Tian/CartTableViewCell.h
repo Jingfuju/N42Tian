@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class CartTableViewCell;
+@protocol CartTableViewCellDelegate <NSObject>
+
+-(void)addOneMore:(CartTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+-(void)removeOneMore:(CartTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+-(NSIndexPath *)getButtonIndexPath:(UIButton *) button;
+
+@end
+
 @interface CartTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *cartImageView;
@@ -17,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *cartSubTotalQty;
 @property (weak, nonatomic) IBOutlet UILabel *quantityLabel;
 
+
+@property (weak,nonatomic) id <CartTableViewCellDelegate> delegate;
 
 - (IBAction)cartAddQty:(id)sender;
 - (IBAction)cartMinusQty:(id)sender;
