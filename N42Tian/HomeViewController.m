@@ -40,19 +40,19 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
     productInfo *item;
     item = [[productInfo alloc] init];
     item.productName = @"millet1100g";
-    item.productPrice = [NSDecimalNumber decimalNumberWithString:@"55.0"];
+    item.productPrice = 55.0;
     item.productImageName = @"1";
     [_productInfos addObject:item];
     
     item = [[productInfo alloc] init];
     item.productName = @"millet2200g";
-    item.productPrice = [NSDecimalNumber decimalNumberWithString:@"100.0"];
+    item.productPrice = 100.0;
     item.productImageName = @"2";
     [_productInfos addObject:item];
     
     item = [[productInfo alloc] init];
     item.productName = @"millet3300g";
-    item.productPrice = [NSDecimalNumber decimalNumberWithString:@"150.0"];
+    item.productPrice = 150.0;
     item.productImageName = @"3";
     [_productInfos addObject:item];
     
@@ -79,8 +79,9 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
     cell.delegate = self;   //ProductTableViewCell Delegate Definition
     
     cell.productName.text = item.productName;
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    cell.productPrice.text = [formatter stringFromNumber:item.productPrice];
+    
+    NSNumber *itemPrice = [NSNumber numberWithDouble:item.productPrice];
+    cell.productPrice.text = [itemPrice stringValue];
     cell.productImage.image = [UIImage imageNamed:item.productImageName];
     
     return cell;
@@ -124,6 +125,8 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
         CartProductInfo *cartItem = [NSEntityDescription insertNewObjectForEntityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
         cartItem.name = item.productName;
         cartItem.quantity = 1;
+        cartItem.price = item.productPrice; //double to double
+        NSLog(@"%f",cartItem.price);
         if (![self.managedObjectContext save:&error]) {
             NSLog(@"Error: %@", error); abort();
         }
