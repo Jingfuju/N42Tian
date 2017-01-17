@@ -9,7 +9,7 @@
 #import "HomeViewController.h"
 #import "ProductTableViewCell.h"
 #import "productInfo.h"
-#import "ProductDetailViewController.h"
+#import "ProductDetailTableViewController.h"
 
 static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell";
 
@@ -82,7 +82,9 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-     ProductDetailViewController *controller = [[ProductDetailViewController alloc] initWithNibName:@"ProductDetailViewController" bundle:nil];
+    UIStoryboard *tableViewStoryboard = [UIStoryboard storyboardWithName:@"ProductDetailViewStoryboard" bundle:nil];
+    ProductDetailTableViewController *controller = [tableViewStoryboard instantiateViewControllerWithIdentifier:@"ProductDetailTableViewController"];
+
     [self presentViewController:controller animated:YES completion:nil];
     
 }

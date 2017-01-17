@@ -12,12 +12,12 @@
 		1805D8B81E27227400A0924F /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1805D8B61E27227400A0924F /* ProductTableViewCell.xib */; };
 		1805D8BE1E28099200A0924F /* productInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8BD1E28099200A0924F /* productInfo.m */; };
 		1805D8C11E2810ED00A0924F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1805D8C01E2810ED00A0924F /* Assets.xcassets */; };
-		1805D8C91E281D6D00A0924F /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8C71E281D6D00A0924F /* ProductDetailViewController.m */; };
-		1805D8CA1E281D6D00A0924F /* ProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1805D8C81E281D6D00A0924F /* ProductDetailViewController.xib */; };
 		1805D8CE1E299A2A00A0924F /* CartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8CC1E299A2A00A0924F /* CartTableViewCell.m */; };
 		1805D8CF1E299A2A00A0924F /* CartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1805D8CD1E299A2A00A0924F /* CartTableViewCell.xib */; };
 		1805D8D21E29A27000A0924F /* cartInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8D11E29A27000A0924F /* cartInfo.m */; };
 		1805D8D51E29A71C00A0924F /* cartProductInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8D41E29A71C00A0924F /* cartProductInfo.m */; };
+		1805D9001E2DA65500A0924F /* ProductDetailViewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1805D8FF1E2DA65500A0924F /* ProductDetailViewStoryboard.storyboard */; };
+		1805D9031E2DA75400A0924F /* ProductDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D9021E2DA75400A0924F /* ProductDetailTableViewController.m */; };
 		1F4AFE801E27082F0084DB8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4AFE7F1E27082F0084DB8D /* main.m */; };
 		1F4AFE831E27082F0084DB8D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4AFE821E27082F0084DB8D /* AppDelegate.m */; };
 		1F4AFE861E27082F0084DB8D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4AFE851E27082F0084DB8D /* HomeViewController.m */; };
@@ -35,9 +35,6 @@
 		1805D8BC1E28099200A0924F /* productInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = productInfo.h; sourceTree = "<group>"; };
 		1805D8BD1E28099200A0924F /* productInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = productInfo.m; sourceTree = "<group>"; };
 		1805D8C01E2810ED00A0924F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1805D8C61E281D6D00A0924F /* ProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailViewController.h; sourceTree = "<group>"; };
-		1805D8C71E281D6D00A0924F /* ProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailViewController.m; sourceTree = "<group>"; };
-		1805D8C81E281D6D00A0924F /* ProductDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailViewController.xib; sourceTree = "<group>"; };
 		1805D8CB1E299A2A00A0924F /* CartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartTableViewCell.h; sourceTree = "<group>"; };
 		1805D8CC1E299A2A00A0924F /* CartTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartTableViewCell.m; sourceTree = "<group>"; };
 		1805D8CD1E299A2A00A0924F /* CartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartTableViewCell.xib; sourceTree = "<group>"; };
@@ -45,6 +42,9 @@
 		1805D8D11E29A27000A0924F /* cartInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cartInfo.m; sourceTree = "<group>"; };
 		1805D8D31E29A71C00A0924F /* cartProductInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cartProductInfo.h; sourceTree = "<group>"; };
 		1805D8D41E29A71C00A0924F /* cartProductInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cartProductInfo.m; sourceTree = "<group>"; };
+		1805D8FF1E2DA65500A0924F /* ProductDetailViewStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProductDetailViewStoryboard.storyboard; sourceTree = "<group>"; };
+		1805D9011E2DA75400A0924F /* ProductDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailTableViewController.h; sourceTree = "<group>"; };
+		1805D9021E2DA75400A0924F /* ProductDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailTableViewController.m; sourceTree = "<group>"; };
 		1F4AFE7B1E27082F0084DB8D /* N42Tian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = N42Tian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F4AFE7F1E27082F0084DB8D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1F4AFE811E27082F0084DB8D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -72,9 +72,9 @@
 		1805D8C21E2818E000A0924F /* ProductDetailViewController */ = {
 			isa = PBXGroup;
 			children = (
-				1805D8C61E281D6D00A0924F /* ProductDetailViewController.h */,
-				1805D8C71E281D6D00A0924F /* ProductDetailViewController.m */,
-				1805D8C81E281D6D00A0924F /* ProductDetailViewController.xib */,
+				1805D8FF1E2DA65500A0924F /* ProductDetailViewStoryboard.storyboard */,
+				1805D9011E2DA75400A0924F /* ProductDetailTableViewController.h */,
+				1805D9021E2DA75400A0924F /* ProductDetailTableViewController.m */,
 			);
 			name = ProductDetailViewController;
 			sourceTree = "<group>";
@@ -234,7 +234,7 @@
 		1F4AFE731E27082F0084DB8D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = N42Tian;
 				TargetAttributes = {
 					1F4AFE7A1E27082F0084DB8D = {
@@ -267,11 +267,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1805D9001E2DA65500A0924F /* ProductDetailViewStoryboard.storyboard in Resources */,
 				1F4AFE911E27082F0084DB8D /* LaunchScreen.storyboard in Resources */,
 				1805D8B81E27227400A0924F /* ProductTableViewCell.xib in Resources */,
 				1805D8C11E2810ED00A0924F /* Assets.xcassets in Resources */,
 				1805D8CF1E299A2A00A0924F /* CartTableViewCell.xib in Resources */,
-				1805D8CA1E281D6D00A0924F /* ProductDetailViewController.xib in Resources */,
 				1F4AFE8C1E27082F0084DB8D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,7 +288,7 @@
 				1F4AFE831E27082F0084DB8D /* AppDelegate.m in Sources */,
 				1805D8D21E29A27000A0924F /* cartInfo.m in Sources */,
 				1805D8BE1E28099200A0924F /* productInfo.m in Sources */,
-				1805D8C91E281D6D00A0924F /* ProductDetailViewController.m in Sources */,
+				1805D9031E2DA75400A0924F /* ProductDetailTableViewController.m in Sources */,
 				1F4AFE861E27082F0084DB8D /* HomeViewController.m in Sources */,
 				1805D8B71E27227400A0924F /* ProductTableViewCell.m in Sources */,
 				1805D8B31E27110C00A0924F /* InfoViewController.m in Sources */,
@@ -337,6 +337,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -384,6 +385,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
