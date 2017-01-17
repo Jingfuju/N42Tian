@@ -31,4 +31,9 @@
     [self.delegate removeOneMore:self atIndexPath:indexPath];
     
 }
+
+-(IBAction)pickerController:(id)sender {
+    NSIndexPath *indexPath = [self.delegate getButtonIndexPath:sender];
+    [self.delegate popUpNumberPickerControlerFrom:self atIndexPath:indexPath];
+}
 @end

@@ -9,6 +9,7 @@
 #import "CartViewController.h"
 #import "CartTableViewCell.h"
 #import "CartProductInfo+CoreDataClass.h"
+#import "QuantityPickerViewController.h"
 
 
 static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
@@ -99,6 +100,7 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -219,6 +221,9 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     return [self.cartTableView indexPathForRowAtPoint:buttonFrame.origin];
 }
 
-
+-(void)popUpNumberPickerControlerFrom:(CartTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    QuantityPickerViewController *controller = [[QuantityPickerViewController alloc] initWithNibName:@"QuantityPickerViewController" bundle:nil];
+    [self presentViewController:controller animated:YES completion:nil];
+}
 
 @end

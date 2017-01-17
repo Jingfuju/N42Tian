@@ -25,6 +25,8 @@
 		1F4AFE8C1E27082F0084DB8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F4AFE8A1E27082F0084DB8D /* Main.storyboard */; };
 		1F4AFE911E27082F0084DB8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F4AFE8F1E27082F0084DB8D /* LaunchScreen.storyboard */; };
 		1F6CE5BE1E2C24490070B559 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1F6CE5BC1E2C24490070B559 /* DataModel.xcdatamodeld */; };
+		1F6CE5E11E2E08690070B559 /* QuantityPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6CE5DF1E2E08690070B559 /* QuantityPickerViewController.m */; };
+		1F6CE5E21E2E08690070B559 /* QuantityPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F6CE5E01E2E08690070B559 /* QuantityPickerViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,9 @@
 		1F4AFE901E27082F0084DB8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F4AFE921E27082F0084DB8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F6CE5BD1E2C24490070B559 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		1F6CE5DE1E2E08690070B559 /* QuantityPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuantityPickerViewController.h; sourceTree = "<group>"; };
+		1F6CE5DF1E2E08690070B559 /* QuantityPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuantityPickerViewController.m; sourceTree = "<group>"; };
+		1F6CE5E01E2E08690070B559 /* QuantityPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuantityPickerViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +110,7 @@
 				1F4AFE821E27082F0084DB8D /* AppDelegate.m */,
 				1F4AFE8A1E27082F0084DB8D /* Main.storyboard */,
 				1F4AFE981E2709030084DB8D /* Controller */,
+				1F6CE5DD1E2E081A0070B559 /* QuantityPickerViewController */,
 				1F4AFE991E27093F0084DB8D /* Views */,
 				1F4AFE9A1E2709410084DB8D /* Models */,
 				1F4AFE8F1E27082F0084DB8D /* LaunchScreen.storyboard */,
@@ -211,6 +217,16 @@
 			name = HomeViewController;
 			sourceTree = "<group>";
 		};
+		1F6CE5DD1E2E081A0070B559 /* QuantityPickerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1F6CE5DE1E2E08690070B559 /* QuantityPickerViewController.h */,
+				1F6CE5DF1E2E08690070B559 /* QuantityPickerViewController.m */,
+				1F6CE5E01E2E08690070B559 /* QuantityPickerViewController.xib */,
+			);
+			name = QuantityPickerViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -272,6 +288,7 @@
 			files = (
 				1F4AFE911E27082F0084DB8D /* LaunchScreen.storyboard in Resources */,
 				1805D8B81E27227400A0924F /* ProductTableViewCell.xib in Resources */,
+				1F6CE5E21E2E08690070B559 /* QuantityPickerViewController.xib in Resources */,
 				1805D8C11E2810ED00A0924F /* Assets.xcassets in Resources */,
 				1805D8CF1E299A2A00A0924F /* CartTableViewCell.xib in Resources */,
 				1805D8CA1E281D6D00A0924F /* ProductDetailViewController.xib in Resources */,
@@ -288,6 +305,7 @@
 			files = (
 				1F4AFE891E27082F0084DB8D /* CartViewController.m in Sources */,
 				1805D8CE1E299A2A00A0924F /* CartTableViewCell.m in Sources */,
+				1F6CE5E11E2E08690070B559 /* QuantityPickerViewController.m in Sources */,
 				1F4AFE831E27082F0084DB8D /* AppDelegate.m in Sources */,
 				1805D8D21E29A27000A0924F /* cartInfo.m in Sources */,
 				1805D8BE1E28099200A0924F /* productInfo.m in Sources */,

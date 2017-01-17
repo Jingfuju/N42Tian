@@ -134,11 +134,11 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
 }
 
 
-
 -(NSIndexPath *)getButtonIndexPath:(UIButton *) button {
-   
     CGRect buttonFrame = [button convertRect:button.bounds toView:self.productTableView];
     return [self.productTableView indexPathForRowAtPoint:buttonFrame.origin];
 }
+
+
 
 @end

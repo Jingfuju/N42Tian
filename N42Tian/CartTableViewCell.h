@@ -14,6 +14,7 @@
 -(void)addOneMore:(CartTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 -(void)removeOneMore:(CartTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 -(NSIndexPath *)getButtonIndexPath:(UIButton *) button;
+-(void)popUpNumberPickerControlerFrom:(CartTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
@@ -31,5 +32,6 @@
 
 - (IBAction)cartAddQty:(id)sender;
 - (IBAction)cartMinusQty:(id)sender;
+- (IBAction)pickerController:(id)sender;
 
 @end
