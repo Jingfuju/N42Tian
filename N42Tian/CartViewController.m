@@ -14,7 +14,7 @@
 
 static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
 
-@interface CartViewController () <NSFetchedResultsControllerDelegate>
+@interface CartViewController () <NSFetchedResultsControllerDelegate, QuantityPickerViewControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *cartTableView;
 
@@ -223,14 +223,30 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
 
 -(void)popUpNumberPickerControlerFrom:(CartTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     QuantityPickerViewController *controller = [[QuantityPickerViewController alloc] initWithNibName:@"QuantityPickerViewController" bundle:nil];
+    controller.indexPath = indexPath;
+
+
+    
+    controller.view.frame = self.view.bounds;
     [self.view addSubview:controller.view];
     [self addChildViewController:controller];
     [controller didMoveToParentViewController:self];
-
-    NSLog(@"popupViewController");
-
+    controller.delegate = self;
 }
 
+#pragma mark - QuantityPickerViewController Delegate
+-(void)updateQuantityFrom:(QuantityPickerViewController *)controller atIndexPath:(NSIndexPath *)indexPath withNumber:(NSString *)quantity {
+    
+    NSLog(@"Quantity number is %d",[quantity intValue]);
+    CartProductInfo *info = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    info.quantity = [quantity intValue];
+    
+    NSError *error;
+    if(![self.managedObjectContext save:&error]) {
+        NSLog(@"FATAL_CORE_DATA_ERROR");
+        abort();
+    }
+}
 
 
 @end

@@ -9,9 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "CartViewController.h"
 
-@interface QuantityPickerViewController : UIViewController <UIPickerViewDelegate,UIPickerViewDataSource,CartTableViewCellDelegate>
+@class QuantityPickerViewController;
+@protocol QuantityPickerViewControllerDelegate <NSObject>
 
-@property (nonatomic, assign) NSInteger quantity;
+-(void)updateQuantityFrom:(QuantityPickerViewController *)controller atIndexPath:(NSIndexPath *)NSIndexPath withNumber:(NSString *)quantity;
+
+@end
+
+
+@interface QuantityPickerViewController : UIViewController <UIPickerViewDelegate,UIPickerViewDataSource>
+
+@property (nonatomic, copy) NSIndexPath *indexPath;
+@property (nonatomic, weak) id <QuantityPickerViewControllerDelegate> delegate;
 
 -(IBAction)close:(id)sender;
 -(IBAction)done:(id)sender;
