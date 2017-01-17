@@ -97,15 +97,32 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
 #pragma mark - ProductTableViewCell Delegate
 -(void)addToCart:(ProductTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     productInfo *items = _productInfos[indexPath.row];
-    CartProductInfo *cartItem = [NSEntityDescription insertNewObjectForEntityForName:@"CartProductInfo" inManagedObjectContext:self.managedOjbectContext];
     
-    cartItem.name = items.productName;
-    cartItem.quantity +=1;
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat: @"name == %@", items.productName];
+    [request setPredicate:predicate];
     
     NSError *error;
-    if (![self.managedOjbectContext save:&error]) {
-        NSLog(@"Error: %@",error);
-        abort();
+    NSArray *result = [self.managedObjectContext executeFetchRequest:request error:&error];
+    NSLog(@"%@", result);
+    
+    if ((result != nil) && ([result count]) && (error == nil)) {
+        CartProductInfo *info = [result objectAtIndex:0];
+        info.quantity +=1;
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Error: %@", error); abort();
+        }
+        return;
+    } else {
+        CartProductInfo *cartItem = [NSEntityDescription insertNewObjectForEntityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
+        cartItem.name = items.productName;
+        cartItem.quantity = 1;
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Error: %@", error); abort();
+        }
     }
     return;
 }
@@ -116,10 +133,6 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
    
     CGRect buttonFrame = [button convertRect:button.bounds toView:self.productTableView];
     return [self.productTableView indexPathForRowAtPoint:buttonFrame.origin];
-}
-
--(NSInteger)plusOne{
-    return 10;
 }
 
 @end

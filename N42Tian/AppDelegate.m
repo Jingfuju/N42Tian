@@ -24,7 +24,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
     HomeViewController *homeViewController = (HomeViewController *)tabBarController.viewControllers[0];
-    homeViewController.managedOjbectContext = self.managedObjectContext;
+    homeViewController.managedObjectContext = self.managedObjectContext;
     
     CartViewController *cartViewController = (CartViewController *)tabBarController.viewControllers[1];
     cartViewController.managedObjectContext = self.managedObjectContext;

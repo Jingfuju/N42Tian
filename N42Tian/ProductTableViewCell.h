@@ -12,7 +12,6 @@
 
 @protocol ProductTableViewCellDelegate <NSObject>
 
--(NSInteger)plusOne;
 -(void)addToCart:(ProductTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 -(NSIndexPath *)getButtonIndexPath:(UIButton *) button;
 

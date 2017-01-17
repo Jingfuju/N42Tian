@@ -19,7 +19,7 @@ extern NSString * const ManagedObjectContextSaveDidFailNotification;
 
 @interface HomeViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, ProductTableViewCellDelegate>
 
-@property (nonatomic, strong) NSManagedObjectContext *managedOjbectContext;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 
 @end
