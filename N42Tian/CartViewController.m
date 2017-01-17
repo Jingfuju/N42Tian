@@ -223,7 +223,14 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
 
 -(void)popUpNumberPickerControlerFrom:(CartTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     QuantityPickerViewController *controller = [[QuantityPickerViewController alloc] initWithNibName:@"QuantityPickerViewController" bundle:nil];
-    [self presentViewController:controller animated:YES completion:nil];
+    [self.view addSubview:controller.view];
+    [self addChildViewController:controller];
+    [controller didMoveToParentViewController:self];
+
+    NSLog(@"popupViewController");
+
 }
+
+
 
 @end

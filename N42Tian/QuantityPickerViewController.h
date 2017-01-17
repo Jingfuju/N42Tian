@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CartViewController.h"
 
-@interface QuantityPickerViewController : UIViewController
+@interface QuantityPickerViewController : UIViewController <UIPickerViewDelegate,UIPickerViewDataSource,CartTableViewCellDelegate>
+
+@property (nonatomic, assign) NSInteger quantity;
 
 -(IBAction)close:(id)sender;
+-(IBAction)done:(id)sender;
 
 @end
