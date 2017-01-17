@@ -9,7 +9,7 @@
 #import "QuantityPickerViewController.h"
 #import "CartProductInfo+CoreDataClass.h"
 
-@interface QuantityPickerViewController ()
+@interface QuantityPickerViewController () <UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UIPickerView *picker;
 
 
@@ -25,6 +25,11 @@
     _pickerData = @[@"1", @"2", @"3", @"4", @"5", @"6"];
     self.picker.dataSource = self;
     self.picker.delegate = self;
+    
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(close:)];
+    gestureRecognizer.cancelsTouchesInView = NO;
+    gestureRecognizer.delegate = self;
+    [self.view addGestureRecognizer:gestureRecognizer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,6 +79,11 @@
 
 -(void)updateCartQuantityfrom:(CartViewController *)controller atIndexPath:(NSIndexPath *)indexPath {
     
+}
+
+#pragma mark - UIGestureRecognizer Delegate
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    return (touch.view == self.view);
 }
 
 @end
