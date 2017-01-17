@@ -96,13 +96,17 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
 
 #pragma mark - ProductTableViewCell Delegate
 -(void)addToCart:(ProductTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    productInfo *items = _productInfos[indexPath.row];
-    
+    productInfo *item = _productInfos[indexPath.row];
+    [self editCartForProduct:item];
+    return;
+}
+
+-(void)editCartForProduct:(productInfo *)item {
     
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entity];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat: @"name == %@", items.productName];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat: @"name == %@", item.productName];
     [request setPredicate:predicate];
     
     NSError *error;
@@ -118,13 +122,12 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
         return;
     } else {
         CartProductInfo *cartItem = [NSEntityDescription insertNewObjectForEntityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
-        cartItem.name = items.productName;
+        cartItem.name = item.productName;
         cartItem.quantity = 1;
         if (![self.managedObjectContext save:&error]) {
             NSLog(@"Error: %@", error); abort();
         }
     }
-    return;
 }
 
 
