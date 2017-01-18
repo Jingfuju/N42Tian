@@ -15,6 +15,9 @@
 @end
 
 @implementation ProductDetailViewController
+{
+    BOOL _quantityPickerVisible;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,9 +39,21 @@
     return nil;
 }
 
+- (IBAction)quantityPicker:(id)sender
+{
+    
+}
+
 - (IBAction)cancel:(id)sender
 {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - UINavigationBarDelegate
+
+- (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar
+{
+    return UIBarPositionTopAttached;
 }
 
 @end

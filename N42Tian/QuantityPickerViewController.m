@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _pickerData = @[@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9",@"10"];
+    _pickerData = @[@"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9", @"10"];
     self.picker.dataSource = self;
     self.picker.delegate = self;
     

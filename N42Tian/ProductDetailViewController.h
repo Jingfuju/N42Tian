@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProductDetailViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface ProductDetailViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UINavigationBarDelegate>
 
 - (IBAction)cancel:(id)sender;
+- (IBAction)quantityPicker:(id)sender;
 
 @end
