@@ -21,4 +21,12 @@
     // Configure the view for the selected state
 }
 
+
+-(IBAction)addToCartButton:(id)sender {
+    NSIndexPath *indexPath = [self.delegate getButtonIndexPath:sender];
+    [self.delegate addToCart:self atIndexPath:indexPath];
+}
+
+
+
 @end
