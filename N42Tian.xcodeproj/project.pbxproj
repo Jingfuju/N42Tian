@@ -110,7 +110,6 @@
 				1F4AFE821E27082F0084DB8D /* AppDelegate.m */,
 				1F4AFE8A1E27082F0084DB8D /* Main.storyboard */,
 				1F4AFE981E2709030084DB8D /* Controller */,
-				1F6CE5DD1E2E081A0070B559 /* QuantityPickerViewController */,
 				1F4AFE991E27093F0084DB8D /* Views */,
 				1F4AFE9A1E2709410084DB8D /* Models */,
 				1F4AFE8F1E27082F0084DB8D /* LaunchScreen.storyboard */,
@@ -132,6 +131,7 @@
 		1F4AFE981E2709030084DB8D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1F6CE5DD1E2E081A0070B559 /* QuantityPickerViewController */,
 				1F4AFE9B1E2709620084DB8D /* HomeViewController */,
 				1805D8C21E2818E000A0924F /* ProductDetailViewController */,
 				1F4AFE9C1E2709930084DB8D /* CartViewController */,
