@@ -8,15 +8,27 @@
 
 #import <UIKit/UIKit.h>
 
+@class ProductTableViewCell;
+
+@protocol ProductTableViewCellDelegate <NSObject>
+
+-(void)addToCart:(ProductTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+-(NSIndexPath *)getButtonIndexPath:(UIButton *) button;
+
+@end
+
+
+
 @interface ProductTableViewCell : UITableViewCell
 
 @property (nonatomic, weak) IBOutlet UILabel *productName;
 @property (nonatomic, weak) IBOutlet UILabel *productPrice;
 @property (nonatomic, weak) IBOutlet UIImageView *productImage;
-@property (nonatomic, weak) IBOutlet UIButton *addToCartButton;
 @property (nonatomic, weak) IBOutlet UILabel *productSpec;
 @property (nonatomic, weak) IBOutlet UILabel *productSales;
 
--(IBAction)setAddToCartButton;
+-(IBAction)addToCartButton:(id)sender;
+
+@property (nonatomic, weak) id <ProductTableViewCellDelegate> delegate;
 
 @end
