@@ -29,6 +29,7 @@
 		1F6CE5E21E2E08690070B559 /* QuantityPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F6CE5E01E2E08690070B559 /* QuantityPickerViewController.xib */; };
 		1F6CE5E51E30416F0070B559 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6CE5E41E30416F0070B559 /* CoreData.framework */; };
 		1F6CE5E71E30417C0070B559 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6CE5E61E30417C0070B559 /* AudioToolbox.framework */; };
+		1F6CE5EA1E3044B20070B559 /* Sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1F6CE5E91E3044B20070B559 /* Sound.caf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		1F6CE5E01E2E08690070B559 /* QuantityPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuantityPickerViewController.xib; sourceTree = "<group>"; };
 		1F6CE5E41E30416F0070B559 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		1F6CE5E61E30417C0070B559 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		1F6CE5E91E3044B20070B559 /* Sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sound.caf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 		1F4AFE721E27082F0084DB8D = {
 			isa = PBXGroup;
 			children = (
+				1F6CE5E91E3044B20070B559 /* Sound.caf */,
 				1F4AFE7D1E27082F0084DB8D /* N42Tian */,
 				1F4AFE7C1E27082F0084DB8D /* Products */,
 				1F6CE5E31E30416F0070B559 /* Frameworks */,
@@ -304,6 +307,7 @@
 			files = (
 				1F4AFE911E27082F0084DB8D /* LaunchScreen.storyboard in Resources */,
 				1805D8B81E27227400A0924F /* ProductTableViewCell.xib in Resources */,
+				1F6CE5EA1E3044B20070B559 /* Sound.caf in Resources */,
 				1F6CE5E21E2E08690070B559 /* QuantityPickerViewController.xib in Resources */,
 				1805D8C11E2810ED00A0924F /* Assets.xcassets in Resources */,
 				1805D8CF1E299A2A00A0924F /* CartTableViewCell.xib in Resources */,
