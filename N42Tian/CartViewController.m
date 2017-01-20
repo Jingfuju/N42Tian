@@ -49,6 +49,7 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     
     
     self.cartTableView.rowHeight = 120;
+    [self.cartToolbar setFrame:CGRectMake(0, self.view.frame.size.height-98, self.view.frame.size.width, 49)];
     
     UINib *cellNib = [UINib nibWithNibName:CartTableViewCellIdentifier bundle:nil];
     [self.cartTableView registerNib:cellNib forCellReuseIdentifier:CartTableViewCellIdentifier];
@@ -246,6 +247,11 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
         NSLog(@"FATAL_CORE_DATA_ERROR");
         abort();
     }
+}
+
+#pragma mark - UINavigationbar Delegate
+-(UIBarPosition)positionForBar:(id<UIBarPositioning>)bar {
+    return UIBarPositionTopAttached;
 }
 
 
