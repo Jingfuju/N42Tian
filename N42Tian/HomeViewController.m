@@ -141,6 +141,9 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
     return [self.productTableView indexPathForRowAtPoint:buttonFrame.origin];
 }
 
-
+#pragma mark - UINavigation bar delegate 
+-(UIBarPosition)positionForBar:(id<UIBarPositioning>)bar {
+    return UIBarPositionTopAttached;
+}
 
 @end

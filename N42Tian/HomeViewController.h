@@ -17,7 +17,7 @@ extern NSString * const ManagedObjectContextSaveDidFailNotification;
 //        [[NSNotificationCenter defaultCenter] postNotificationName:\
 //            ManagedObjectContextSaveDidFailNotification object:error];
 
-@interface HomeViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, ProductTableViewCellDelegate>
+@interface HomeViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, ProductTableViewCellDelegate, UINavigationBarDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 

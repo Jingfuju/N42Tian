@@ -11,9 +11,12 @@
 #import "CartProductInfo+CoreDataClass.h"
 #import "QuantityPickerViewController.h"
 
-@interface CartViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, CartTableViewCellDelegate>
+@interface CartViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, CartTableViewCellDelegate, UINavigationBarDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+
+@property (nonatomic, strong) IBOutlet UIToolbar *cartToolbar;
+
 
 //Added this method to header file, use other Controller involve it;
 -(NSFetchedResultsController *) fetchedResultsController;
