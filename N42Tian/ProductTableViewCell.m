@@ -13,6 +13,8 @@
     SystemSoundID _soundID;
 }
 
+
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self loadSoundEffect];
@@ -57,6 +59,8 @@
 - (void)playSoundEffect {
     AudioServicesPlaySystemSound(_soundID);
 }
+
+
 
 
 @end
