@@ -34,7 +34,7 @@
 {
     _scale = scale;
     self.textColor = [UIColor colorWithRed:scale green:0.0 blue:0.0 alpha:1.0];
-    [[self.subviews lastObject] setBackgroundColor:[UIColor colorWithRed:scale green:0.0 blue:0.0 alpha:1.0]];
+    [[self.subviews lastObject] setBackgroundColor:[UIColor colorWithRed:scale green:0.0 blue:0.0 alpha:scale]];
     CGFloat minScale = 1;
     CGFloat trueScale = minScale + (1 - minScale)*scale;
     self.transform = CGAffineTransformMakeScale(trueScale, trueScale);
