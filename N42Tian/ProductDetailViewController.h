@@ -13,4 +13,6 @@
 @property (nonatomic, strong) IBOutlet UIScrollView *smallScrollView;
 @property (nonatomic, strong) IBOutlet UIScrollView *bigScrollView;
 
+- (IBAction)close:(id)sender;
+
 @end

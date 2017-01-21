@@ -10,7 +10,7 @@
 #import "CartTableViewCell.h"
 #import "CartProductInfo+CoreDataClass.h"
 #import "QuantityPickerViewController.h"
-
+#import "ProductDetailViewController.h"
 
 static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
 
@@ -103,6 +103,9 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    ProductDetailViewController *controller = [[ProductDetailViewController alloc] initWithNibName:@"ProductDetailViewController" bundle:nil];
+    [self presentViewController:controller animated:YES completion:nil];
+    
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
