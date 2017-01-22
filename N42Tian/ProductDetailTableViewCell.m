@@ -19,7 +19,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    NSLog(@"%f,  %f", self.scrollView.bounds.size.width, self.scrollView.frame.size.width);
     self.scrollView.contentSize = CGSizeMake(self.scrollView.bounds.size.width * 3, self.scrollView.bounds.size.height);
     self.scrollView.pagingEnabled = YES;
     self.scrollView.showsHorizontalScrollIndicator = NO;
