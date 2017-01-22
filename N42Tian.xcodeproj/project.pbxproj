@@ -21,6 +21,7 @@
 		1879B5B31E32DEC4009AD685 /* ProductInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1879B5AF1E32DEC4009AD685 /* ProductInfoViewController.xib */; };
 		1879B5B41E32DEC4009AD685 /* CategoryLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1879B5B01E32DEC4009AD685 /* CategoryLabel.m */; };
 		18BDDC621E32F2C900CC53E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18BDDC611E32F2C900CC53E5 /* Assets.xcassets */; };
+		1F1F42421E343071001E0B37 /* 180.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F1F42411E343071001E0B37 /* 180.png */; };
 		1F4AFE801E27082F0084DB8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4AFE7F1E27082F0084DB8D /* main.m */; };
 		1F4AFE831E27082F0084DB8D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4AFE821E27082F0084DB8D /* AppDelegate.m */; };
 		1F4AFE861E27082F0084DB8D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4AFE851E27082F0084DB8D /* HomeViewController.m */; };
@@ -59,6 +60,7 @@
 		1879B5B01E32DEC4009AD685 /* CategoryLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryLabel.m; sourceTree = "<group>"; };
 		1879B5B11E32DEC4009AD685 /* CategoryLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryLabel.h; sourceTree = "<group>"; };
 		18BDDC611E32F2C900CC53E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1F1F42411E343071001E0B37 /* 180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 180.png; sourceTree = "<group>"; };
 		1F4AFE7B1E27082F0084DB8D /* N42Tian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = N42Tian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F4AFE7F1E27082F0084DB8D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1F4AFE811E27082F0084DB8D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			children = (
 				18BDDC611E32F2C900CC53E5 /* Assets.xcassets */,
 				1F6CE5E91E3044B20070B559 /* Sound.caf */,
+				1F1F42411E343071001E0B37 /* 180.png */,
 				1F4AFE7D1E27082F0084DB8D /* N42Tian */,
 				1F4AFE7C1E27082F0084DB8D /* Products */,
 				1F6CE5E31E30416F0070B559 /* Frameworks */,
@@ -323,6 +326,7 @@
 				1805D8B81E27227400A0924F /* ProductTableViewCell.xib in Resources */,
 				1F6CE5EA1E3044B20070B559 /* Sound.caf in Resources */,
 				1879B5AB1E32DEB2009AD685 /* ProductDetailViewController.xib in Resources */,
+				1F1F42421E343071001E0B37 /* 180.png in Resources */,
 				1F6CE5E21E2E08690070B559 /* QuantityPickerViewController.xib in Resources */,
 				1805D8CF1E299A2A00A0924F /* CartTableViewCell.xib in Resources */,
 				18BDDC621E32F2C900CC53E5 /* Assets.xcassets in Resources */,

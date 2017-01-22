@@ -14,7 +14,7 @@
 
 static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
 
-@interface CartViewController () <NSFetchedResultsControllerDelegate, QuantityPickerViewControllerDelegate>
+@interface CartViewController () <NSFetchedResultsControllerDelegate, QuantityPickerViewControllerDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *cartTableView;
 
@@ -23,6 +23,7 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
 
 @implementation CartViewController {
     NSFetchedResultsController *_fetchedResultsController;
+    
 }
 
 -(NSFetchedResultsController *) fetchedResultsController {
@@ -195,8 +196,16 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     if (info.quantity >= 2) {
         info.quantity -=1;
     } else if (info.quantity == 1) {
-        NSLog(@"Product quantity is 1");
-        [self removeProductAlert];
+
+        self.indexMentioned = indexPath;
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"Cart Management"
+                                  message:@"Do you really want to remove this product from your cart?"
+                                  delegate:nil
+                                  cancelButtonTitle:@"Cancel"
+                                  otherButtonTitles: @"Remove", nil];
+        alertView.delegate = self;
+        [alertView show];
     } else {
         NSLog(@"Error, YOU need to check the functionnality of your CoreData");
     }
@@ -209,17 +218,26 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     return;
 }
 
--(void)removeProductAlert {
-    UIAlertView *alertView = [[UIAlertView alloc]
-                              initWithTitle:@"Cart Management"
-                              message:@"Do you really want to remove this product from your cart?"
-                              delegate:nil
-                              cancelButtonTitle:@"Cancel"
-                              otherButtonTitles: @"Remove", nil];
-    [alertView show];
+
+#pragma mark - UIAlertView Delegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+            NSLog(@"Product quantity is 1");
+    if (buttonIndex == [alertView cancelButtonIndex]) {
+        [alertView removeFromSuperview];
+    } else {
+        CartProductInfo *info = [self.fetchedResultsController objectAtIndexPath:self.indexMentioned];
+        [self.managedObjectContext deleteObject:info];
+        NSLog(@"Product removed");
+        NSError *error;
+        if(![self.managedObjectContext save:&error]) {
+            NSLog(@"FATAL_CORE_DATA_ERROR");
+            abort();
+        }
+    }
 }
 
 
+#pragma mark - QuantityPickerViewController Delegate
 -(NSIndexPath *)getButtonIndexPath:(UIButton *)button {
     CGRect buttonFrame = [button convertRect:button.bounds toView:self.cartTableView];
     return [self.cartTableView indexPathForRowAtPoint:buttonFrame.origin];
@@ -238,7 +256,7 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     controller.delegate = self;
 }
 
-#pragma mark - QuantityPickerViewController Delegate
+
 -(void)updateQuantityFrom:(QuantityPickerViewController *)controller atIndexPath:(NSIndexPath *)indexPath withNumber:(NSString *)quantity {
     
     NSLog(@"Quantity number is %d",[quantity intValue]);
