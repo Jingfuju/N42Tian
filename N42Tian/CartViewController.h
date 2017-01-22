@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @property (nonatomic, strong) IBOutlet UIToolbar *cartToolbar;
+@property (nonatomic, weak) NSIndexPath *indexMentioned;
 
 
 //Added this method to header file, use other Controller involve it;

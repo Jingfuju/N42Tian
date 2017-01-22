@@ -143,6 +143,7 @@
 			children = (
 				18BDDC611E32F2C900CC53E5 /* Assets.xcassets */,
 				1F6CE5E91E3044B20070B559 /* Sound.caf */,
+				1F1F42411E343071001E0B37 /* 180.png */,
 				1F4AFE7D1E27082F0084DB8D /* N42Tian */,
 				1F4AFE7C1E27082F0084DB8D /* Products */,
 				1F6CE5E31E30416F0070B559 /* Frameworks */,
@@ -358,6 +359,7 @@
 				1805D8B81E27227400A0924F /* ProductTableViewCell.xib in Resources */,
 				1F6CE5EA1E3044B20070B559 /* Sound.caf in Resources */,
 				1879B5AB1E32DEB2009AD685 /* ProductDetailViewController.xib in Resources */,
+				1F1F42421E343071001E0B37 /* 180.png in Resources */,
 				1F6CE5E21E2E08690070B559 /* QuantityPickerViewController.xib in Resources */,
 				1805D8CF1E299A2A00A0924F /* CartTableViewCell.xib in Resources */,
 				18BDDC621E32F2C900CC53E5 /* Assets.xcassets in Resources */,
