@@ -7,11 +7,11 @@
 //
 
 #import "ProductInfoViewController.h"
+#import "ProductDetailTableViewCell.h"
 
 @interface ProductInfoViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
 
 @end
 
@@ -29,16 +29,45 @@
 
 #pragma mark - UITableView Datasource
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 0;
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    ProductDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProductDetailTableViewCell"];
+    cell = [[[NSBundle mainBundle] loadNibNamed:@"ProductDetailTableViewCell" owner:self options:nil] lastObject];
+    switch (_index) {
+        case 0:            
+            return cell;
+            break;
+        case 1:
+            break;
+        case 2:
+            break;
+        default:
+            break;
+    }
+    return nil;
+    
+    }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    switch (_index) {
+        case 0:
+            return 1;
+            break;
+        case 1:
+            break;
+        case 2:
+            break;
+        default:
+            break;
+    }
+
     return nil;
 }
 
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 150.f;
+}
 
 @end

@@ -111,7 +111,6 @@
     [self.smallScrollView.subviews enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         if (idx != index) {
             CategoryLabel *temlabel = self.smallScrollView.subviews[idx];
-            NSLog(@"%@", temlabel);
             temlabel.scale = 0.0;
         }
     }];
