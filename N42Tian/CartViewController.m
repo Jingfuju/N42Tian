@@ -69,6 +69,15 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     // Dispose of any resources that can be recreated.
 }
 
+-(void)saveToCoreData{
+    NSError *error;
+    if(![self.managedObjectContext save:&error]) {
+        NSLog(@"FATAL_CORE_DATA_ERROR");
+        abort();
+    }
+}
+
+
 #pragma mark - UITableView Data Source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -113,12 +122,7 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         CartProductInfo *info = [self.fetchedResultsController objectAtIndexPath:indexPath];
         [self.managedObjectContext deleteObject:info];
-        
-        NSError *error;
-        if(![self.managedObjectContext save:&error]) {
-            NSLog(@"FATAL_CORE_DATA_ERROR");
-            abort();
-        }
+        [self saveToCoreData];
     }
 }
 
@@ -183,11 +187,7 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     CartProductInfo *info = [self.fetchedResultsController objectAtIndexPath:indexPath];
     info.quantity +=1;
     
-    NSError *error;
-    if(![self.managedObjectContext save:&error]) {
-        NSLog(@"FATAL_CORE_DATA_ERROR");
-        abort();
-    }
+    [self saveToCoreData];
     return;
 }
 
@@ -195,6 +195,7 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     CartProductInfo *info = [self.fetchedResultsController objectAtIndexPath:indexPath];
     if (info.quantity >= 2) {
         info.quantity -=1;
+        [self saveToCoreData];
     } else if (info.quantity == 1) {
 
         self.indexMentioned = indexPath;
@@ -210,29 +211,18 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
         NSLog(@"Error, YOU need to check the functionnality of your CoreData");
     }
     
-    NSError *error;
-    if(![self.managedObjectContext save:&error]) {
-        NSLog(@"FATAL_CORE_DATA_ERROR");
-        abort();
-    }
     return;
 }
 
 
 #pragma mark - UIAlertView Delegate
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-            NSLog(@"Product quantity is 1");
     if (buttonIndex == [alertView cancelButtonIndex]) {
         [alertView removeFromSuperview];
     } else {
         CartProductInfo *info = [self.fetchedResultsController objectAtIndexPath:self.indexMentioned];
         [self.managedObjectContext deleteObject:info];
-        NSLog(@"Product removed");
-        NSError *error;
-        if(![self.managedObjectContext save:&error]) {
-            NSLog(@"FATAL_CORE_DATA_ERROR");
-            abort();
-        }
+        [self saveToCoreData];
     }
 }
 
@@ -246,9 +236,7 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
 -(void)popUpNumberPickerControlerFrom:(CartTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     QuantityPickerViewController *controller = [[QuantityPickerViewController alloc] initWithNibName:@"QuantityPickerViewController" bundle:nil];
     controller.indexPath = indexPath;
-
-
-    
+ 
     controller.view.frame = self.view.bounds;
     [self.view addSubview:controller.view];
     [self addChildViewController:controller];
@@ -258,22 +246,17 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
 
 
 -(void)updateQuantityFrom:(QuantityPickerViewController *)controller atIndexPath:(NSIndexPath *)indexPath withNumber:(NSString *)quantity {
-    
-    NSLog(@"Quantity number is %d",[quantity intValue]);
     CartProductInfo *info = [self.fetchedResultsController objectAtIndexPath:indexPath];
     info.quantity = [quantity intValue];
     
-    NSError *error;
-    if(![self.managedObjectContext save:&error]) {
-        NSLog(@"FATAL_CORE_DATA_ERROR");
-        abort();
-    }
+    [self saveToCoreData];
 }
 
 #pragma mark - UINavigationbar Delegate
 -(UIBarPosition)positionForBar:(id<UIBarPositioning>)bar {
     return UIBarPositionTopAttached;
 }
+
 
 
 @end
