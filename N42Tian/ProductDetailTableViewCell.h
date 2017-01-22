@@ -10,8 +10,16 @@
 
 @interface ProductDetailTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *productName;
+@property (weak, nonatomic) IBOutlet UILabel *productPrice;
+@property (weak, nonatomic) IBOutlet UILabel *productSpec;
+@property (weak, nonatomic) IBOutlet UILabel *productSales;
+@property (weak, nonatomic) IBOutlet UILabel *productInStore;
+@property (weak, nonatomic) IBOutlet UILabel *productDescription;
 
 
 + (instancetype)productDetailTableViewCellWith:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath;
++ (CGFloat)productDetailTableViewCellWith:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
++ (NSInteger)productDetailTableViewCellCount;
 
 @end

@@ -21,4 +21,13 @@
     // Configure the view for the selected state
 }
 
++ (instancetype)productReviewTableViewCellWith:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath
+{
+    ProductReviewTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"productReviewTableViewCell"];
+    if (!cell) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"ProductReviewTableViewCell" owner:self options:nil] firstObject];
+    }
+    return cell;
+}
+
 @end

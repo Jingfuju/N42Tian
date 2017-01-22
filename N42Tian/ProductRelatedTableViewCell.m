@@ -12,7 +12,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -20,5 +19,16 @@
 
     // Configure the view for the selected state
 }
+
++ (instancetype)productRelatedTableViewCellWith:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath
+{
+    ProductRelatedTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"productRelatedTableViewCell"];
+    if (!cell) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"ProductRelatedTableViewCell" owner:self options:nil] firstObject];
+    }
+    cell.productRelatedImage.image = [UIImage imageNamed:@"3"];
+    return cell;
+}
+
 
 @end

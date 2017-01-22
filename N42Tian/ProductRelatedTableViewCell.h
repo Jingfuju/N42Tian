@@ -10,4 +10,8 @@
 
 @interface ProductRelatedTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *productRelatedImage;
+
++ (instancetype)productRelatedTableViewCellWith:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath;
+
 @end

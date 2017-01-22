@@ -10,4 +10,6 @@
 
 @interface ProductReviewTableViewCell : UITableViewCell
 
++ (instancetype)productReviewTableViewCellWith:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath;
+
 @end

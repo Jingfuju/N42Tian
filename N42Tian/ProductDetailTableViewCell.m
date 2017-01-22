@@ -19,7 +19,19 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    NSLog(@"%f,  %f", self.scrollView.bounds.size.width, self.scrollView.frame.size.width);
     self.scrollView.contentSize = CGSizeMake(self.scrollView.bounds.size.width * 3, self.scrollView.bounds.size.height);
+    self.scrollView.pagingEnabled = YES;
+    self.scrollView.showsHorizontalScrollIndicator = NO;
+    for (int i = 0; i < 3; i++) {
+        CGFloat w = self.scrollView.frame.size.width;
+        CGFloat h = self.scrollView.frame.size.height;
+        UIImageView *imageView = [[UIImageView alloc] init];
+        imageView.frame = CGRectMake(i * w, 0, w, h);
+        NSString *imgName = [NSString stringWithFormat:@"%d", i + 1];
+        imageView.image = [UIImage imageNamed:imgName];
+        [self.scrollView addSubview:imageView];
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -55,6 +67,29 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ProductDetailTableViewCell" owner:self options:nil] objectAtIndex:index];
     }
     return cell;
+}
+
++ (CGFloat)productDetailTableViewCellWith:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row) {
+        case 0:
+            return 200.f;
+            break;
+        case 1:
+            return 80.f;
+            break;
+        case 2:
+            return 200.f;
+            break;
+        default:
+            break;
+    }
+    return 44.f;
+}
+
++ (NSInteger)productDetailTableViewCellCount
+{
+    return 3;
 }
 
 @end
