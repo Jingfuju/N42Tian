@@ -120,6 +120,32 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items/>
                             </toolbar>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KFp-cm-CgX">
+                                <rect key="frame" x="0.0" y="64" width="375" height="510"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="akA-Bg-hNW">
+                                        <rect key="frame" x="150" y="443" width="75" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Shop Now!"/>
+                                        <connections>
+                                            <action selector="popHomeView:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="cjD-fG-SdT"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="hungry" translatesAutoresizingMaskIntoConstraints="NO" id="iea-P5-yRJ">
+                                        <rect key="frame" x="67" y="33" width="240" height="196"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your cart is hungry,  plesae feed it!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eET-en-jvf">
+                                        <rect key="frame" x="55" y="276" width="264" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="√" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wir-fQ-Zti">
                                 <rect key="frame" x="15" y="586" width="12" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -183,6 +209,7 @@
                     <connections>
                         <outlet property="CartTableView" destination="hev-Xa-TVr" id="SYN-zi-b86"/>
                         <outlet property="cartToolbar" destination="YgP-r4-GHk" id="cd5-Qb-gJr"/>
+                        <outlet property="emptyCartView" destination="KFp-cm-CgX" id="Tsr-jO-gtQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
@@ -230,6 +257,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="hungry" width="420" height="423"/>
         <image name="second" width="30" height="30"/>
     </resources>
 </document>

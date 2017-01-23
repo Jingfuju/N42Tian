@@ -17,10 +17,13 @@
 
 @property (nonatomic, strong) IBOutlet UIToolbar *cartToolbar;
 @property (nonatomic, weak) NSIndexPath *indexMentioned;
+@property (nonatomic, weak) IBOutlet UIView *emptyCartView;
+
 
 
 //Added this method to header file, use other Controller involve it;
 -(NSFetchedResultsController *) fetchedResultsController;
+-(IBAction)popHomeView:(id)sender;
 
 @end
 
