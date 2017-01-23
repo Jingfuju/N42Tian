@@ -12,6 +12,7 @@
 #import "ProductDetailViewController.h"
 #import "CartProductInfo+CoreDataClass.h"
 
+
 static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell";
 
 @interface HomeViewController () 
@@ -35,20 +36,20 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
     [self.productTableView registerNib:cellNib forCellReuseIdentifier:ProductTableViewCellIdentifier];
     
     _productInfos = [[NSMutableArray alloc] initWithCapacity:10];
-    productInfo *item;
-    item = [[productInfo alloc] init];
+    ProductInfo *item;
+    item = [[ProductInfo alloc] init];
     item.productName = @"millet1100g";
     item.productPrice = 55.0;
     item.productImageName = @"1";
     [_productInfos addObject:item];
     
-    item = [[productInfo alloc] init];
+    item = [[ProductInfo alloc] init];
     item.productName = @"millet2200g";
     item.productPrice = 100.0;
     item.productImageName = @"2";
     [_productInfos addObject:item];
     
-    item = [[productInfo alloc] init];
+    item = [[ProductInfo alloc] init];
     item.productName = @"millet3300g";
     item.productPrice = 150.0;
     item.productImageName = @"3";
@@ -67,8 +68,6 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
 }
 
 
-
-
 #pragma mark - UITableView Data Source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -79,14 +78,14 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ProductTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ProductTableViewCellIdentifier];
-    productInfo *item = _productInfos[indexPath.row];
+    ProductInfo *item = _productInfos[indexPath.row];
     cell.delegate = self;   //ProductTableViewCell Delegate Definition
     
     cell.productName.text = item.productName;
-    
     NSNumber *itemPrice = [NSNumber numberWithDouble:item.productPrice];
     cell.productPrice.text = [itemPrice stringValue];
     cell.productImage.image = [UIImage imageNamed:item.productImageName];
+
     
     return cell;
 }
@@ -101,12 +100,12 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
 
 #pragma mark - ProductTableViewCell Delegate
 -(void)addToCart:(ProductTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    productInfo *item = _productInfos[indexPath.row];
+    ProductInfo *item = _productInfos[indexPath.row];
     [self editCartForProduct:item];
     return;
 }
 
--(void)editCartForProduct:(productInfo *)item {
+-(void)editCartForProduct:(ProductInfo *)item {
     
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -130,9 +129,11 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
         cartItem.name = item.productName;
         cartItem.quantity = 1;
         cartItem.price = item.productPrice; //double to double
+        cartItem.productImage = item.productImageName;
         NSLog(@"%f",cartItem.price);
         if (![self.managedObjectContext save:&error]) {
-            NSLog(@"Error: %@", error); abort();
+            NSLog(@"Error: %@", error);
+            abort();
         }
     }
 }

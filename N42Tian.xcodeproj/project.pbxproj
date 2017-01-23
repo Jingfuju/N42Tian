@@ -10,11 +10,10 @@
 		1805D8B31E27110C00A0924F /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8B21E27110C00A0924F /* InfoViewController.m */; };
 		1805D8B71E27227400A0924F /* ProductTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8B51E27227400A0924F /* ProductTableViewCell.m */; };
 		1805D8B81E27227400A0924F /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1805D8B61E27227400A0924F /* ProductTableViewCell.xib */; };
-		1805D8BE1E28099200A0924F /* productInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8BD1E28099200A0924F /* productInfo.m */; };
+		1805D8BE1E28099200A0924F /* ProductInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8BD1E28099200A0924F /* ProductInfo.m */; };
 		1805D8CE1E299A2A00A0924F /* CartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8CC1E299A2A00A0924F /* CartTableViewCell.m */; };
 		1805D8CF1E299A2A00A0924F /* CartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1805D8CD1E299A2A00A0924F /* CartTableViewCell.xib */; };
 		1805D8D21E29A27000A0924F /* cartInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8D11E29A27000A0924F /* cartInfo.m */; };
-		1805D8D51E29A71C00A0924F /* cartProductInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8D41E29A71C00A0924F /* cartProductInfo.m */; };
 		1879B5AB1E32DEB2009AD685 /* ProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1879B5A81E32DEB2009AD685 /* ProductDetailViewController.xib */; };
 		1879B5AC1E32DEB2009AD685 /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1879B5A91E32DEB2009AD685 /* ProductDetailViewController.m */; };
 		1879B5B21E32DEC4009AD685 /* ProductInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1879B5AE1E32DEC4009AD685 /* ProductInfoViewController.m */; };
@@ -41,6 +40,8 @@
 		1F6CE5E51E30416F0070B559 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6CE5E41E30416F0070B559 /* CoreData.framework */; };
 		1F6CE5E71E30417C0070B559 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6CE5E61E30417C0070B559 /* AudioToolbox.framework */; };
 		1F6CE5EA1E3044B20070B559 /* Sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1F6CE5E91E3044B20070B559 /* Sound.caf */; };
+		1FCEE58D1E35E18E00FC4623 /* CartProductInfo+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCEE58A1E35E18E00FC4623 /* CartProductInfo+CoreDataClass.m */; };
+		1FCEE58E1E35E18E00FC4623 /* CartProductInfo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCEE58C1E35E18E00FC4623 /* CartProductInfo+CoreDataProperties.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,15 +50,13 @@
 		1805D8B41E27227400A0924F /* ProductTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductTableViewCell.h; sourceTree = "<group>"; };
 		1805D8B51E27227400A0924F /* ProductTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductTableViewCell.m; sourceTree = "<group>"; };
 		1805D8B61E27227400A0924F /* ProductTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
-		1805D8BC1E28099200A0924F /* productInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = productInfo.h; sourceTree = "<group>"; };
-		1805D8BD1E28099200A0924F /* productInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = productInfo.m; sourceTree = "<group>"; };
+		1805D8BC1E28099200A0924F /* ProductInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductInfo.h; sourceTree = "<group>"; };
+		1805D8BD1E28099200A0924F /* ProductInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductInfo.m; sourceTree = "<group>"; };
 		1805D8CB1E299A2A00A0924F /* CartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartTableViewCell.h; sourceTree = "<group>"; };
 		1805D8CC1E299A2A00A0924F /* CartTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartTableViewCell.m; sourceTree = "<group>"; };
 		1805D8CD1E299A2A00A0924F /* CartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartTableViewCell.xib; sourceTree = "<group>"; };
 		1805D8D01E29A27000A0924F /* cartInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cartInfo.h; sourceTree = "<group>"; };
 		1805D8D11E29A27000A0924F /* cartInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cartInfo.m; sourceTree = "<group>"; };
-		1805D8D31E29A71C00A0924F /* cartProductInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cartProductInfo.h; sourceTree = "<group>"; };
-		1805D8D41E29A71C00A0924F /* cartProductInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cartProductInfo.m; sourceTree = "<group>"; };
 		1879B5A81E32DEB2009AD685 /* ProductDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailViewController.xib; sourceTree = "<group>"; };
 		1879B5A91E32DEB2009AD685 /* ProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailViewController.m; sourceTree = "<group>"; };
 		1879B5AA1E32DEB2009AD685 /* ProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailViewController.h; sourceTree = "<group>"; };
@@ -97,6 +96,10 @@
 		1F6CE5E41E30416F0070B559 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		1F6CE5E61E30417C0070B559 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		1F6CE5E91E3044B20070B559 /* Sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sound.caf; sourceTree = "<group>"; };
+		1FCEE5891E35E18E00FC4623 /* CartProductInfo+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CartProductInfo+CoreDataClass.h"; path = "../CartProductInfo+CoreDataClass.h"; sourceTree = "<group>"; };
+		1FCEE58A1E35E18E00FC4623 /* CartProductInfo+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CartProductInfo+CoreDataClass.m"; path = "../CartProductInfo+CoreDataClass.m"; sourceTree = "<group>"; };
+		1FCEE58B1E35E18E00FC4623 /* CartProductInfo+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CartProductInfo+CoreDataProperties.h"; path = "../CartProductInfo+CoreDataProperties.h"; sourceTree = "<group>"; };
+		1FCEE58C1E35E18E00FC4623 /* CartProductInfo+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CartProductInfo+CoreDataProperties.m"; path = "../CartProductInfo+CoreDataProperties.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,12 +219,14 @@
 		1F4AFE9A1E2709410084DB8D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1805D8BC1E28099200A0924F /* productInfo.h */,
-				1805D8BD1E28099200A0924F /* productInfo.m */,
+				1FCEE5891E35E18E00FC4623 /* CartProductInfo+CoreDataClass.h */,
+				1FCEE58A1E35E18E00FC4623 /* CartProductInfo+CoreDataClass.m */,
+				1FCEE58B1E35E18E00FC4623 /* CartProductInfo+CoreDataProperties.h */,
+				1FCEE58C1E35E18E00FC4623 /* CartProductInfo+CoreDataProperties.m */,
+				1805D8BC1E28099200A0924F /* ProductInfo.h */,
+				1805D8BD1E28099200A0924F /* ProductInfo.m */,
 				1805D8D01E29A27000A0924F /* cartInfo.h */,
 				1805D8D11E29A27000A0924F /* cartInfo.m */,
-				1805D8D31E29A71C00A0924F /* cartProductInfo.h */,
-				1805D8D41E29A71C00A0924F /* cartProductInfo.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -388,17 +393,18 @@
 				18BDDC831E35DACE00CC53E5 /* ProductDetailCheckoutViewController.m in Sources */,
 				1F4AFE831E27082F0084DB8D /* AppDelegate.m in Sources */,
 				1805D8D21E29A27000A0924F /* cartInfo.m in Sources */,
-				1805D8BE1E28099200A0924F /* productInfo.m in Sources */,
+				1805D8BE1E28099200A0924F /* ProductInfo.m in Sources */,
 				1879B5B41E32DEC4009AD685 /* CategoryLabel.m in Sources */,
 				18BDDC791E33F69500CC53E5 /* ProductRelatedTableViewCell.m in Sources */,
+				1FCEE58E1E35E18E00FC4623 /* CartProductInfo+CoreDataProperties.m in Sources */,
 				1879B5AC1E32DEB2009AD685 /* ProductDetailViewController.m in Sources */,
 				1F4AFE861E27082F0084DB8D /* HomeViewController.m in Sources */,
 				1805D8B71E27227400A0924F /* ProductTableViewCell.m in Sources */,
 				1805D8B31E27110C00A0924F /* InfoViewController.m in Sources */,
 				1F6CE5BE1E2C24490070B559 /* DataModel.xcdatamodeld in Sources */,
-				1805D8D51E29A71C00A0924F /* cartProductInfo.m in Sources */,
 				18BDDC7E1E33F6B000CC53E5 /* ProductReviewTableViewCell.m in Sources */,
 				18BDDC741E3352B400CC53E5 /* ProductDetailTableViewCell.m in Sources */,
+				1FCEE58D1E35E18E00FC4623 /* CartProductInfo+CoreDataClass.m in Sources */,
 				1F4AFE801E27082F0084DB8D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

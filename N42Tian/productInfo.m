@@ -6,8 +6,8 @@
 //  Copyright © 2017 N42Tian. All rights reserved.
 //
 
-#import "productInfo.h"
+#import "ProductInfo.h"
 
-@implementation productInfo
+@implementation ProductInfo
 
 @end
