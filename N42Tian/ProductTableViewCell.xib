@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="364" height="200"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="364" height="199.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="364" height="199"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="7pk-NJ-vhn">
@@ -74,7 +74,7 @@
                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lYJ-qp-1RH">
                         <rect key="frame" x="314" y="165" width="33" height="25"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" title="Cart" image="Shopping_Cart_25"/>
+                        <state key="normal" title="Cart" image="Cart"/>
                         <connections>
                             <action selector="addToCartButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Riy-9K-tOd"/>
                         </connections>
@@ -92,7 +92,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Shopping_Cart_25" width="25" height="25"/>
+        <image name="Cart" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
