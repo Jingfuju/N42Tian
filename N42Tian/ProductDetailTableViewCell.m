@@ -31,6 +31,7 @@
         imageView.image = [UIImage imageNamed:imgName];
         [self.scrollView addSubview:imageView];
     }
+    self.pageControl.numberOfPages = 3;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -89,6 +90,14 @@
 + (NSInteger)productDetailTableViewCellCount
 {
     return 3;
+}
+
+#pragma mark - UIScrollView Delegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    int page = scrollView.contentOffset.x / scrollView.frame.size.width;
+    self.pageControl.currentPage = page;
 }
 
 @end

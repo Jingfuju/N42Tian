@@ -14,5 +14,7 @@
 @property (nonatomic, strong) IBOutlet UIScrollView *bigScrollView;
 
 - (IBAction)close:(id)sender;
+- (IBAction)addToCart:(id)sender;
+- (IBAction)goToCart:(id)sender;
 
 @end

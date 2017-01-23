@@ -39,17 +39,6 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cqY-wT-cXK">
-                    <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="44" id="pTM-lW-48X"/>
-                    </constraints>
-                    <items>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Co3-bq-roq"/>
-                        <barButtonItem title="Checkout" id="HJV-ff-lyv"/>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="THD-EF-yMJ"/>
-                    </items>
-                </toolbar>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJ8-QR-80W">
                     <rect key="frame" x="10" y="27" width="30" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -58,28 +47,55 @@
                         <action selector="close:" destination="-1" eventType="touchUpInside" id="H9x-nD-Pmz"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e40-vG-6XZ">
+                    <rect key="frame" x="146" y="630" width="82" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="82" id="5G5-2F-rFA"/>
+                        <constraint firstAttribute="height" constant="30" id="Nc1-9E-1ob"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="nVb-sx-Ldn"/>
+                    </constraints>
+                    <state key="normal" title="Add To Cart"/>
+                    <connections>
+                        <action selector="addToCart:" destination="-1" eventType="touchUpInside" id="4so-s6-Uw5"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9LN-Sd-UyW">
+                    <rect key="frame" x="330" y="630" width="30" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="6wy-iI-Ayc"/>
+                        <constraint firstAttribute="width" constant="30" id="C0Y-IK-Zki"/>
+                    </constraints>
+                    <state key="normal" image="Cart"/>
+                    <connections>
+                        <action selector="goToCart:" destination="-1" eventType="touchUpInside" id="FXR-4A-EEN"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="TWk-OP-nLV" secondAttribute="bottom" constant="44" id="2KZ-Ag-p2b"/>
                 <constraint firstItem="TWk-OP-nLV" firstAttribute="top" secondItem="ime-zh-SdB" secondAttribute="bottom" id="5P3-d3-pAq"/>
+                <constraint firstAttribute="bottom" secondItem="9LN-Sd-UyW" secondAttribute="bottom" constant="7" id="6at-fq-a8h"/>
                 <constraint firstItem="ime-zh-SdB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="C1S-4e-mDr"/>
-                <constraint firstItem="ime-zh-SdB" firstAttribute="leading" secondItem="cqY-wT-cXK" secondAttribute="leading" id="Duo-KH-ze7"/>
                 <constraint firstItem="ime-zh-SdB" firstAttribute="trailing" secondItem="bYO-CR-Mm5" secondAttribute="trailing" id="Dwd-gS-ve4"/>
+                <constraint firstItem="9LN-Sd-UyW" firstAttribute="top" secondItem="TWk-OP-nLV" secondAttribute="bottom" constant="7" id="ERb-yd-iaS"/>
+                <constraint firstItem="e40-vG-6XZ" firstAttribute="top" secondItem="TWk-OP-nLV" secondAttribute="bottom" constant="7" id="Kxh-L3-Zsx"/>
                 <constraint firstItem="ime-zh-SdB" firstAttribute="top" secondItem="bYO-CR-Mm5" secondAttribute="bottom" id="N1n-nd-ax6"/>
+                <constraint firstAttribute="trailing" secondItem="9LN-Sd-UyW" secondAttribute="trailing" constant="15" id="RBO-mb-PNe"/>
                 <constraint firstItem="bYO-CR-Mm5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="W9n-lc-tPz"/>
                 <constraint firstItem="ime-zh-SdB" firstAttribute="trailing" secondItem="TWk-OP-nLV" secondAttribute="trailing" id="WtL-rd-iBO"/>
                 <constraint firstAttribute="trailing" secondItem="ime-zh-SdB" secondAttribute="trailing" id="X45-mJ-eGF"/>
                 <constraint firstItem="ime-zh-SdB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="auu-Bv-e3O"/>
-                <constraint firstItem="ime-zh-SdB" firstAttribute="trailing" secondItem="cqY-wT-cXK" secondAttribute="trailing" id="lKz-Es-Rut"/>
+                <constraint firstAttribute="bottom" secondItem="e40-vG-6XZ" secondAttribute="bottom" constant="7" id="c1L-3S-p1P"/>
+                <constraint firstItem="e40-vG-6XZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="haA-kE-91R"/>
                 <constraint firstItem="ime-zh-SdB" firstAttribute="leading" secondItem="bYO-CR-Mm5" secondAttribute="leading" id="mEM-0i-ZRY"/>
-                <constraint firstAttribute="bottom" secondItem="cqY-wT-cXK" secondAttribute="bottom" id="wDt-C2-VLS"/>
                 <constraint firstItem="ime-zh-SdB" firstAttribute="leading" secondItem="TWk-OP-nLV" secondAttribute="leading" id="z7u-Lp-xnP"/>
             </constraints>
             <point key="canvasLocation" x="34" y="103"/>
         </view>
     </objects>
     <resources>
+        <image name="Cart" width="30" height="30"/>
         <image name="arrow_20" width="20" height="20"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
