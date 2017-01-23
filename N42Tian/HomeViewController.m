@@ -82,10 +82,10 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
     cell.delegate = self;   //ProductTableViewCell Delegate Definition
     
     cell.productName.text = item.productName;
-    
     NSNumber *itemPrice = [NSNumber numberWithDouble:item.productPrice];
     cell.productPrice.text = [itemPrice stringValue];
     cell.productImage.image = [UIImage imageNamed:item.productImageName];
+
     
     return cell;
 }

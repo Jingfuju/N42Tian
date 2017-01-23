@@ -20,4 +20,8 @@
 @dynamic quantity;
 @dynamic productImage;
 
+
+
+
+
 @end

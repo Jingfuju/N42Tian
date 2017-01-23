@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) int16_t quantity;
 @property (nullable, nonatomic, copy) NSString *productImage;
 
+
 @end
 
 NS_ASSUME_NONNULL_END
