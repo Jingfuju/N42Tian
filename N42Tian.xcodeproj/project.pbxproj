@@ -42,6 +42,7 @@
 		1F6CE5EA1E3044B20070B559 /* Sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1F6CE5E91E3044B20070B559 /* Sound.caf */; };
 		1FCEE58D1E35E18E00FC4623 /* CartProductInfo+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCEE58A1E35E18E00FC4623 /* CartProductInfo+CoreDataClass.m */; };
 		1FCEE58E1E35E18E00FC4623 /* CartProductInfo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCEE58C1E35E18E00FC4623 /* CartProductInfo+CoreDataProperties.m */; };
+		1FFEF1921E369BED00CCCF97 /* 180.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FFEF1911E369BED00CCCF97 /* 180.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +101,7 @@
 		1FCEE58A1E35E18E00FC4623 /* CartProductInfo+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CartProductInfo+CoreDataClass.m"; path = "../CartProductInfo+CoreDataClass.m"; sourceTree = "<group>"; };
 		1FCEE58B1E35E18E00FC4623 /* CartProductInfo+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CartProductInfo+CoreDataProperties.h"; path = "../CartProductInfo+CoreDataProperties.h"; sourceTree = "<group>"; };
 		1FCEE58C1E35E18E00FC4623 /* CartProductInfo+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CartProductInfo+CoreDataProperties.m"; path = "../CartProductInfo+CoreDataProperties.m"; sourceTree = "<group>"; };
+		1FFEF1911E369BED00CCCF97 /* 180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 180.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 		1F4AFE721E27082F0084DB8D = {
 			isa = PBXGroup;
 			children = (
+				1FFEF1911E369BED00CCCF97 /* 180.png */,
 				18BDDC611E32F2C900CC53E5 /* Assets.xcassets */,
 				1F6CE5E91E3044B20070B559 /* Sound.caf */,
 				1F4AFE7D1E27082F0084DB8D /* N42Tian */,
@@ -372,6 +375,7 @@
 				1805D8B81E27227400A0924F /* ProductTableViewCell.xib in Resources */,
 				1F6CE5EA1E3044B20070B559 /* Sound.caf in Resources */,
 				1879B5AB1E32DEB2009AD685 /* ProductDetailViewController.xib in Resources */,
+				1FFEF1921E369BED00CCCF97 /* 180.png in Resources */,
 				1F6CE5E21E2E08690070B559 /* QuantityPickerViewController.xib in Resources */,
 				1805D8CF1E299A2A00A0924F /* CartTableViewCell.xib in Resources */,
 				18BDDC621E32F2C900CC53E5 /* Assets.xcassets in Resources */,
