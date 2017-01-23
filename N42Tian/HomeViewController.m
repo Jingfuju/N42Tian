@@ -67,8 +67,6 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
 }
 
 
-
-
 #pragma mark - UITableView Data Source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -130,9 +128,11 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
         cartItem.name = item.productName;
         cartItem.quantity = 1;
         cartItem.price = item.productPrice; //double to double
+        cartItem.productImage = item.productImageName;
         NSLog(@"%f",cartItem.price);
         if (![self.managedObjectContext save:&error]) {
-            NSLog(@"Error: %@", error); abort();
+            NSLog(@"Error: %@", error);
+            abort();
         }
     }
 }

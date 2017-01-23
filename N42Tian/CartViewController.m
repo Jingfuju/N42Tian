@@ -128,8 +128,7 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     cell.cartItemName.text = cartItem.name;
     cell.quantityLabel.text = [NSString stringWithFormat:@"%d",cartItem.quantity];
     cell.cartItemPrice.text = [NSString stringWithFormat:@"%.2f",cartItem.price]; //covert to 
-    
-    cell.cartImageView.image = [UIImage imageNamed:@"1"];
+    cell.cartImageView.image = [UIImage imageNamed:cartItem.productImage];
     
     cell.cartSubTotalPrice.text = @"110";
     cell.cartSubTotalQty.titleLabel.text =@"";
