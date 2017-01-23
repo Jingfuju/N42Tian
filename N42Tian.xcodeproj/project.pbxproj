@@ -10,7 +10,7 @@
 		1805D8B31E27110C00A0924F /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8B21E27110C00A0924F /* InfoViewController.m */; };
 		1805D8B71E27227400A0924F /* ProductTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8B51E27227400A0924F /* ProductTableViewCell.m */; };
 		1805D8B81E27227400A0924F /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1805D8B61E27227400A0924F /* ProductTableViewCell.xib */; };
-		1805D8BE1E28099200A0924F /* productInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8BD1E28099200A0924F /* productInfo.m */; };
+		1805D8BE1E28099200A0924F /* ProductInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8BD1E28099200A0924F /* ProductInfo.m */; };
 		1805D8CE1E299A2A00A0924F /* CartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8CC1E299A2A00A0924F /* CartTableViewCell.m */; };
 		1805D8CF1E299A2A00A0924F /* CartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1805D8CD1E299A2A00A0924F /* CartTableViewCell.xib */; };
 		1805D8D21E29A27000A0924F /* cartInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8D11E29A27000A0924F /* cartInfo.m */; };
@@ -48,8 +48,8 @@
 		1805D8B41E27227400A0924F /* ProductTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductTableViewCell.h; sourceTree = "<group>"; };
 		1805D8B51E27227400A0924F /* ProductTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductTableViewCell.m; sourceTree = "<group>"; };
 		1805D8B61E27227400A0924F /* ProductTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
-		1805D8BC1E28099200A0924F /* productInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = productInfo.h; sourceTree = "<group>"; };
-		1805D8BD1E28099200A0924F /* productInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = productInfo.m; sourceTree = "<group>"; };
+		1805D8BC1E28099200A0924F /* ProductInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductInfo.h; sourceTree = "<group>"; };
+		1805D8BD1E28099200A0924F /* ProductInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductInfo.m; sourceTree = "<group>"; };
 		1805D8CB1E299A2A00A0924F /* CartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartTableViewCell.h; sourceTree = "<group>"; };
 		1805D8CC1E299A2A00A0924F /* CartTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartTableViewCell.m; sourceTree = "<group>"; };
 		1805D8CD1E299A2A00A0924F /* CartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartTableViewCell.xib; sourceTree = "<group>"; };
@@ -215,8 +215,8 @@
 				1FCEE58A1E35E18E00FC4623 /* CartProductInfo+CoreDataClass.m */,
 				1FCEE58B1E35E18E00FC4623 /* CartProductInfo+CoreDataProperties.h */,
 				1FCEE58C1E35E18E00FC4623 /* CartProductInfo+CoreDataProperties.m */,
-				1805D8BC1E28099200A0924F /* productInfo.h */,
-				1805D8BD1E28099200A0924F /* productInfo.m */,
+				1805D8BC1E28099200A0924F /* ProductInfo.h */,
+				1805D8BD1E28099200A0924F /* ProductInfo.m */,
 				1805D8D01E29A27000A0924F /* cartInfo.h */,
 				1805D8D11E29A27000A0924F /* cartInfo.m */,
 			);
@@ -383,7 +383,7 @@
 				1F6CE5E11E2E08690070B559 /* QuantityPickerViewController.m in Sources */,
 				1F4AFE831E27082F0084DB8D /* AppDelegate.m in Sources */,
 				1805D8D21E29A27000A0924F /* cartInfo.m in Sources */,
-				1805D8BE1E28099200A0924F /* productInfo.m in Sources */,
+				1805D8BE1E28099200A0924F /* ProductInfo.m in Sources */,
 				1879B5B41E32DEC4009AD685 /* CategoryLabel.m in Sources */,
 				18BDDC791E33F69500CC53E5 /* ProductRelatedTableViewCell.m in Sources */,
 				1FCEE58E1E35E18E00FC4623 /* CartProductInfo+CoreDataProperties.m in Sources */,

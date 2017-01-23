@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "cartProductInfo.h"
+
 
 @interface cartInfo : NSObject
 
-@property (nonatomic, copy) cartProductInfo *cartProduct;
+
 @property (nonatomic, assign) NSInteger totalQuantity;
 @property (nonatomic, copy) NSDecimalNumber *totalPrice;
 
