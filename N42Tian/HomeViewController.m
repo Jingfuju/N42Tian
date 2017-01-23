@@ -34,11 +34,6 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
     UINib *cellNib = [UINib nibWithNibName:ProductTableViewCellIdentifier bundle:nil];
     [self.productTableView registerNib:cellNib forCellReuseIdentifier:ProductTableViewCellIdentifier];
     
-//    self.productTableView.translatesAutoresizingMaskIntoConstraints = NO;
-//    [self.productTableView addConstraint:[NSLayoutConstraint constraintWithItem:cellNib attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.productTableView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0.0]];
-//    [self.productTableView addConstraint:[NSLayoutConstraint constraintWithItem:cellNib attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.productTableView attribute:NSLayoutAttributeRight multiplier:1.0 constant:0.0]];
-
-    
     _productInfos = [[NSMutableArray alloc] initWithCapacity:10];
     productInfo *item;
     item = [[productInfo alloc] init];
@@ -59,6 +54,9 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
     item.productImageName = @"3";
     [_productInfos addObject:item];
     
+    UIImage* cartTabImage = [UIImage imageNamed:@"Cart"];
+    [[self.tabBarController.tabBar.items objectAtIndex:2] setImage:cartTabImage];
+
     
 }
 
@@ -67,6 +65,9 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
 
 #pragma mark - UITableView Data Source
 

@@ -11,6 +11,7 @@
 #import "CartProductInfo+CoreDataClass.h"
 #import "QuantityPickerViewController.h"
 #import "ProductDetailViewController.h"
+#import "HomeViewController.h"
 
 static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
 
@@ -23,6 +24,7 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
 
 @implementation CartViewController {
     NSFetchedResultsController *_fetchedResultsController;
+    NSInteger _numberOfProducts;
     
 }
 
@@ -54,6 +56,7 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     
     UINib *cellNib = [UINib nibWithNibName:CartTableViewCellIdentifier bundle:nil];
     [self.cartTableView registerNib:cellNib forCellReuseIdentifier:CartTableViewCellIdentifier];
+    
 }
 
 -(void)performFetch {
@@ -77,12 +80,34 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     }
 }
 
+-(IBAction)popHomeView:(id)sender {
+    [self.tabBarController setSelectedIndex:0];
+}
+
+
+
+-(void)dealloc {
+    NSLog(@"CartViewController is deallocated");
+    _fetchedResultsController.delegate = nil;
+}
 
 #pragma mark - UITableView Data Source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections] [section];
-    return [sectionInfo numberOfObjects];
+    _numberOfProducts = [sectionInfo numberOfObjects];
+    
+//    _numberOfProducts = [[self.fetchedResultsController fetchedObjects] count];
+    
+    if (_numberOfProducts == 0) {
+        [self.emptyCartView setHidden:NO];
+        [self.cartTableView setHidden:YES];
+    } else {
+        [self.cartTableView setHidden:NO];
+        [self.emptyCartView setHidden:YES];
+    }
+    
+    return _numberOfProducts;
 }
 
 
@@ -177,10 +202,7 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     [self.cartTableView endUpdates];
 }
 
--(void)dealloc {
-    NSLog(@"CartViewController is deallocated");
-    _fetchedResultsController.delegate = nil;
-}
+
 
 #pragma mark - CartTableViewCell Delegate
 -(void)addOneMore:(CartTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
