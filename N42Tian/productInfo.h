@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface productInfo : NSObject
+@interface ProductInfo : NSObject
 
 @property (nonatomic, copy) NSString *productName;
 @property (nonatomic, assign) double productPrice;

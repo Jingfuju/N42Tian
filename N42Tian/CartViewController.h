@@ -18,6 +18,8 @@
 @property (nonatomic, strong) IBOutlet UIToolbar *cartToolbar;
 @property (nonatomic, weak) NSIndexPath *indexMentioned;
 @property (nonatomic, weak) IBOutlet UIView *emptyCartView;
+@property (nonatomic, weak) IBOutlet UILabel *totalPrice;
+@property (nonatomic, weak) IBOutlet UILabel *totalQty;
 
 
 

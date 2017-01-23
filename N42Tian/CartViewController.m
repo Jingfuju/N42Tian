@@ -97,7 +97,19 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections] [section];
     _numberOfProducts = [sectionInfo numberOfObjects];
     
-//    _numberOfProducts = [[self.fetchedResultsController fetchedObjects] count];
+    //Toolbar totalQty && total price
+    int totalQuantity = 0;
+    double totalPrice = 0;
+    int singleQuantity = 0;
+    double subtotal = 0;
+    for (NSManagedObject *object in [sectionInfo objects]) {
+        totalQuantity += [[object valueForKey:@"quantity"] intValue];
+        singleQuantity = [[object valueForKey:@"quantity"] intValue];
+        subtotal = [[object valueForKey:@"price"] floatValue] * singleQuantity;
+        totalPrice += subtotal;
+    }
+    self.totalQty.text = [NSString stringWithFormat:@"%d", totalQuantity];
+    self.totalPrice.text = [NSString stringWithFormat:@"%.2f",totalPrice];
     
     if (_numberOfProducts == 0) {
         [self.emptyCartView setHidden:NO];
@@ -125,13 +137,17 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
 -(void)configureCell:(CartTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     CartProductInfo *cartItem = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
+
     cell.cartItemName.text = cartItem.name;
     cell.quantityLabel.text = [NSString stringWithFormat:@"%d",cartItem.quantity];
     cell.cartItemPrice.text = [NSString stringWithFormat:@"%.2f",cartItem.price]; //covert to 
     cell.cartImageView.image = [UIImage imageNamed:cartItem.productImage];
     cell.cartSubTotalPrice.text = [NSString stringWithFormat:@"%.2f",cartItem.price * cartItem.quantity];
-
+    
     cell.cartSubTotalQty.titleLabel.text =@"";
+    
+
+
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
