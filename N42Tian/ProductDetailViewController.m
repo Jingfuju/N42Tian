@@ -9,6 +9,8 @@
 #import "ProductDetailViewController.h"
 #import "ProductInfoViewController.h"
 #import "CategoryLabel.h"
+#import "ProductDetailCheckoutViewController.h"
+#import "CartViewController.h"
 
 #define ScreenWidth [UIScreen mainScreen].bounds.size.width
 
@@ -28,6 +30,7 @@
     [self loadSubViews];
     _bigScrollView.pagingEnabled = YES;
     _bigScrollView.showsHorizontalScrollIndicator = NO;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,6 +41,25 @@
 - (IBAction)close:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)addToCart:(id)sender
+{
+    ProductDetailCheckoutViewController *controller = [[ProductDetailCheckoutViewController alloc] initWithNibName:@"ProductDetailCheckoutViewController" bundle:nil];
+    
+    [self.view addSubview:controller.view];
+    [self addChildViewController:controller];
+    [controller didMoveToParentViewController:self];
+}
+
+- (IBAction)goToCart:(id)sender
+{
+//    [self dismissViewControllerAnimated:YES completion:^{
+//        UIStoryboard *tableViewStoryboard = [UIStoryboard storyboardWithName:@"main" bundle:nil];
+//        CartViewController * controller = [tableViewStoryboard instantiateViewControllerWithIdentifier:@"CartViewIdentifier"];
+//        [self presentViewController:controller animated:YES completion:nil];
+//    }];
+//    
 }
 
 #pragma mark - private method
