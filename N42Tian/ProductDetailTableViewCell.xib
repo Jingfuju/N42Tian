@@ -22,6 +22,9 @@
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cpv-Wv-RQf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                         <color key="backgroundColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <outlet property="delegate" destination="-1" id="aPg-V6-l5O"/>
+                        </connections>
                     </scrollView>
                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="cZi-Vj-GAq">
                         <rect key="frame" x="168" y="154.5" width="39" height="37"/>

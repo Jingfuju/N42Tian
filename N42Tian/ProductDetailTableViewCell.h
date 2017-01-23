@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProductDetailTableViewCell : UITableViewCell
+@interface ProductDetailTableViewCell : UITableViewCell <UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *productName;
 @property (weak, nonatomic) IBOutlet UILabel *productPrice;
