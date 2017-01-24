@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -74,7 +74,7 @@
                             <constraint firstAttribute="trailing" secondItem="3AB-hO-auL" secondAttribute="trailing" id="xWL-nQ-RFV"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="a3B-NM-fm5"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="rsz_home" id="a3B-NM-fm5"/>
                     <navigationItem key="navigationItem" title="42° Farmland" id="Wsc-h7-Vw2"/>
                     <connections>
                         <outlet property="productTableView" destination="EXf-jr-dTx" id="dg2-Lg-mhw"/>
@@ -211,7 +211,7 @@
                             <constraint firstItem="KFp-cm-CgX" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="yhi-Aw-8Xz"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Cart" image="Shopping_Cart_25" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Cart" image="rsz_cart" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="CartTableView" destination="hev-Xa-TVr" id="SYN-zi-b86"/>
                         <outlet property="cartToolbar" destination="YgP-r4-GHk" id="cd5-Qb-gJr"/>
@@ -237,7 +237,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Me" id="cQx-4F-187"/>
+                    <tabBarItem key="tabBarItem" title="Me" image="rsz_account" id="cQx-4F-187"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4au-wu-tUi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -265,7 +265,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Shopping_Cart_25" width="25" height="25"/>
         <image name="hungry" width="420" height="423"/>
+        <image name="rsz_account" width="30" height="30"/>
+        <image name="rsz_cart" width="30" height="30"/>
+        <image name="rsz_home" width="30" height="30"/>
     </resources>
 </document>
