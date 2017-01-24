@@ -34,4 +34,18 @@
     [self removeFromParentViewController];
     [self.view removeFromSuperview];
 }
+
+- (IBAction)smallModel:(id)sender {
+}
+
+- (IBAction)bigModel:(id)sender {
+}
+
+- (IBAction)addQty:(id)sender {
+}
+
+- (IBAction)minusQty:(id)sender {
+}
+
+
 @end
