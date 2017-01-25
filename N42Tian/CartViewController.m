@@ -91,6 +91,18 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     _fetchedResultsController.delegate = nil;
 }
 
+
+- (void)decidedCartSubviewbyNumberofProducts {
+    if (_numberOfProducts == 0) {
+        [self.emptyCartView setHidden:NO];
+        [self.cartTableView setHidden:YES];
+    } else {
+        [self.cartTableView setHidden:NO];
+        [self.emptyCartView setHidden:YES];
+    }
+}
+
+
 #pragma mark - UITableView Data Source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -106,19 +118,14 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
         totalQuantity += [[object valueForKey:@"quantity"] intValue];
         singleQuantity = [[object valueForKey:@"quantity"] intValue];
         subtotal = [[object valueForKey:@"price"] floatValue] * singleQuantity;
+        
+        
         totalPrice += subtotal;
     }
     self.totalQty.text = [NSString stringWithFormat:@"%d", totalQuantity];
     self.totalPrice.text = [NSString stringWithFormat:@"%.2f",totalPrice];
-    
-    if (_numberOfProducts == 0) {
-        [self.emptyCartView setHidden:NO];
-        [self.cartTableView setHidden:YES];
-    } else {
-        [self.cartTableView setHidden:NO];
-        [self.emptyCartView setHidden:YES];
-    }
-    
+
+    [self decidedCartSubviewbyNumberofProducts];
     return _numberOfProducts;
 }
 
@@ -168,28 +175,23 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
 
 #pragma mark - NSFetchedResultsControllerDelegate
 -(void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
-    NSLog(@"***Controller will change content");
-    [self.cartTableView beginUpdates];
+        [self.cartTableView beginUpdates];
 }
 
 -(void)controller:(NSFetchedResultsController *)controller didChangeObject:(nonnull id)anObject atIndexPath:(nullable NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(nullable NSIndexPath *)newIndexPath {
     switch (type) {
         case NSFetchedResultsChangeInsert:
-            NSLog(@"**NSFetchedResultsChangeInsert (Object");
             [self.cartTableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
         
         case NSFetchedResultsChangeDelete:
-            NSLog(@"**NSFetchedResultsChangeDelete (object)");
             [self.cartTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
         
         case NSFetchedResultsChangeUpdate:
-            NSLog(@"**NSFetchedResultsChangeUpdate (Object)");
             [self configureCell:[self.cartTableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
             break;
         case NSFetchedResultsChangeMove:
-            NSLog(@"**NSFetchedResultsChangeMove (Object)");
             [self.cartTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
             [self.cartTableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
@@ -202,18 +204,15 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
 -(void)controller:(NSFetchedResultsController *)controller didChangeSection:(nonnull id<NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type {
     switch (type) {
         case NSFetchedResultsChangeInsert:
-            NSLog(@"**NSFetchedResultsChangeInsert (Section)");
             [self.cartTableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
             break;
         case NSFetchedResultsChangeDelete:
-            NSLog(@"**NSFetchedResultsChangeDelete (Section)");
             [self.cartTableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
             break;
     }
 }
 
 -(void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    NSLog(@"** controllerDidChangeContent");
     [self.cartTableView endUpdates];
 }
 

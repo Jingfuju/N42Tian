@@ -37,7 +37,7 @@
 #pragma mark - Sound Effect
 - (void)loadSoundEffect {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"Sound.caf" ofType:nil];
-    NSLog(@"************************%@",path);
+//    NSLog(@"Soud File Path is %@",path);
     NSURL *fileURL = [NSURL fileURLWithPath:path isDirectory:NO];
     if (fileURL == nil) {
         NSLog(@"NSURL is nil for path: %@", path);
