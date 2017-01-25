@@ -139,6 +139,15 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     return cell;
 }
 
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 2;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 0.3;
+}
+
 #pragma mark - UITableView Delegate
 
 -(void)configureCell:(CartTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
