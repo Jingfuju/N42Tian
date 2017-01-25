@@ -88,7 +88,7 @@
 {
     if (_persistentStoreCoordinator == nil) {
         NSURL *storeURL = [NSURL fileURLWithPath:[self dataStorePath]];
-        NSLog(@"%@", storeURL);
+//        NSLog(@"The StoreURL is %@", storeURL);
         _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
         
         NSError *error;

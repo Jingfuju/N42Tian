@@ -10,15 +10,18 @@
 
 @interface ProductDetailTableViewCell ()
 
-@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
-@property (nonatomic, weak) IBOutlet UIPageControl *pageControl;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @end
 
 @implementation ProductDetailTableViewCell
 
+
+
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
     self.scrollView.contentSize = CGSizeMake(self.scrollView.bounds.size.width * 3, self.scrollView.bounds.size.height);
     self.scrollView.pagingEnabled = YES;
     self.scrollView.showsHorizontalScrollIndicator = NO;
@@ -31,6 +34,9 @@
         imageView.image = [UIImage imageNamed:imgName];
         [self.scrollView addSubview:imageView];
     }
+    self.scrollView.delegate = self; //Fix Page controll is not scrolled with scroll view issue;
+    NSLog(@"method called");
+    
     self.pageControl.numberOfPages = 3;
 }
 
@@ -96,7 +102,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    int page = scrollView.contentOffset.x / scrollView.frame.size.width;
+    int page = self.scrollView.contentOffset.x / self.scrollView.frame.size.width;
     self.pageControl.currentPage = page;
 }
 

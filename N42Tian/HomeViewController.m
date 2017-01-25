@@ -38,19 +38,19 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
     _productInfos = [[NSMutableArray alloc] initWithCapacity:10];
     ProductInfo *item;
     item = [[ProductInfo alloc] init];
-    item.productName = @"millet1100g";
+    item.productName = @"Millet1100g";
     item.productPrice = 55.0;
     item.productImageName = @"1";
     [_productInfos addObject:item];
     
     item = [[ProductInfo alloc] init];
-    item.productName = @"millet2200g";
+    item.productName = @"Millet2200g";
     item.productPrice = 100.0;
     item.productImageName = @"2";
     [_productInfos addObject:item];
     
     item = [[ProductInfo alloc] init];
-    item.productName = @"millet3300g";
+    item.productName = @"Millet3300g";
     item.productPrice = 150.0;
     item.productImageName = @"3";
     [_productInfos addObject:item];
@@ -58,7 +58,6 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
     UIImage* cartTabImage = [UIImage imageNamed:@"Cart"];
     [[self.tabBarController.tabBar.items objectAtIndex:2] setImage:cartTabImage];
 
-    
 }
 
 
@@ -115,7 +114,6 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
     
     NSError *error;
     NSArray *result = [self.managedObjectContext executeFetchRequest:request error:&error];
-    NSLog(@"%@", result);
     
     if ((result != nil) && ([result count]) && (error == nil)) {
         CartProductInfo *info = [result objectAtIndex:0];
@@ -130,7 +128,6 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
         cartItem.quantity = 1;
         cartItem.price = item.productPrice; //double to double
         cartItem.productImage = item.productImageName;
-        NSLog(@"%f",cartItem.price);
         if (![self.managedObjectContext save:&error]) {
             NSLog(@"Error: %@", error);
             abort();
@@ -146,6 +143,7 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
 
 #pragma mark - UINavigation bar delegate 
 -(UIBarPosition)positionForBar:(id<UIBarPositioning>)bar {
+    NSLog(@"********  Personal Debug Info Below  ***********");
     return UIBarPositionTopAttached;
 }
 
