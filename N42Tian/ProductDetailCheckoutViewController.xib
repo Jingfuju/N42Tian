@@ -14,7 +14,7 @@
                 <outlet property="productImageView" destination="dCZ-hO-dpx" id="T4I-dC-B7Q"/>
                 <outlet property="productName" destination="Yyz-cm-XFG" id="fHY-aa-qXs"/>
                 <outlet property="productPrice" destination="9Ff-68-1Ts" id="nIs-co-Wz9"/>
-                <outlet property="productQty" destination="qOn-W4-KNz" id="L60-cL-kHK"/>
+                <outlet property="productQty" destination="lTZ-cC-vVN" id="ViI-J3-hhH"/>
                 <outlet property="productSubtotal" destination="ko9-EL-Yb9" id="y4Y-v4-bLd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -35,10 +35,10 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="StL-4M-wb5">
-                            <rect key="frame" x="345" y="10" width="15" height="15"/>
+                            <rect key="frame" x="316" y="10" width="44" height="44"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="15" id="3JP-OM-4t1"/>
-                                <constraint firstAttribute="height" constant="15" id="sgM-4A-oTh"/>
+                                <constraint firstAttribute="width" constant="44" id="3JP-OM-4t1"/>
+                                <constraint firstAttribute="height" constant="44" id="sgM-4A-oTh"/>
                             </constraints>
                             <state key="normal" image="closeButton"/>
                             <connections>
@@ -116,32 +116,38 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ko9-EL-Yb9">
-                            <rect key="frame" x="251" y="181" width="11" height="21"/>
+                            <rect key="frame" x="259" y="181" width="11" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BQs-u7-bMS">
-                            <rect key="frame" x="297" y="145" width="15" height="15"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" image="plus_20"/>
-                            <connections>
-                                <action selector="addQty:" destination="-1" eventType="touchUpInside" id="U45-2Q-bMw"/>
-                            </connections>
-                        </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SUm-Nw-rc7">
-                            <rect key="frame" x="297" y="183" width="15" height="15"/>
+                            <rect key="frame" x="310" y="183" width="15" height="15"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" image="minus_20"/>
                             <connections>
                                 <action selector="minusQty:" destination="-1" eventType="touchUpInside" id="6ph-wi-LG1"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qOn-W4-KNz">
-                            <rect key="frame" x="239" y="143" width="40" height="21"/>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lTZ-cC-vVN">
+                            <rect key="frame" x="239" y="141" width="50" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                            <connections>
+                                <action selector="setQty:" destination="-1" eventType="editingDidEnd" id="6OS-dh-gOp"/>
+                                <outlet property="delegate" destination="-1" id="TPc-pf-JLM"/>
+                            </connections>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BQs-u7-bMS">
+                            <rect key="frame" x="310" y="146" width="15" height="15"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" image="plus_20"/>
+                            <connections>
+                                <action selector="addQty:" destination="-1" eventType="touchUpInside" id="U45-2Q-bMw"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

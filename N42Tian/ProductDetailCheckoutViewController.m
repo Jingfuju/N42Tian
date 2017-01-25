@@ -10,7 +10,7 @@
 #import "ProductDetailViewController.h"
 #import "BackgroundView.h"
 
-@interface ProductDetailCheckoutViewController ()
+@interface ProductDetailCheckoutViewController () <UIGestureRecognizerDelegate, UITextFieldDelegate>
 
 @end
 
@@ -24,6 +24,11 @@
     
     ProductDetailViewController * controller = [[ProductDetailViewController alloc] init];
     self.view.frame = CGRectMake(0, 0, controller.view.bounds.size.width, controller.view.bounds.size.height);
+    
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(close:)];
+    gestureRecognizer.cancelsTouchesInView = NO;
+    gestureRecognizer.delegate = self;
+    [self.view addGestureRecognizer:gestureRecognizer];
     
     _productImageView.image = [UIImage imageNamed:@"1"];
 }
@@ -49,6 +54,9 @@
 - (IBAction)minusQty:(id)sender {
 }
 
+- (IBAction)setQty:(id)sender {
+}
+
 - (void)presentInParentViewController:(UIViewController *)parentViewController
 {
     _backgroundView = [[BackgroundView alloc] initWithFrame:parentViewController.view.bounds];
@@ -63,9 +71,7 @@
     moveAnimation.duration = 0.4;
     moveAnimation.fromValue = [NSValue valueWithCGPoint:CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height * 1.5)];
     moveAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2)];
-//    moveAnimation.delegate = self;
     [self.view.layer addAnimation:moveAnimation forKey:@"moveAnimation"];
-    
     
     CABasicAnimation *fadeAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
     fadeAnimation.fromValue = @0.0f;
@@ -94,6 +100,89 @@
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
     [self didMoveToParentViewController:self.parentViewController];
+}
+
+#pragma mark - gestureRecognizer delegate
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    return (touch.view == self.view);
+}
+
+#pragma mark - UITextFieldDelegate
+
+//- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+//{
+//    _productQty = textField;
+//    return YES;
+//}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.view endEditing:YES];
+    return YES;
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear: animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHidden) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)keyboardDidShow:(NSNotification *)notification
+{
+    CGRect keyboardFrame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGFloat height = keyboardFrame.origin.y;
+    NSLog(@"%f", height);
+    
+    CGFloat textFieldBottomY = _productQty.frame.origin.y + _productQty.frame.size.height +  _productQty.superview.frame.origin.y;
+    CGRect frame = self.view.frame;
+    NSLog(@"%f", frame.origin.y);
+    CGFloat newY = frame.origin.y + height - textFieldBottomY;
+
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.3];
+    [self.view setFrame:CGRectMake(0, newY, self.view.frame.size.width, self.view.frame.size.height)];
+    [UIView commitAnimations];
+}
+
+- (void)keyboardDidHidden
+{
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.3];
+    [self.view setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    [UIView commitAnimations];
+}
+
+//- (void)viewWillDisappear:(BOOL)animated
+//{
+//    [super viewWillDisappear:animated];
+//    [self.view endEditing:YES];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self];
+//}
+//
+//- (void)keyboardWillShow:(NSNotification *)notification
+//{
+//    CGRect keyboardFrame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+//    CGFloat height = keyboardFrame.origin.y;
+//    CGFloat textFieldBottomY = _productQty.frame.origin.y + _productQty.frame.size.height;
+//    CGRect frame = self.view.frame;
+//    frame.origin.y = self.view.frame.origin.y - height + self.view.frame.size.height - textFieldBottomY;
+//}
+//
+//- (void)keyboardWillHide:(NSNotification *)notification
+//{
+//    CGRect frame = self.view.frame;
+//    frame.origin.y = 0;
+//    self.view.frame = frame;
+//}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [super touchesBegan:touches withEvent:event];
+    [self.view endEditing:YES];
 }
 
 @end
