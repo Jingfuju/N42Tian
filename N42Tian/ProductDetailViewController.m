@@ -11,6 +11,7 @@
 #import "CategoryLabel.h"
 #import "ProductDetailCheckoutViewController.h"
 #import "CartViewController.h"
+#import "AppDelegate.h"
 
 #define ScreenWidth [UIScreen mainScreen].bounds.size.width
 
@@ -47,19 +48,21 @@
 {
     ProductDetailCheckoutViewController *controller = [[ProductDetailCheckoutViewController alloc] initWithNibName:@"ProductDetailCheckoutViewController" bundle:nil];
     
-    [self.view addSubview:controller.view];
-    [self addChildViewController:controller];
-    [controller didMoveToParentViewController:self];
+    [controller presentInParentViewController:self];
+    
+    
+//    [self.view addSubview:controller.view];
+//    [self addChildViewController:controller];
+//    [controller didMoveToParentViewController:self];
 }
 
 - (IBAction)goToCart:(id)sender
 {
-//    [self dismissViewControllerAnimated:YES completion:^{
-//        UIStoryboard *tableViewStoryboard = [UIStoryboard storyboardWithName:@"main" bundle:nil];
-//        CartViewController * controller = [tableViewStoryboard instantiateViewControllerWithIdentifier:@"CartViewIdentifier"];
-//        [self presentViewController:controller animated:YES completion:nil];
-//    }];
-//    
+//    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//    UITabBarController *controller = (UITabBarController *)appDelegate.window.rootViewController;
+//    CartViewController *cartController = (CartViewController *)controller.viewControllers[2];
+//    [self presentViewController:cartController animated:YES completion:nil];
+    
 }
 
 #pragma mark - private method
