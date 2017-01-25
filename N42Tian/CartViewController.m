@@ -91,6 +91,18 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     _fetchedResultsController.delegate = nil;
 }
 
+
+- (void)decidedCartSubviewbyNumberofProducts {
+    if (_numberOfProducts == 0) {
+        [self.emptyCartView setHidden:NO];
+        [self.cartTableView setHidden:YES];
+    } else {
+        [self.cartTableView setHidden:NO];
+        [self.emptyCartView setHidden:YES];
+    }
+}
+
+
 #pragma mark - UITableView Data Source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -106,19 +118,14 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
         totalQuantity += [[object valueForKey:@"quantity"] intValue];
         singleQuantity = [[object valueForKey:@"quantity"] intValue];
         subtotal = [[object valueForKey:@"price"] floatValue] * singleQuantity;
+        
+        
         totalPrice += subtotal;
     }
     self.totalQty.text = [NSString stringWithFormat:@"%d", totalQuantity];
     self.totalPrice.text = [NSString stringWithFormat:@"%.2f",totalPrice];
-    
-    if (_numberOfProducts == 0) {
-        [self.emptyCartView setHidden:NO];
-        [self.cartTableView setHidden:YES];
-    } else {
-        [self.cartTableView setHidden:NO];
-        [self.emptyCartView setHidden:YES];
-    }
-    
+
+    [self decidedCartSubviewbyNumberofProducts];
     return _numberOfProducts;
 }
 
