@@ -135,11 +135,9 @@
 {
     CGRect keyboardFrame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
     CGFloat height = keyboardFrame.origin.y;
-    NSLog(@"%f", height);
     
     CGFloat textFieldBottomY = _productQty.frame.origin.y + _productQty.frame.size.height +  _productQty.superview.frame.origin.y;
     CGRect frame = self.view.frame;
-    NSLog(@"%f", frame.origin.y);
     CGFloat newY = frame.origin.y + height - textFieldBottomY;
 
     [UIView beginAnimations:nil context:nil];
@@ -155,29 +153,6 @@
     [self.view setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     [UIView commitAnimations];
 }
-
-//- (void)viewWillDisappear:(BOOL)animated
-//{
-//    [super viewWillDisappear:animated];
-//    [self.view endEditing:YES];
-//    [[NSNotificationCenter defaultCenter] removeObserver:self];
-//}
-//
-//- (void)keyboardWillShow:(NSNotification *)notification
-//{
-//    CGRect keyboardFrame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-//    CGFloat height = keyboardFrame.origin.y;
-//    CGFloat textFieldBottomY = _productQty.frame.origin.y + _productQty.frame.size.height;
-//    CGRect frame = self.view.frame;
-//    frame.origin.y = self.view.frame.origin.y - height + self.view.frame.size.height - textFieldBottomY;
-//}
-//
-//- (void)keyboardWillHide:(NSNotification *)notification
-//{
-//    CGRect frame = self.view.frame;
-//    frame.origin.y = 0;
-//    self.view.frame = frame;
-//}
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
