@@ -37,21 +37,27 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
     
     _productInfos = [[NSMutableArray alloc] initWithCapacity:10];
     ProductInfo *item;
+    
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [numberFormatter setCurrencySymbol:@"$"];
+
+
     item = [[ProductInfo alloc] init];
     item.productName = @"Millet1100g";
-    item.productPrice = 55.0;
+    item.productPrice = [NSDecimalNumber decimalNumberWithString:@"9.00"];
     item.productImageName = @"1";
     [_productInfos addObject:item];
     
     item = [[ProductInfo alloc] init];
     item.productName = @"Millet2200g";
-    item.productPrice = 100.0;
+    item.productPrice = [NSDecimalNumber decimalNumberWithString:@"13.00"];
     item.productImageName = @"2";
     [_productInfos addObject:item];
     
     item = [[ProductInfo alloc] init];
     item.productName = @"Millet3300g";
-    item.productPrice = 150.0;
+    item.productPrice = [NSDecimalNumber decimalNumberWithString:@"21.00"];
     item.productImageName = @"3";
     [_productInfos addObject:item];
     
@@ -81,8 +87,13 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
     cell.delegate = self;   //ProductTableViewCell Delegate Definition
     
     cell.productName.text = item.productName;
-    NSNumber *itemPrice = [NSNumber numberWithDouble:item.productPrice];
-    cell.productPrice.text = [itemPrice stringValue];
+
+    
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [numberFormatter setCurrencySymbol:@"$"];
+
+    cell.productPrice.text = [numberFormatter stringFromNumber:item.productPrice];
     cell.productImage.image = [UIImage imageNamed:item.productImageName];
 
     
@@ -126,7 +137,7 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
         CartProductInfo *cartItem = [NSEntityDescription insertNewObjectForEntityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
         cartItem.name = item.productName;
         cartItem.quantity = 1;
-        cartItem.price = item.productPrice; //double to double
+        cartItem.price = [item.productPrice doubleValue]; //double to double
         cartItem.productImage = item.productImageName;
         if (![self.managedObjectContext save:&error]) {
             NSLog(@"Error: %@", error);
