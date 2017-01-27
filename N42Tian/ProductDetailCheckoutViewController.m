@@ -135,7 +135,6 @@
 {
     CGRect keyboardFrame = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
     CGFloat height = keyboardFrame.origin.y;
-    NSLog(@"%f", height);
     
     CGFloat textFieldBottomY = _productQty.frame.origin.y + _productQty.frame.size.height +  _productQty.superview.frame.origin.y;
     CGRect frame = self.view.frame;

@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *productInStore;
 @property (weak, nonatomic) IBOutlet UILabel *productDescription;
 
+- (IBAction)pageChanged:(UIPageControl *)sender;
 
 + (instancetype)productDetailTableViewCellWith:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath;
 + (CGFloat)productDetailTableViewCellWith:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
