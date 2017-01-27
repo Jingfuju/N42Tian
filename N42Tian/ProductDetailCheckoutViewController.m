@@ -140,7 +140,7 @@
     CGFloat textFieldBottomY = _productQty.frame.origin.y + _productQty.frame.size.height +  _productQty.superview.frame.origin.y;
     CGRect frame = self.view.frame;
     NSLog(@"%f", frame.origin.y);
-    CGFloat newY = frame.origin.y + height - textFieldBottomY;
+    CGFloat newY = 0 + height - textFieldBottomY;
 
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.3];
@@ -156,12 +156,12 @@
     [UIView commitAnimations];
 }
 
-//- (void)viewWillDisappear:(BOOL)animated
-//{
-//    [super viewWillDisappear:animated];
-//    [self.view endEditing:YES];
-//    [[NSNotificationCenter defaultCenter] removeObserver:self];
-//}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.view endEditing:YES];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 //
 //- (void)keyboardWillShow:(NSNotification *)notification
 //{
