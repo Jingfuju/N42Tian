@@ -12,6 +12,7 @@
 #import "ProductDetailCheckoutViewController.h"
 #import "CartViewController.h"
 #import "AppDelegate.h"
+#import "productInfo.h"
 
 #define ScreenWidth [UIScreen mainScreen].bounds.size.width
 
@@ -27,11 +28,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    [self simulateData];
-    [self loadSubViews];
     _bigScrollView.pagingEnabled = YES;
     _bigScrollView.showsHorizontalScrollIndicator = NO;
-    
+    [self simulateData];
+    [self loadSubViews];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,14 +49,9 @@
     ProductDetailCheckoutViewController *controller = [[ProductDetailCheckoutViewController alloc] initWithNibName:@"ProductDetailCheckoutViewController" bundle:nil];
     
     [controller presentInParentViewController:self];
-    
-    
-//    [self.view addSubview:controller.view];
-//    [self addChildViewController:controller];
-//    [controller didMoveToParentViewController:self];
 }
 
-- (IBAction)goToCart:(id)sender
+- (IBAction)goToCart:(id)sender  // !!! don't konw how to jump to the CartViewController
 {
 //    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 //    UITabBarController *controller = (UITabBarController *)appDelegate.window.rootViewController;
@@ -79,6 +74,7 @@
         ProductInfoViewController *prodInfoViewController = [[ProductInfoViewController alloc] initWithNibName:@"ProductInfoViewController" bundle:nil];
         prodInfoViewController.title = title;
         prodInfoViewController.index = i;
+        prodInfoViewController.productIndex = _productIndex;
         [self addChildViewController:prodInfoViewController];
     }
 }

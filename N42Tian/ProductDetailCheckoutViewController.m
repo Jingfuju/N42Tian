@@ -9,6 +9,7 @@
 #import "ProductDetailCheckoutViewController.h"
 #import "ProductDetailViewController.h"
 #import "BackgroundView.h"
+#import "HomeViewController.h"
 
 @interface ProductDetailCheckoutViewController () <UIGestureRecognizerDelegate, UITextFieldDelegate>
 
@@ -21,6 +22,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    HomeViewController *hvController = [sb instantiateViewControllerWithIdentifier:@"HomeViewController"];
+    self.managedObjectContext = hvController.managedObjectContext;
     
     ProductDetailViewController * controller = [[ProductDetailViewController alloc] init];
     self.view.frame = CGRectMake(0, 0, controller.view.bounds.size.width, controller.view.bounds.size.height);
@@ -49,6 +54,12 @@
 }
 
 - (IBAction)addQty:(id)sender {
+    [self addOneMore];
+}
+
+- (void)addOneMore
+{
+    
 }
 
 - (IBAction)minusQty:(id)sender {
@@ -56,6 +67,7 @@
 
 - (IBAction)setQty:(id)sender {
 }
+
 
 - (void)presentInParentViewController:(UIViewController *)parentViewController
 {
@@ -123,6 +135,8 @@
     return YES;
     
 }
+
+#pragma mark - keyboard Appear just below the textField
 
 - (void)viewWillAppear:(BOOL)animated
 {

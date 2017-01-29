@@ -11,5 +11,6 @@
 @interface ProductInfoViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property NSInteger index;
+@property NSInteger productIndex;
 
 @end

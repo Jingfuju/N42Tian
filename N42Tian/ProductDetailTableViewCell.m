@@ -7,6 +7,7 @@
 //
 
 #import "ProductDetailTableViewCell.h"
+#import "productInfo.h"
 
 #define kTableViewCellCount 3;
 #define kImageViewCount 3
@@ -20,9 +21,9 @@
 @end
 
 @implementation ProductDetailTableViewCell{
-    UIImageView *imgVLeft;
-    UIImageView *imgVCenter;
-    UIImageView *imgVRight;
+    UIImageView *_imgVLeft;
+    UIImageView *_imgVCenter;
+    UIImageView *_imgVRight;
 }
 
 - (void)awakeFromNib {
@@ -36,7 +37,6 @@
     self.scrollView.delegate = self; //Fix Page controll is not scrolled with scroll view issue;
     
     self.pageControl.numberOfPages = kImageViewCount;
-//    self.pageControl.userInteractionEnabled = NO;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -104,32 +104,32 @@
     CGFloat w = self.scrollView.frame.size.width;
     CGFloat h = self.scrollView.frame.size.height;
     
-    imgVLeft = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, w, h)];
+    _imgVLeft = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, w, h)];
 //    imgVLeft.contentMode = UIViewContentModeScaleAspectFit;
-    [self.scrollView addSubview:imgVLeft];
+    [self.scrollView addSubview:_imgVLeft];
     
-    imgVCenter = [[UIImageView alloc] initWithFrame:CGRectMake(w, 0, w, h)];
+    _imgVCenter = [[UIImageView alloc] initWithFrame:CGRectMake(w, 0, w, h)];
 //    imgVCenter.contentMode = UIViewContentModeScaleAspectFit;
-    [self.scrollView addSubview:imgVCenter];
+    [self.scrollView addSubview:_imgVCenter];
     
-    imgVRight = [[UIImageView alloc] initWithFrame:CGRectMake(w * 2, 0, w, h)];
+    _imgVRight = [[UIImageView alloc] initWithFrame:CGRectMake(w * 2, 0, w, h)];
 //    imgVRight.contentMode = UIViewContentModeScaleAspectFit;
-    [self.scrollView addSubview:imgVRight];
+    [self.scrollView addSubview:_imgVRight];
 }
 
 - (void)setInforByCurrentImageIndex:(NSInteger)currentImageIndex
 {
     NSString *currentImageNamed = [NSString stringWithFormat:@"%ld.png", (long)currentImageIndex];
-    imgVCenter.image = [UIImage imageNamed:currentImageNamed];
+    _imgVCenter.image = [UIImage imageNamed:currentImageNamed];
     if (currentImageIndex == 1) {
-        imgVLeft.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d.png", kImageViewCount]];
+        _imgVLeft.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d.png", kImageViewCount]];
     } else {
-        imgVLeft.image = [UIImage imageNamed:[NSString stringWithFormat:@"%ld.png", (long)(currentImageIndex - 1)]];
+        _imgVLeft.image = [UIImage imageNamed:[NSString stringWithFormat:@"%ld.png", (long)(currentImageIndex - 1)]];
     }
     if (currentImageIndex == kImageViewCount) {
-        imgVRight.image = [UIImage imageNamed:[NSString stringWithFormat:@"1.png"]];
+        _imgVRight.image = [UIImage imageNamed:[NSString stringWithFormat:@"1.png"]];
     } else {
-        imgVRight.image = [UIImage imageNamed:[NSString stringWithFormat:@"%ld,png", (long)(currentImageIndex + 1)]];
+        _imgVRight.image = [UIImage imageNamed:[NSString stringWithFormat:@"%ld,png", (long)(currentImageIndex + 1)]];
     }
 }
 

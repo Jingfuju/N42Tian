@@ -26,9 +26,7 @@
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ProductRelatedTableViewCell" owner:self options:nil] firstObject];
     }
-    cell.productRelatedImage.image = [UIImage imageNamed:@"3"];
     return cell;
 }
-
 
 @end

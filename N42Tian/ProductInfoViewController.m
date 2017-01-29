@@ -10,6 +10,7 @@
 #import "ProductDetailTableViewCell.h"
 #import "ProductRelatedTableViewCell.h"
 #import "ProductReviewTableViewCell.h"
+#import "productInfo.h"
 
 @interface ProductInfoViewController ()
 
@@ -18,15 +19,41 @@
 @end
 
 @implementation ProductInfoViewController
+{
+    NSMutableArray *_productInfos;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [self addProductInfo];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)addProductInfo
+{
+    _productInfos = [[NSMutableArray alloc] initWithCapacity:10];
+    ProductInfo *item;
+    item = [[ProductInfo alloc] init];
+    item.productName = @"Millet1100g";
+    item.productPrice = 55.0;
+    item.productImageName = @"1";
+    [_productInfos addObject:item];
+    
+    item = [[ProductInfo alloc] init];
+    item.productName = @"Millet2200g";
+    item.productPrice = 100.0;
+    item.productImageName = @"2";
+    [_productInfos addObject:item];
+    
+    item = [[ProductInfo alloc] init];
+    item.productName = @"Millet3300g";
+    item.productPrice = 150.0;
+    item.productImageName = @"3";
+    [_productInfos addObject:item];
 }
 
 #pragma mark - UITableView Datasource
@@ -35,9 +62,15 @@
 {
     if (_index == 0) {
         ProductDetailTableViewCell *cell = [ProductDetailTableViewCell productDetailTableViewCellWith:tableView indexPath:indexPath];
+        ProductInfo *item = _productInfos[_productIndex];
+        cell.productName.text = item.productName;
+        NSNumber *itemPrice = [NSNumber numberWithDouble:item.productPrice];
+        cell.productPrice.text = [itemPrice stringValue];
         return cell;
     } else if (_index == 1) {
         ProductRelatedTableViewCell *cell= [ProductRelatedTableViewCell productRelatedTableViewCellWith:tableView indexPath:indexPath];
+        ProductInfo *item = _productInfos[_productIndex];
+        cell.productRelatedImage.image = [UIImage imageNamed:item.productImageName];
         return cell;
     } else {
         ProductReviewTableViewCell *cell = [ProductReviewTableViewCell productReviewTableViewCellWith:tableView indexPath:indexPath];

@@ -24,7 +24,6 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
 @implementation HomeViewController
 {
     NSMutableArray *_productInfos;
-    
 }
 
 - (void)viewDidLoad {
@@ -93,7 +92,7 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     ProductDetailViewController *controller = [[ProductDetailViewController alloc] initWithNibName:@"ProductDetailViewController" bundle:nil];
-
+    controller.productIndex = indexPath.row;  // pass the cell index to ProductDetailViewController
     [self presentViewController:controller animated:YES completion:nil];
 }
 
@@ -105,7 +104,6 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
 }
 
 -(void)editCartForProduct:(ProductInfo *)item {
-    
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entity];
