@@ -47,7 +47,8 @@
 - (IBAction)addToCart:(id)sender
 {
     ProductDetailCheckoutViewController *controller = [[ProductDetailCheckoutViewController alloc] initWithNibName:@"ProductDetailCheckoutViewController" bundle:nil];
-    
+    controller.managedObjectContext = self.managedObjectContext;
+    controller.productIndex = self.productIndex;
     [controller presentInParentViewController:self];
 }
 

@@ -56,9 +56,7 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
     
     UIImage* cartTabImage = [UIImage imageNamed:@"Cart"];
     [[self.tabBarController.tabBar.items objectAtIndex:2] setImage:cartTabImage];
-
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -83,7 +81,6 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
     NSNumber *itemPrice = [NSNumber numberWithDouble:item.productPrice];
     cell.productPrice.text = [itemPrice stringValue];
     cell.productImage.image = [UIImage imageNamed:item.productImageName];
-
     
     return cell;
 }
@@ -92,7 +89,8 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     ProductDetailViewController *controller = [[ProductDetailViewController alloc] initWithNibName:@"ProductDetailViewController" bundle:nil];
-    controller.productIndex = indexPath.row;  // pass the cell index to ProductDetailViewController
+    controller.productIndex = indexPath.row;                       // pass the cell index to ProductDetailViewController
+    controller.managedObjectContext = self.managedObjectContext;   // pass the managedObjectContext reference to ProductDetailViewController
     [self presentViewController:controller animated:YES completion:nil];
 }
 
@@ -112,7 +110,6 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
     
     NSError *error;
     NSArray *result = [self.managedObjectContext executeFetchRequest:request error:&error];
-    
     if ((result != nil) && ([result count]) && (error == nil)) {
         CartProductInfo *info = [result objectAtIndex:0];
         info.quantity +=1;

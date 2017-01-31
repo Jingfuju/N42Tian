@@ -27,5 +27,6 @@
 - (void)dismissFromParentViewController;
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property NSInteger productIndex;
 
 @end
