@@ -405,7 +405,8 @@
 				TargetAttributes = {
 					1F4AFE7A1E27082F0084DB8D = {
 						CreatedOnToolsVersion = 8.1;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = D59V2786GD;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -649,7 +650,8 @@
 			baseConfigurationReference = 2A4D196B335A10376ABBDFD5 /* Pods-N42Tian.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = D59V2786GD;
 				INFOPLIST_FILE = N42Tian/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -667,7 +669,8 @@
 			baseConfigurationReference = D8224981712270B7454E8C6C /* Pods-N42Tian.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = D59V2786GD;
 				INFOPLIST_FILE = N42Tian/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

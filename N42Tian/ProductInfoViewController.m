@@ -39,19 +39,19 @@
     ProductInfo *item;
     item = [[ProductInfo alloc] init];
     item.productName = @"Millet1100g";
-    item.productPrice = 55.0;
+    item.productPrice = [NSDecimalNumber decimalNumberWithString:@"55.0"];
     item.productImageName = @"1";
     [_productInfos addObject:item];
     
     item = [[ProductInfo alloc] init];
     item.productName = @"Millet2200g";
-    item.productPrice = 100.0;
+    item.productPrice = [NSDecimalNumber decimalNumberWithString:@"100.0"];
     item.productImageName = @"2";
     [_productInfos addObject:item];
     
     item = [[ProductInfo alloc] init];
     item.productName = @"Millet3300g";
-    item.productPrice = 150.0;
+    item.productPrice = [NSDecimalNumber decimalNumberWithString:@"150.0"];
     item.productImageName = @"3";
     [_productInfos addObject:item];
 }
@@ -64,7 +64,7 @@
         ProductDetailTableViewCell *cell = [ProductDetailTableViewCell productDetailTableViewCellWith:tableView indexPath:indexPath];
         ProductInfo *item = _productInfos[_productIndex];
         cell.productName.text = item.productName;
-        NSNumber *itemPrice = [NSNumber numberWithDouble:item.productPrice];
+        NSDecimalNumber *itemPrice = item.productPrice;
         cell.productPrice.text = [itemPrice stringValue];
         return cell;
     } else if (_index == 1) {

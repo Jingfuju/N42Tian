@@ -49,19 +49,19 @@
     ProductInfo *item;
     item = [[ProductInfo alloc] init];
     item.productName = @"Millet1100g";
-    item.productPrice = 55.0;
+    item.productPrice = [NSDecimalNumber decimalNumberWithString:@"55.0" ];
     item.productImageName = @"1";
     [_productInfos addObject:item];
     
     item = [[ProductInfo alloc] init];
     item.productName = @"Millet2200g";
-    item.productPrice = 100.0;
+    item.productPrice = [NSDecimalNumber decimalNumberWithString:@"100.0" ];
     item.productImageName = @"2";
     [_productInfos addObject:item];
     
     item = [[ProductInfo alloc] init];
     item.productName = @"Millet3300g";
-    item.productPrice = 150.0;
+    item.productPrice = [NSDecimalNumber decimalNumberWithString:@"155.0" ];
     item.productImageName = @"3";
     [_productInfos addObject:item];
 }
@@ -70,7 +70,7 @@
 {
     ProductInfo *item = _productInfos[self.productIndex];
     self.productName.text = item.productName;
-    NSNumber *itemPrice = [NSNumber numberWithDouble:item.productPrice];
+    NSNumber *itemPrice = item.productPrice;
     self.productPrice.text = [itemPrice stringValue];
     self.productImageView.image = [UIImage imageNamed:item.productImageName];
     
@@ -139,7 +139,7 @@
         CartProductInfo *cartItem = [NSEntityDescription insertNewObjectForEntityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
         cartItem.name = item.productName;
         cartItem.quantity = 1;
-        cartItem.price = item.productPrice; //double to double
+        cartItem.price = [item.productPrice doubleValue]; //double to double
         cartItem.productImage = item.productImageName;
         self.productQty.text = @"1";
         if (![self.managedObjectContext save:&error]) {
@@ -223,7 +223,7 @@
         CartProductInfo *cartItem = [NSEntityDescription insertNewObjectForEntityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
         cartItem.name = item.productName;
         cartItem.quantity = [self.productQty.text intValue];
-        cartItem.price = item.productPrice; //double to double
+        cartItem.price = [item.productPrice doubleValue]; //double to double
         cartItem.productImage = item.productImageName;
         if (![self.managedObjectContext save:&error]) {
             NSLog(@"Error: %@", error);
