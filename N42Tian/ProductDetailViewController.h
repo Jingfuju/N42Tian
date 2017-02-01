@@ -17,4 +17,7 @@
 - (IBAction)addToCart:(id)sender;
 - (IBAction)goToCart:(id)sender;
 
+@property NSInteger productIndex;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+
 @end

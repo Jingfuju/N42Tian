@@ -24,7 +24,6 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
 @implementation HomeViewController
 {
     NSMutableArray *_productInfos;
-    
 }
 
 - (void)viewDidLoad {
@@ -63,9 +62,7 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
     
     UIImage* cartTabImage = [UIImage imageNamed:@"Cart"];
     [[self.tabBarController.tabBar.items objectAtIndex:2] setImage:cartTabImage];
-
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -95,7 +92,6 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
 
     cell.productPrice.text = [numberFormatter stringFromNumber:item.productPrice];
     cell.productImage.image = [UIImage imageNamed:item.productImageName];
-
     
     return cell;
 }
@@ -104,7 +100,8 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     ProductDetailViewController *controller = [[ProductDetailViewController alloc] initWithNibName:@"ProductDetailViewController" bundle:nil];
-
+    controller.productIndex = indexPath.row;                       // pass the cell index to ProductDetailViewController
+    controller.managedObjectContext = self.managedObjectContext;   // pass the managedObjectContext reference to ProductDetailViewController
     [self presentViewController:controller animated:YES completion:nil];
 }
 
@@ -116,7 +113,6 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
 }
 
 -(void)editCartForProduct:(ProductInfo *)item {
-    
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entity];
@@ -125,7 +121,6 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
     
     NSError *error;
     NSArray *result = [self.managedObjectContext executeFetchRequest:request error:&error];
-    
     if ((result != nil) && ([result count]) && (error == nil)) {
         CartProductInfo *info = [result objectAtIndex:0];
         info.quantity +=1;

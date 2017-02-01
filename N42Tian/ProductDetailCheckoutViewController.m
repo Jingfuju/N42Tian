@@ -9,6 +9,9 @@
 #import "ProductDetailCheckoutViewController.h"
 #import "ProductDetailViewController.h"
 #import "BackgroundView.h"
+#import "HomeViewController.h"
+#import "productInfo.h"
+#import "CartProductInfo+CoreDataClass.h"
 
 @interface ProductDetailCheckoutViewController () <UIGestureRecognizerDelegate, UITextFieldDelegate>
 
@@ -17,6 +20,7 @@
 @implementation ProductDetailCheckoutViewController
 {
     UIView *_backgroundView;
+    NSMutableArray *_productInfos;
 }
 
 - (void)viewDidLoad {
@@ -30,7 +34,8 @@
     gestureRecognizer.delegate = self;
     [self.view addGestureRecognizer:gestureRecognizer];
     
-    _productImageView.image = [UIImage imageNamed:@"1"];
+    [self loadProductInfo];
+    [self loadDataWithIndex];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,24 +43,196 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)loadProductInfo
+{
+    _productInfos = [[NSMutableArray alloc] initWithCapacity:10];
+    ProductInfo *item;
+    item = [[ProductInfo alloc] init];
+    item.productName = @"Millet1100g";
+    item.productPrice = 55.0;
+    item.productImageName = @"1";
+    [_productInfos addObject:item];
+    
+    item = [[ProductInfo alloc] init];
+    item.productName = @"Millet2200g";
+    item.productPrice = 100.0;
+    item.productImageName = @"2";
+    [_productInfos addObject:item];
+    
+    item = [[ProductInfo alloc] init];
+    item.productName = @"Millet3300g";
+    item.productPrice = 150.0;
+    item.productImageName = @"3";
+    [_productInfos addObject:item];
+}
+
+- (void)loadDataWithIndex
+{
+    ProductInfo *item = _productInfos[self.productIndex];
+    self.productName.text = item.productName;
+    NSNumber *itemPrice = [NSNumber numberWithDouble:item.productPrice];
+    self.productPrice.text = [itemPrice stringValue];
+    self.productImageView.image = [UIImage imageNamed:item.productImageName];
+    
+    self.productQty.text = [self getCartProductQty:item];
+}
+
+- (NSString *)getCartProductQty:(ProductInfo *)item
+{
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@", item.productName];
+    [request setPredicate:predicate];
+    
+    NSError *error;
+    NSArray *result = [self.managedObjectContext executeFetchRequest:request error:&error];
+    
+    if ((request != nil) && ([result count]) && (error == nil)) {
+        CartProductInfo *info = [result objectAtIndex:0];
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Error: %@", error);
+            abort();
+        }
+        return [NSString stringWithFormat:@"%d", info.quantity];
+    } else {
+        return @"0";
+    }
+}
+
 - (IBAction)close:(id)sender {
     [self dismissFromParentViewController];
 }
 
 - (IBAction)smallModel:(id)sender {
+    // add code for model choose
 }
 
 - (IBAction)bigModel:(id)sender {
+    // add code for model choose
 }
 
 - (IBAction)addQty:(id)sender {
+    [self addOneMore:_productInfos[self.productIndex]];
+}
+
+- (void)addOneMore:(ProductInfo *)item
+{
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat: @"name == %@", item.productName];
+    [request setPredicate:predicate];
+    
+    NSError *error;
+    NSArray *result = [self.managedObjectContext executeFetchRequest:request error:&error];
+    if ((result != nil) && ([result count]) && (error == nil)) {
+        CartProductInfo *info = [result objectAtIndex:0];
+        info.quantity +=1;
+        self.productQty.text = [NSString stringWithFormat:@"%hd", info.quantity];
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Error: %@", error); abort();
+        }
+        return;
+    } else {
+        CartProductInfo *cartItem = [NSEntityDescription insertNewObjectForEntityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
+        cartItem.name = item.productName;
+        cartItem.quantity = 1;
+        cartItem.price = item.productPrice; //double to double
+        cartItem.productImage = item.productImageName;
+        self.productQty.text = @"1";
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Error: %@", error);
+            abort();
+        }
+    }
+    return;
 }
 
 - (IBAction)minusQty:(id)sender {
+    [self removeOneMore:_productInfos[self.productIndex]];
+}
+
+- (void)removeOneMore:(ProductInfo *)item
+{
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat: @"name == %@", item.productName];
+    [request setPredicate:predicate];
+    
+    NSError *error;
+    NSArray *result = [self.managedObjectContext executeFetchRequest:request error:&error];
+    if ((result != nil) && ([result count]) && (error == nil)) {
+        CartProductInfo *info = [result objectAtIndex:0];
+        if (info.quantity >= 2) {
+            info.quantity -= 1;
+            self.productQty.text = [NSString stringWithFormat:@"%hd", info.quantity];
+        } else if (info.quantity == 1) {
+            [self.managedObjectContext deleteObject:info];
+            self.productQty.text = @"0";
+        }
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Error: %@", error); abort();
+        }
+        return;
+    } else {
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Error: %@", error);
+            abort();
+        }
+        self.productQty.text = @"0";
+        return; 
+    }
+}
+
+- (void)saveToCoreData
+{
+    NSError *error;
+    if(![self.managedObjectContext save:&error]) {
+        NSLog(@"FATAL_CORE_DATA_ERROR");
+        abort();
+    }
 }
 
 - (IBAction)setQty:(id)sender {
+    [self setQuantity:_productInfos[self.productIndex]];
+    
 }
+
+- (void)setQuantity:(ProductInfo *)item
+{
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat: @"name == %@", item.productName];
+    [request setPredicate:predicate];
+    
+    NSError *error;
+    NSArray *result = [self.managedObjectContext executeFetchRequest:request error:&error];
+    if ((result != nil) && ([result count]) && (error == nil)) {
+        CartProductInfo *info = [result objectAtIndex:0];
+        info.quantity = [self.productQty.text intValue];
+        self.productQty.text = [NSString stringWithFormat:@"%hd", info.quantity];
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Error: %@", error); abort();
+        }
+        return;
+    } else {
+        CartProductInfo *cartItem = [NSEntityDescription insertNewObjectForEntityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
+        cartItem.name = item.productName;
+        cartItem.quantity = [self.productQty.text intValue];
+        cartItem.price = item.productPrice; //double to double
+        cartItem.productImage = item.productImageName;
+        if (![self.managedObjectContext save:&error]) {
+            NSLog(@"Error: %@", error);
+            abort();
+        }
+    }
+    return;
+}
+
 
 - (void)presentInParentViewController:(UIViewController *)parentViewController
 {
@@ -66,7 +243,7 @@
     [parentViewController.view addSubview:self.view];
     [parentViewController addChildViewController:self];
     
-    CABasicAnimation *moveAnimation = [CABasicAnimation animationWithKeyPath:@"position"];
+    CABasicAnimation *moveAnimation = [CABasicAnimation animationWithKeyPath:@"position"];               // setup the animation for the write coler view
     moveAnimation.fillMode = kCAFillModeForwards;
     moveAnimation.duration = 0.4;
     moveAnimation.fromValue = [NSValue valueWithCGPoint:CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height * 1.5)];
@@ -123,6 +300,8 @@
     return YES;
     
 }
+
+#pragma mark - keyboard Appear just below the textField
 
 - (void)viewWillAppear:(BOOL)animated
 {
