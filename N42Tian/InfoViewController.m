@@ -7,16 +7,44 @@
 //
 
 #import "InfoViewController.h"
+#import "common_macro.h"
+#import "TabMyHeadCell.h"
+#import "TabMyOrderItemCell.h"
+#import "TabMyCell.h"
 
-@interface InfoViewController ()
+
+typedef enum {
+    sectionHead = 0,
+    sectionOrder,
+    sectionCoupon,
+    sectionSupport
+} section;
+
+
+@interface InfoViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @end
 
-@implementation InfoViewController
+@implementation InfoViewController {
+    UITableView *_tableView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    //Created Navigation Bar
+    UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 64)];
+    UINavigationItem *item = [[UINavigationItem alloc]initWithTitle:@"My Info"];
+    [navBar pushNavigationItem:item animated:YES];
+    [self.view addSubview:navBar];
+    
+    //Created Table View
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight)];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    [self.view addSubview:_tableView];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +52,119 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - UITableViewDataSource
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return 0;
+    } else {
+        return 10;
+    }
 }
-*/
+
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return sectionSupport + 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == sectionHead) {
+        return 1;
+    } else if (section == sectionOrder){
+        return 2;
+    } else if (section == sectionCoupon) {
+        return 3;
+    } else if (section == sectionSupport) {
+        return 3;
+    } else {
+        return 0;
+    }
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *identifier;
+    NSInteger *section = indexPath.section;
+    NSInteger *row = indexPath.row;
+    
+    //sectionHead
+    if (section == sectionHead) {
+        identifier = @"TabMyHeadCell";
+        TabMyHeadCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if (cell == nil) {
+            cell = [[TabMyHeadCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        }
+        return cell;
+    }
+    
+    else if (section == sectionOrder) {
+        if (row == 0) {
+            identifier = @"TabMyCell";
+            TabMyCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+            if (cell == nil) {
+                cell = [[TabMyCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier imageNamed:@"icon_my_order" title:@"My Order"];
+            }
+            return cell;
+        } else {
+            identifier = @"TabMyOrderItemCell";
+            TabMyOrderItemCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+            if (cell == nil) {
+                cell = [[TabMyOrderItemCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+            }
+            return cell;
+        }
+    }
+    
+    else if (section == sectionCoupon) {
+        identifier = @"TabMyCell";
+        TabMyCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if (cell == nil) {
+            if (row == 0) {
+                cell = [[TabMyCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier imageNamed:@"icon_my_coupon" title:@"My Coupon"];
+            } else if (row == 1) {
+                cell = [[TabMyCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier imageNamed:@"icon_my_collect" title:@"My Collection"];
+            } else {
+                cell = [[TabMyCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier imageNamed:@"icon_my_history" title:@"My History"];
+            }
+        }
+        return cell;
+    }
+    
+    else if (section == sectionSupport) {
+        identifier = @"TabMyCell";
+        TabMyCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if (cell == nil ) {
+            if (row == 0) {
+                cell = [[TabMyCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier imageNamed:@"icon_location_light" title:@"Store Locations"];
+            } else if (row == 1) {
+                cell = [[TabMyCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier imageNamed:@"icon_my_star" title:@"About Us"];
+            } else {
+                cell = [[TabMyCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier imageNamed:@"icon_my_setting" title:@"Setting"];
+            }
+            
+        }
+        return cell;
+        
+    }
+    
+    else {
+        identifier = @"Cell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        }
+        return cell;
+    }
+}
+
+#pragma mark - TableViewDelegate
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == sectionHead) {
+        return [TabMyHeadCell height];
+    } else {
+        return 44;
+    }
+}
+
+
 
 @end

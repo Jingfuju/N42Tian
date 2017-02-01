@@ -11,7 +11,7 @@
 @interface ProductInfo : NSObject
 
 @property (nonatomic, copy) NSString *productName;
-@property (nonatomic, assign) double productPrice;
+@property (nonatomic, copy) NSNumber *productPrice;
 @property (nonatomic, copy) NSString *productImageName;
 
 @end
