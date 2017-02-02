@@ -12,12 +12,13 @@
 
 @property (nonatomic, strong) IBOutlet UIScrollView *smallScrollView;
 @property (nonatomic, strong) IBOutlet UIScrollView *bigScrollView;
+@property NSInteger productIndex;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+
+
 
 - (IBAction)close:(id)sender;
 - (IBAction)addToCart:(id)sender;
 - (IBAction)goToCart:(id)sender;
-
-@property NSInteger productIndex;
-@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @end

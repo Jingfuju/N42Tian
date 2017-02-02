@@ -41,6 +41,7 @@ typedef enum {
     //Created Table View
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight)];
     _tableView.delegate = self;
+    _tableView.tableFooterView = [[UIView alloc]init]; //Make empty after last line
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
     

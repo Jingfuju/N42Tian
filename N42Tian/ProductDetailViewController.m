@@ -6,6 +6,7 @@
 //  Copyright © 2017 N42Tian. All rights reserved.
 //
 
+
 #import "ProductDetailViewController.h"
 #import "ProductInfoViewController.h"
 #import "CategoryLabel.h"
@@ -13,8 +14,7 @@
 #import "CartViewController.h"
 #import "AppDelegate.h"
 #import "productInfo.h"
-
-#define ScreenWidth [UIScreen mainScreen].bounds.size.width
+#import "common_macro.h"
 
 @interface ProductDetailViewController ()
 
@@ -32,6 +32,9 @@
     _bigScrollView.showsHorizontalScrollIndicator = NO;
     [self simulateData];
     [self loadSubViews];
+    [self.view setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+    [self.view setNeedsDisplay];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -109,10 +112,11 @@
 {
     [self addChildViewController];
     [self addNavigateLabel];
-    CGFloat contentX = self.childViewControllers.count * ScreenWidth;
+    CGFloat contentX = self.childViewControllers.count * kScreenWidth;
     self.bigScrollView.contentSize = CGSizeMake(contentX, 0);
     ProductInfoViewController *prodInfoViewController = [self.childViewControllers firstObject];
-    prodInfoViewController.view.frame = self.bigScrollView.bounds;
+    
+    prodInfoViewController.view.frame = self.bigScrollView.bounds;    //Fit it's superview's bounds
     [self.bigScrollView addSubview:prodInfoViewController.view];
     CategoryLabel *label = [self.smallScrollView.subviews firstObject];
     label.scale = 1.0;
@@ -165,5 +169,7 @@
 {
     [self scrollViewDidEndScrollingAnimation:scrollView];
 }
+
+
 
 @end

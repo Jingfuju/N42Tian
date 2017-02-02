@@ -46,6 +46,8 @@
 		1F79BBAA1E4172ED0068F2A5 /* libMasonry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F79BBA91E4172ED0068F2A5 /* libMasonry.a */; };
 		1F79BBB11E4187CD0068F2A5 /* UIColor+hexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F79BBB01E4187CD0068F2A5 /* UIColor+hexColor.m */; };
 		1F79BBB51E4276FD0068F2A5 /* ProductInfoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F79BBB41E4276FD0068F2A5 /* ProductInfoItem.m */; };
+		1F79BBBA1E42E0F90068F2A5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F79BBB91E42E0F90068F2A5 /* CoreGraphics.framework */; };
+		1F79BBC31E42E56B0068F2A5 /* DrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F79BBC21E42E56B0068F2A5 /* DrawView.m */; };
 		1FCEE58D1E35E18E00FC4623 /* CartProductInfo+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCEE58A1E35E18E00FC4623 /* CartProductInfo+CoreDataClass.m */; };
 		1FCEE58E1E35E18E00FC4623 /* CartProductInfo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCEE58C1E35E18E00FC4623 /* CartProductInfo+CoreDataProperties.m */; };
 		1FFEF1921E369BED00CCCF97 /* 180.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FFEF1911E369BED00CCCF97 /* 180.png */; };
@@ -116,6 +118,9 @@
 		1F79BBB01E4187CD0068F2A5 /* UIColor+hexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+hexColor.m"; sourceTree = "<group>"; };
 		1F79BBB31E4276FD0068F2A5 /* ProductInfoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductInfoItem.h; sourceTree = "<group>"; };
 		1F79BBB41E4276FD0068F2A5 /* ProductInfoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductInfoItem.m; sourceTree = "<group>"; };
+		1F79BBB91E42E0F90068F2A5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1F79BBC11E42E56B0068F2A5 /* DrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawView.h; sourceTree = "<group>"; };
+		1F79BBC21E42E56B0068F2A5 /* DrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawView.m; sourceTree = "<group>"; };
 		1FCEE5891E35E18E00FC4623 /* CartProductInfo+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CartProductInfo+CoreDataClass.h"; path = "../CartProductInfo+CoreDataClass.h"; sourceTree = "<group>"; };
 		1FCEE58A1E35E18E00FC4623 /* CartProductInfo+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CartProductInfo+CoreDataClass.m"; path = "../CartProductInfo+CoreDataClass.m"; sourceTree = "<group>"; };
 		1FCEE58B1E35E18E00FC4623 /* CartProductInfo+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CartProductInfo+CoreDataProperties.h"; path = "../CartProductInfo+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -131,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F79BBBA1E42E0F90068F2A5 /* CoreGraphics.framework in Frameworks */,
 				1F79BBAA1E4172ED0068F2A5 /* libMasonry.a in Frameworks */,
 				1F6CE5E71E30417C0070B559 /* AudioToolbox.framework in Frameworks */,
 				1F6CE5E51E30416F0070B559 /* CoreData.framework in Frameworks */,
@@ -344,6 +350,7 @@
 		1F6CE5E31E30416F0070B559 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F79BBB91E42E0F90068F2A5 /* CoreGraphics.framework */,
 				1F79BBA91E4172ED0068F2A5 /* libMasonry.a */,
 				1F6CE5E61E30417C0070B559 /* AudioToolbox.framework */,
 				1F6CE5E41E30416F0070B559 /* CoreData.framework */,
@@ -357,6 +364,8 @@
 			children = (
 				1F79BBAF1E4187CD0068F2A5 /* UIColor+hexColor.h */,
 				1F79BBB01E4187CD0068F2A5 /* UIColor+hexColor.m */,
+				1F79BBC11E42E56B0068F2A5 /* DrawView.h */,
+				1F79BBC21E42E56B0068F2A5 /* DrawView.m */,
 			);
 			name = components;
 			path = ..;
@@ -507,6 +516,7 @@
 			files = (
 				1F4AFE891E27082F0084DB8D /* CartViewController.m in Sources */,
 				1805D8CE1E299A2A00A0924F /* CartTableViewCell.m in Sources */,
+				1F79BBC31E42E56B0068F2A5 /* DrawView.m in Sources */,
 				1879B5B21E32DEC4009AD685 /* ProductInfoViewController.m in Sources */,
 				1F6CE5E11E2E08690070B559 /* QuantityPickerViewController.m in Sources */,
 				18BDDC831E35DACE00CC53E5 /* ProductDetailCheckoutViewController.m in Sources */,
