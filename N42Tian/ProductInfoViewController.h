@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class ProductInfo;
+
 @interface ProductInfoViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property NSInteger index;

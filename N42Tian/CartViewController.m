@@ -123,7 +123,13 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
         totalPrice += subtotal;
     }
     self.totalQty.text = [NSString stringWithFormat:@"%d", totalQuantity];
-    self.totalPrice.text = [NSString stringWithFormat:@"%.2f",totalPrice];
+    
+    
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [numberFormatter setCurrencySymbol:@"$"];
+    NSDecimalNumber *itemPrice = [NSDecimalNumber numberWithDouble:totalPrice];
+    self.totalPrice.text = [numberFormatter stringFromNumber:itemPrice];
 
     [self decidedCartSubviewbyNumberofProducts];
     return _numberOfProducts;
@@ -139,6 +145,15 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     return cell;
 }
 
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 2;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 0.3;
+}
+
 #pragma mark - UITableView Delegate
 
 -(void)configureCell:(CartTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
@@ -147,14 +162,18 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
 
     cell.cartItemName.text = cartItem.name;
     cell.quantityLabel.text = [NSString stringWithFormat:@"%d",cartItem.quantity];
-    cell.cartItemPrice.text = [NSString stringWithFormat:@"%.2f",cartItem.price]; //covert to 
+    
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [numberFormatter setCurrencySymbol:@"$"];
+    NSDecimalNumber *itemPrice = [NSDecimalNumber numberWithDouble:cartItem.price];
+
+    cell.cartItemPrice.text = [numberFormatter stringFromNumber:itemPrice]; //covert to
     cell.cartImageView.image = [UIImage imageNamed:cartItem.productImage];
-    cell.cartSubTotalPrice.text = [NSString stringWithFormat:@"%.2f",cartItem.price * cartItem.quantity];
     
     cell.cartSubTotalQty.titleLabel.text = @"";
     
-
-
+    cell.cartSubTotalQty.titleLabel.text =@"";
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

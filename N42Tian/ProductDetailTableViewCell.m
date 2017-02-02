@@ -8,9 +8,9 @@
 
 #import "ProductDetailTableViewCell.h"
 #import "productInfo.h"
+#import "common_macro.h"
 
-#define kTableViewCellCount 3;
-#define kImageViewCount 3
+
 
 @interface ProductDetailTableViewCell ()
 

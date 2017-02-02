@@ -13,7 +13,6 @@
 		1805D8BE1E28099200A0924F /* ProductInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8BD1E28099200A0924F /* ProductInfo.m */; };
 		1805D8CE1E299A2A00A0924F /* CartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8CC1E299A2A00A0924F /* CartTableViewCell.m */; };
 		1805D8CF1E299A2A00A0924F /* CartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1805D8CD1E299A2A00A0924F /* CartTableViewCell.xib */; };
-		1805D8D21E29A27000A0924F /* cartInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8D11E29A27000A0924F /* cartInfo.m */; };
 		18413CA71E37325A00FDECBF /* BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18413CA61E37325A00FDECBF /* BackgroundView.m */; };
 		1879B5AB1E32DEB2009AD685 /* ProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1879B5A81E32DEB2009AD685 /* ProductDetailViewController.xib */; };
 		1879B5AC1E32DEB2009AD685 /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1879B5A91E32DEB2009AD685 /* ProductDetailViewController.m */; };
@@ -35,15 +34,22 @@
 		1F4AFE891E27082F0084DB8D /* CartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4AFE881E27082F0084DB8D /* CartViewController.m */; };
 		1F4AFE8C1E27082F0084DB8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F4AFE8A1E27082F0084DB8D /* Main.storyboard */; };
 		1F4AFE911E27082F0084DB8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F4AFE8F1E27082F0084DB8D /* LaunchScreen.storyboard */; };
+		1F5E15721E3B23CE00248CB0 /* TabMyHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5E15711E3B23CE00248CB0 /* TabMyHeadCell.m */; };
+		1F5E15771E3C20C500248CB0 /* TabMyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5E15761E3C20C500248CB0 /* TabMyCell.m */; };
+		1F5E157A1E3C20DD00248CB0 /* TabMyOrderItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5E15791E3C20DD00248CB0 /* TabMyOrderItemCell.m */; };
 		1F6CE5BE1E2C24490070B559 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1F6CE5BC1E2C24490070B559 /* DataModel.xcdatamodeld */; };
 		1F6CE5E11E2E08690070B559 /* QuantityPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6CE5DF1E2E08690070B559 /* QuantityPickerViewController.m */; };
 		1F6CE5E21E2E08690070B559 /* QuantityPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F6CE5E01E2E08690070B559 /* QuantityPickerViewController.xib */; };
 		1F6CE5E51E30416F0070B559 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6CE5E41E30416F0070B559 /* CoreData.framework */; };
 		1F6CE5E71E30417C0070B559 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6CE5E61E30417C0070B559 /* AudioToolbox.framework */; };
 		1F6CE5EA1E3044B20070B559 /* Sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1F6CE5E91E3044B20070B559 /* Sound.caf */; };
+		1F79BBAA1E4172ED0068F2A5 /* libMasonry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F79BBA91E4172ED0068F2A5 /* libMasonry.a */; };
+		1F79BBB11E4187CD0068F2A5 /* UIColor+hexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F79BBB01E4187CD0068F2A5 /* UIColor+hexColor.m */; };
+		1F79BBB51E4276FD0068F2A5 /* ProductInfoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F79BBB41E4276FD0068F2A5 /* ProductInfoItem.m */; };
 		1FCEE58D1E35E18E00FC4623 /* CartProductInfo+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCEE58A1E35E18E00FC4623 /* CartProductInfo+CoreDataClass.m */; };
 		1FCEE58E1E35E18E00FC4623 /* CartProductInfo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCEE58C1E35E18E00FC4623 /* CartProductInfo+CoreDataProperties.m */; };
 		1FFEF1921E369BED00CCCF97 /* 180.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FFEF1911E369BED00CCCF97 /* 180.png */; };
+		6327FA58E73DA06290B444CC /* libPods-N42Tian.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C78A225A749F0ED31C46831 /* libPods-N42Tian.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,8 +63,6 @@
 		1805D8CB1E299A2A00A0924F /* CartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartTableViewCell.h; sourceTree = "<group>"; };
 		1805D8CC1E299A2A00A0924F /* CartTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartTableViewCell.m; sourceTree = "<group>"; };
 		1805D8CD1E299A2A00A0924F /* CartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartTableViewCell.xib; sourceTree = "<group>"; };
-		1805D8D01E29A27000A0924F /* cartInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cartInfo.h; sourceTree = "<group>"; };
-		1805D8D11E29A27000A0924F /* cartInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cartInfo.m; sourceTree = "<group>"; };
 		18413CA51E37325A00FDECBF /* BackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundView.h; sourceTree = "<group>"; };
 		18413CA61E37325A00FDECBF /* BackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundView.m; sourceTree = "<group>"; };
 		1879B5A81E32DEB2009AD685 /* ProductDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailViewController.xib; sourceTree = "<group>"; };
@@ -93,6 +97,13 @@
 		1F4AFE8B1E27082F0084DB8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1F4AFE901E27082F0084DB8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F4AFE921E27082F0084DB8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F5E156F1E3B196100248CB0 /* common_macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common_macro.h; sourceTree = "<group>"; };
+		1F5E15701E3B23CE00248CB0 /* TabMyHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabMyHeadCell.h; sourceTree = "<group>"; };
+		1F5E15711E3B23CE00248CB0 /* TabMyHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabMyHeadCell.m; sourceTree = "<group>"; };
+		1F5E15751E3C20C500248CB0 /* TabMyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabMyCell.h; sourceTree = "<group>"; };
+		1F5E15761E3C20C500248CB0 /* TabMyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabMyCell.m; sourceTree = "<group>"; };
+		1F5E15781E3C20DD00248CB0 /* TabMyOrderItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabMyOrderItemCell.h; sourceTree = "<group>"; };
+		1F5E15791E3C20DD00248CB0 /* TabMyOrderItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabMyOrderItemCell.m; sourceTree = "<group>"; };
 		1F6CE5BD1E2C24490070B559 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		1F6CE5DE1E2E08690070B559 /* QuantityPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuantityPickerViewController.h; sourceTree = "<group>"; };
 		1F6CE5DF1E2E08690070B559 /* QuantityPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuantityPickerViewController.m; sourceTree = "<group>"; };
@@ -100,11 +111,19 @@
 		1F6CE5E41E30416F0070B559 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		1F6CE5E61E30417C0070B559 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		1F6CE5E91E3044B20070B559 /* Sound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sound.caf; sourceTree = "<group>"; };
+		1F79BBA91E4172ED0068F2A5 /* libMasonry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMasonry.a; path = "Pods/../build/Debug-iphoneos/Masonry/libMasonry.a"; sourceTree = "<group>"; };
+		1F79BBAF1E4187CD0068F2A5 /* UIColor+hexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+hexColor.h"; sourceTree = "<group>"; };
+		1F79BBB01E4187CD0068F2A5 /* UIColor+hexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+hexColor.m"; sourceTree = "<group>"; };
+		1F79BBB31E4276FD0068F2A5 /* ProductInfoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductInfoItem.h; sourceTree = "<group>"; };
+		1F79BBB41E4276FD0068F2A5 /* ProductInfoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductInfoItem.m; sourceTree = "<group>"; };
 		1FCEE5891E35E18E00FC4623 /* CartProductInfo+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CartProductInfo+CoreDataClass.h"; path = "../CartProductInfo+CoreDataClass.h"; sourceTree = "<group>"; };
 		1FCEE58A1E35E18E00FC4623 /* CartProductInfo+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CartProductInfo+CoreDataClass.m"; path = "../CartProductInfo+CoreDataClass.m"; sourceTree = "<group>"; };
 		1FCEE58B1E35E18E00FC4623 /* CartProductInfo+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CartProductInfo+CoreDataProperties.h"; path = "../CartProductInfo+CoreDataProperties.h"; sourceTree = "<group>"; };
 		1FCEE58C1E35E18E00FC4623 /* CartProductInfo+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CartProductInfo+CoreDataProperties.m"; path = "../CartProductInfo+CoreDataProperties.m"; sourceTree = "<group>"; };
 		1FFEF1911E369BED00CCCF97 /* 180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 180.png; sourceTree = "<group>"; };
+		2A4D196B335A10376ABBDFD5 /* Pods-N42Tian.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-N42Tian.debug.xcconfig"; path = "Pods/Target Support Files/Pods-N42Tian/Pods-N42Tian.debug.xcconfig"; sourceTree = "<group>"; };
+		5C78A225A749F0ED31C46831 /* libPods-N42Tian.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-N42Tian.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8224981712270B7454E8C6C /* Pods-N42Tian.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-N42Tian.release.xcconfig"; path = "Pods/Target Support Files/Pods-N42Tian/Pods-N42Tian.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,8 +131,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F79BBAA1E4172ED0068F2A5 /* libMasonry.a in Frameworks */,
 				1F6CE5E71E30417C0070B559 /* AudioToolbox.framework in Frameworks */,
 				1F6CE5E51E30416F0070B559 /* CoreData.framework in Frameworks */,
+				6327FA58E73DA06290B444CC /* libPods-N42Tian.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +186,7 @@
 				1F4AFE7D1E27082F0084DB8D /* N42Tian */,
 				1F4AFE7C1E27082F0084DB8D /* Products */,
 				1F6CE5E31E30416F0070B559 /* Frameworks */,
+				5C2CC74D244D2B9C8237A8FB /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -179,16 +201,18 @@
 		1F4AFE7D1E27082F0084DB8D /* N42Tian */ = {
 			isa = PBXGroup;
 			children = (
-				1F4AFE811E27082F0084DB8D /* AppDelegate.h */,
-				1F4AFE821E27082F0084DB8D /* AppDelegate.m */,
-				1F4AFE8A1E27082F0084DB8D /* Main.storyboard */,
+				1F79BBAB1E4178F70068F2A5 /* components */,
+				1F5E156E1E3B192700248CB0 /* macros */,
 				1F4AFE981E2709030084DB8D /* Controller */,
 				1F4AFE991E27093F0084DB8D /* Views */,
 				1F4AFE9A1E2709410084DB8D /* Models */,
-				1F4AFE8F1E27082F0084DB8D /* LaunchScreen.storyboard */,
-				1F4AFE921E27082F0084DB8D /* Info.plist */,
 				1F4AFE7E1E27082F0084DB8D /* Supporting Files */,
 				1F6CE5BC1E2C24490070B559 /* DataModel.xcdatamodeld */,
+				1F4AFE811E27082F0084DB8D /* AppDelegate.h */,
+				1F4AFE821E27082F0084DB8D /* AppDelegate.m */,
+				1F4AFE8A1E27082F0084DB8D /* Main.storyboard */,
+				1F4AFE8F1E27082F0084DB8D /* LaunchScreen.storyboard */,
+				1F4AFE921E27082F0084DB8D /* Info.plist */,
 			);
 			path = N42Tian;
 			sourceTree = "<group>";
@@ -233,8 +257,8 @@
 				1FCEE58C1E35E18E00FC4623 /* CartProductInfo+CoreDataProperties.m */,
 				1805D8BC1E28099200A0924F /* ProductInfo.h */,
 				1805D8BD1E28099200A0924F /* ProductInfo.m */,
-				1805D8D01E29A27000A0924F /* cartInfo.h */,
-				1805D8D11E29A27000A0924F /* cartInfo.m */,
+				1F79BBB31E4276FD0068F2A5 /* ProductInfoItem.h */,
+				1F79BBB41E4276FD0068F2A5 /* ProductInfoItem.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -269,6 +293,12 @@
 		1F4AFE9E1E271B970084DB8D /* InfoViewController */ = {
 			isa = PBXGroup;
 			children = (
+				1F5E15701E3B23CE00248CB0 /* TabMyHeadCell.h */,
+				1F5E15711E3B23CE00248CB0 /* TabMyHeadCell.m */,
+				1F5E15781E3C20DD00248CB0 /* TabMyOrderItemCell.h */,
+				1F5E15791E3C20DD00248CB0 /* TabMyOrderItemCell.m */,
+				1F5E15751E3C20C500248CB0 /* TabMyCell.h */,
+				1F5E15761E3C20C500248CB0 /* TabMyCell.m */,
 			);
 			name = InfoViewController;
 			sourceTree = "<group>";
@@ -293,6 +323,14 @@
 			name = HomeViewController;
 			sourceTree = "<group>";
 		};
+		1F5E156E1E3B192700248CB0 /* macros */ = {
+			isa = PBXGroup;
+			children = (
+				1F5E156F1E3B196100248CB0 /* common_macro.h */,
+			);
+			name = macros;
+			sourceTree = "<group>";
+		};
 		1F6CE5DD1E2E081A0070B559 /* QuantityPickerViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,10 +344,31 @@
 		1F6CE5E31E30416F0070B559 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F79BBA91E4172ED0068F2A5 /* libMasonry.a */,
 				1F6CE5E61E30417C0070B559 /* AudioToolbox.framework */,
 				1F6CE5E41E30416F0070B559 /* CoreData.framework */,
+				5C78A225A749F0ED31C46831 /* libPods-N42Tian.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1F79BBAB1E4178F70068F2A5 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				1F79BBAF1E4187CD0068F2A5 /* UIColor+hexColor.h */,
+				1F79BBB01E4187CD0068F2A5 /* UIColor+hexColor.m */,
+			);
+			name = components;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		5C2CC74D244D2B9C8237A8FB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2A4D196B335A10376ABBDFD5 /* Pods-N42Tian.debug.xcconfig */,
+				D8224981712270B7454E8C6C /* Pods-N42Tian.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,9 +378,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1F4AFE951E27082F0084DB8D /* Build configuration list for PBXNativeTarget "N42Tian" */;
 			buildPhases = (
+				F20D046C29410D6A9ED0D49D /* [CP] Check Pods Manifest.lock */,
 				1F4AFE771E27082F0084DB8D /* Sources */,
 				1F4AFE781E27082F0084DB8D /* Frameworks */,
 				1F4AFE791E27082F0084DB8D /* Resources */,
+				9D8939163559AC674829E4EE /* [CP] Embed Pods Frameworks */,
+				60C28D41197ADFBC0FDE4DD9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -343,7 +405,8 @@
 				TargetAttributes = {
 					1F4AFE7A1E27082F0084DB8D = {
 						CreatedOnToolsVersion = 8.1;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = D59V2786GD;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -389,6 +452,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		60C28D41197ADFBC0FDE4DD9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-N42Tian/Pods-N42Tian-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D8939163559AC674829E4EE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-N42Tian/Pods-N42Tian-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F20D046C29410D6A9ED0D49D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1F4AFE771E27082F0084DB8D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -399,8 +510,9 @@
 				1879B5B21E32DEC4009AD685 /* ProductInfoViewController.m in Sources */,
 				1F6CE5E11E2E08690070B559 /* QuantityPickerViewController.m in Sources */,
 				18BDDC831E35DACE00CC53E5 /* ProductDetailCheckoutViewController.m in Sources */,
+				1F5E15721E3B23CE00248CB0 /* TabMyHeadCell.m in Sources */,
 				1F4AFE831E27082F0084DB8D /* AppDelegate.m in Sources */,
-				1805D8D21E29A27000A0924F /* cartInfo.m in Sources */,
+				1F5E157A1E3C20DD00248CB0 /* TabMyOrderItemCell.m in Sources */,
 				1805D8BE1E28099200A0924F /* ProductInfo.m in Sources */,
 				1879B5B41E32DEC4009AD685 /* CategoryLabel.m in Sources */,
 				18BDDC791E33F69500CC53E5 /* ProductRelatedTableViewCell.m in Sources */,
@@ -411,9 +523,12 @@
 				18413CA71E37325A00FDECBF /* BackgroundView.m in Sources */,
 				1805D8B31E27110C00A0924F /* InfoViewController.m in Sources */,
 				1F6CE5BE1E2C24490070B559 /* DataModel.xcdatamodeld in Sources */,
+				1F5E15771E3C20C500248CB0 /* TabMyCell.m in Sources */,
 				18BDDC7E1E33F6B000CC53E5 /* ProductReviewTableViewCell.m in Sources */,
 				18BDDC741E3352B400CC53E5 /* ProductDetailTableViewCell.m in Sources */,
+				1F79BBB51E4276FD0068F2A5 /* ProductInfoItem.m in Sources */,
 				1FCEE58D1E35E18E00FC4623 /* CartProductInfo+CoreDataClass.m in Sources */,
+				1F79BBB11E4187CD0068F2A5 /* UIColor+hexColor.m in Sources */,
 				1F4AFE801E27082F0084DB8D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -532,26 +647,38 @@
 		};
 		1F4AFE961E27082F0084DB8D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2A4D196B335A10376ABBDFD5 /* Pods-N42Tian.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = D59V2786GD;
 				INFOPLIST_FILE = N42Tian/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = N42Tian.com;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Masonry",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = N42Tian.com.N42Tian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		1F4AFE971E27082F0084DB8D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8224981712270B7454E8C6C /* Pods-N42Tian.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = D59V2786GD;
 				INFOPLIST_FILE = N42Tian/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = N42Tian.com;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/Masonry",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = N42Tian.com.N42Tian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

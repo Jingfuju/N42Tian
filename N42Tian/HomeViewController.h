@@ -18,6 +18,8 @@ extern NSString * const ManagedObjectContextSaveDidFailNotification;
 //            ManagedObjectContextSaveDidFailNotification object:error];
 
 
+@class ProductInfo;
+
 @interface HomeViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, ProductTableViewCellDelegate, UINavigationBarDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
