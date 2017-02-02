@@ -74,7 +74,9 @@
     self.productPrice.text = [itemPrice stringValue];
     self.productImageView.image = [UIImage imageNamed:item.productImageName];
     
-    self.productQty.text = [self getCartProductQty:item];
+    NSString *qty = [self getCartProductQty:item];
+    self.productQty.text = qty;
+    self.productSubtotal.text = [NSString  stringWithFormat:@"%.2f", ([qty floatValue] *item.productPrice)];
 }
 
 - (NSString *)getCartProductQty:(ProductInfo *)item
@@ -134,6 +136,7 @@
         if (![self.managedObjectContext save:&error]) {
             NSLog(@"Error: %@", error); abort();
         }
+        self.productSubtotal.text = [NSString stringWithFormat:@"%.2f", (info.quantity *item.productPrice)];
         return;
     } else {
         CartProductInfo *cartItem = [NSEntityDescription insertNewObjectForEntityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
@@ -146,6 +149,7 @@
             NSLog(@"Error: %@", error);
             abort();
         }
+        self.productSubtotal.text = self.productPrice.text;
     }
     return;
 }
@@ -169,9 +173,11 @@
         if (info.quantity >= 2) {
             info.quantity -= 1;
             self.productQty.text = [NSString stringWithFormat:@"%hd", info.quantity];
+            self.productSubtotal.text = [NSString stringWithFormat:@"%.2f", (info.quantity *item.productPrice)];
         } else if (info.quantity == 1) {
             [self.managedObjectContext deleteObject:info];
             self.productQty.text = @"0";
+            self.productSubtotal.text = self.productQty.text;
         }
         if (![self.managedObjectContext save:&error]) {
             NSLog(@"Error: %@", error); abort();
@@ -183,7 +189,8 @@
             abort();
         }
         self.productQty.text = @"0";
-        return; 
+        self.productSubtotal.text = self.productQty.text;
+        return;
     }
 }
 
@@ -218,6 +225,7 @@
         if (![self.managedObjectContext save:&error]) {
             NSLog(@"Error: %@", error); abort();
         }
+        self.productSubtotal.text = [NSString stringWithFormat:@"%.2f", (info.quantity *item.productPrice)];
         return;
     } else {
         CartProductInfo *cartItem = [NSEntityDescription insertNewObjectForEntityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
@@ -229,8 +237,9 @@
             NSLog(@"Error: %@", error);
             abort();
         }
+        self.productSubtotal.text = [NSString stringWithFormat:@"%.2f", (cartItem.quantity *item.productPrice)];
+        return;
     }
-    return;
 }
 
 

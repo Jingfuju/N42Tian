@@ -151,7 +151,7 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     cell.cartImageView.image = [UIImage imageNamed:cartItem.productImage];
     cell.cartSubTotalPrice.text = [NSString stringWithFormat:@"%.2f",cartItem.price * cartItem.quantity];
     
-    cell.cartSubTotalQty.titleLabel.text =@"";
+    cell.cartSubTotalQty.titleLabel.text = @"";
     
 
 
@@ -161,6 +161,7 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     ProductDetailViewController *controller = [[ProductDetailViewController alloc] initWithNibName:@"ProductDetailViewController" bundle:nil];
+    controller.managedObjectContext = self.managedObjectContext;
     [self presentViewController:controller animated:YES completion:nil];
     
 }
