@@ -171,8 +171,7 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     cell.cartItemPrice.text = [numberFormatter stringFromNumber:itemPrice]; //covert to
     cell.cartImageView.image = [UIImage imageNamed:cartItem.productImage];
     
-    NSDecimalNumber *subTotalPrice = [NSDecimalNumber numberWithDouble:cartItem.price * cartItem.quantity];
-    cell.cartSubTotalPrice.text = [numberFormatter stringFromNumber:subTotalPrice];
+    cell.cartSubTotalQty.titleLabel.text = @"";
     
     cell.cartSubTotalQty.titleLabel.text =@"";
 }

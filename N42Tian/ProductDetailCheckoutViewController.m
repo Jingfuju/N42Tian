@@ -48,11 +48,20 @@
     ProductInfo *productInfo = [[ProductInfo alloc]init];
     ProductInfoItem *item = productInfo.items[self.productIndex];
     self.productName.text = item.productName;
-    NSNumber *itemPrice = item.productPrice;
-    self.productPrice.text = [itemPrice stringValue];
     self.productImageView.image = [UIImage imageNamed:item.productImageName];
     
-    self.productQty.text = [self getCartProductQty:item];
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [numberFormatter setCurrencySymbol:@"$"];
+    
+    self.productPrice.text = [numberFormatter stringFromNumber:item.productPrice];
+    
+    NSString *qty = [self getCartProductQty:item];
+    self.productQty.text = qty;
+    NSDecimalNumber * DNqty = [NSDecimalNumber decimalNumberWithString:qty];
+    NSDecimalNumber * subtotal = [DNqty decimalNumberByMultiplyingBy:item.productPrice];
+    
+    self.productSubtotal.text = [numberFormatter stringFromNumber:subtotal];
 }
 
 - (NSString *)getCartProductQty:(ProductInfoItem *)item
@@ -113,6 +122,15 @@
         if (![self.managedObjectContext save:&error]) {
             NSLog(@"Error: %@", error); abort();
         }
+        
+        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+        [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+        [numberFormatter setCurrencySymbol:@"$"];
+        
+        NSDecimalNumber * DNqty = [NSDecimalNumber decimalNumberWithString:self.productQty.text];
+        NSDecimalNumber * subtotal = [DNqty decimalNumberByMultiplyingBy:item.productPrice];
+        
+        self.productSubtotal.text = [numberFormatter stringFromNumber:subtotal];
         return;
     } else {
         CartProductInfo *cartItem = [NSEntityDescription insertNewObjectForEntityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
@@ -125,6 +143,7 @@
             NSLog(@"Error: %@", error);
             abort();
         }
+        self.productSubtotal.text = self.productPrice.text;
     }
     return;
 }
@@ -149,9 +168,18 @@
         if (info.quantity >= 2) {
             info.quantity -= 1;
             self.productQty.text = [NSString stringWithFormat:@"%hd", info.quantity];
+            
+            NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+            [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+            [numberFormatter setCurrencySymbol:@"$"];
+            
+            NSDecimalNumber * DNqty = [NSDecimalNumber decimalNumberWithString:self.productQty.text];
+            NSDecimalNumber * subtotal = [DNqty decimalNumberByMultiplyingBy:item.productPrice];
+            self.productSubtotal.text = [numberFormatter stringFromNumber:subtotal];
         } else if (info.quantity == 1) {
             [self.managedObjectContext deleteObject:info];
             self.productQty.text = @"0";
+            self.productSubtotal.text = self.productQty.text;
         }
         if (![self.managedObjectContext save:&error]) {
             NSLog(@"Error: %@", error); abort();
@@ -163,7 +191,8 @@
             abort();
         }
         self.productQty.text = @"0";
-        return; 
+        self.productSubtotal.text = self.productQty.text;
+        return;
     }
 }
 
@@ -199,6 +228,14 @@
         if (![self.managedObjectContext save:&error]) {
             NSLog(@"Error: %@", error); abort();
         }
+        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+        [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+        [numberFormatter setCurrencySymbol:@"$"];
+        
+        NSDecimalNumber * DNqty = [NSDecimalNumber decimalNumberWithString:self.productQty.text];
+        NSDecimalNumber * subtotal = [DNqty decimalNumberByMultiplyingBy:item.productPrice];
+        
+        self.productSubtotal.text = [numberFormatter stringFromNumber:subtotal];
         return;
     } else {
         CartProductInfo *cartItem = [NSEntityDescription insertNewObjectForEntityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
@@ -210,8 +247,16 @@
             NSLog(@"Error: %@", error);
             abort();
         }
+        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+        [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+        [numberFormatter setCurrencySymbol:@"$"];
+        
+        NSDecimalNumber * DNqty = [NSDecimalNumber decimalNumberWithString:self.productQty.text];
+        NSDecimalNumber * subtotal = [DNqty decimalNumberByMultiplyingBy:item.productPrice];
+        
+        self.productSubtotal.text = [numberFormatter stringFromNumber:subtotal];
+        return;
     }
-    return;
 }
 
 

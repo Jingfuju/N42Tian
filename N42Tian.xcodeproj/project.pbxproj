@@ -414,7 +414,7 @@
 				TargetAttributes = {
 					1F4AFE7A1E27082F0084DB8D = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = D59V2786GD;
+						DevelopmentTeam = W2MFT9HK9F;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -661,7 +661,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = D59V2786GD;
+				DEVELOPMENT_TEAM = W2MFT9HK9F;
 				INFOPLIST_FILE = N42Tian/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -669,7 +669,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/Masonry",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = N42Tian.com.N42Tian;
+				PRODUCT_BUNDLE_IDENTIFIER = N42Tian.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -680,7 +680,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = D59V2786GD;
+				DEVELOPMENT_TEAM = W2MFT9HK9F;
 				INFOPLIST_FILE = N42Tian/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -688,7 +688,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/Masonry",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = N42Tian.com.N42Tian;
+				PRODUCT_BUNDLE_IDENTIFIER = N42Tian.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
