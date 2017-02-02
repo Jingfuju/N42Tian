@@ -28,6 +28,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.scrollView.frame = CGRectMake(0, 0 , kScreenWidth, 250);
     self.scrollView.contentSize = CGSizeMake(self.scrollView.bounds.size.width * 3, self.scrollView.bounds.size.height);
     self.scrollView.pagingEnabled = YES;
     self.scrollView.showsHorizontalScrollIndicator = NO;
@@ -49,7 +50,7 @@
 
 + (instancetype)productDetailTableViewCellWith:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath
 {
-    NSString *identifier = @"";
+    NSString *identifier;
     NSInteger index = 0;
     switch (indexPath.row) {
         case 0:
@@ -67,6 +68,7 @@
         default:
             break;
     }
+    NSLog(@"prodecuct cell indexpath is %ld",indexPath.row);
     ProductDetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ProductDetailTableViewCell" owner:self options:nil] objectAtIndex:index];
@@ -78,13 +80,13 @@
 {
     switch (indexPath.row) {
         case 0:
-            return 200.f;
+            return 250.f;
             break;
         case 1:
             return 80.f;
             break;
         case 2:
-            return 200.f;
+            return 300.f;
             break;
         default:
             break;
@@ -117,7 +119,7 @@
     [self.scrollView addSubview:_imgVRight];
 }
 
-- (void)setInforByCurrentImageIndex:(NSInteger)currentImageIndex
+- (void)setInfoByCurrentImageIndex:(NSInteger)currentImageIndex
 {
     NSString *currentImageNamed = [NSString stringWithFormat:@"%ld.png", (long)currentImageIndex];
     _imgVCenter.image = [UIImage imageNamed:currentImageNamed];
@@ -137,7 +139,7 @@
 {
     _imageCount = 1;
     self.scrollView.contentOffset = CGPointMake(self.scrollView.frame.size.width, 0);
-    [self setInforByCurrentImageIndex:_imageCount];
+    [self setInfoByCurrentImageIndex:_imageCount];
     self.pageControl.currentPage = _imageCount - 1;
 }
 
@@ -154,7 +156,7 @@
     } else if (contentOffset.x < w && _imageCount == 1) {
         _imageCount = kImageViewCount;
     }
-    [self setInforByCurrentImageIndex:_imageCount];
+    [self setInfoByCurrentImageIndex:_imageCount];
 }
 
 #pragma mark - UIScrollView Delegate
@@ -173,7 +175,7 @@
 {
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         _imageCount = sender.currentPage + 1;
-        [self setInforByCurrentImageIndex:_imageCount];
+        [self setInfoByCurrentImageIndex:_imageCount];
         self.scrollView.contentOffset = CGPointMake(self.scrollView.frame.size.width, 0);
     }completion:nil];
 }

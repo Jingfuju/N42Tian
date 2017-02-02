@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,28 +18,22 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cpv-Wv-RQf">
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cpv-Wv-RQf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                         <connections>
                             <outlet property="delegate" destination="-1" id="aPg-V6-l5O"/>
                         </connections>
                     </scrollView>
-                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="cZi-Vj-GAq">
+                    <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="cZi-Vj-GAq">
                         <rect key="frame" x="168" y="154.5" width="39" height="37"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <connections>
                             <action selector="pageChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="06l-Uc-1pd"/>
                         </connections>
                     </pageControl>
                 </subviews>
-                <constraints>
-                    <constraint firstItem="cpv-Wv-RQf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="1ug-ge-pDr"/>
-                    <constraint firstAttribute="trailing" secondItem="cpv-Wv-RQf" secondAttribute="trailing" id="DxF-bU-v0R"/>
-                    <constraint firstItem="cpv-Wv-RQf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="UEV-xk-S5P"/>
-                    <constraint firstItem="cZi-Vj-GAq" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="aU3-GB-Ncg"/>
-                    <constraint firstAttribute="bottom" secondItem="cpv-Wv-RQf" secondAttribute="bottom" id="dL7-y6-9d8"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="cZi-Vj-GAq" secondAttribute="bottom" id="hhK-Ao-mFs"/>
-                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="pageControl" destination="cZi-Vj-GAq" id="VhP-BH-xhy"/>
@@ -123,10 +116,10 @@
             <point key="canvasLocation" x="-22" y="98"/>
         </tableViewCell>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="productDetailTableViewCellThird" id="CEN-zI-f3f" userLabel="ThirdProductDetailTableViewCell" customClass="ProductDetailTableViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
-            <autoresizingMask key="autoresizingMask"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+            <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CEN-zI-f3f" id="V2L-Ee-gt7">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="299"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Product Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DaL-cf-cUe">
@@ -148,7 +141,7 @@
             <connections>
                 <outlet property="productDescription" destination="3pr-I5-6Xe" id="kk8-fi-13p"/>
             </connections>
-            <point key="canvasLocation" x="-23" y="312"/>
+            <point key="canvasLocation" x="-23" y="343"/>
         </tableViewCell>
     </objects>
 </document>

@@ -24,6 +24,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.contentInset = UIEdgeInsetsMake(-36, 0, 0, 0);
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,6 +41,7 @@
 {
     ProductInfo *productInfo = [[ProductInfo alloc]init];
     if (_index == 0) {
+        NSLog(@"index Path is %ld",indexPath.row);
         ProductDetailTableViewCell *cell = [ProductDetailTableViewCell productDetailTableViewCellWith:tableView indexPath:indexPath];
         ProductInfoItem *item = productInfo.items[_productIndex];
         cell.productName.text = item.productName;
@@ -74,6 +77,8 @@
     return 0;
 }
 
+#pragma mark - TableViewDelegate
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     switch (_index) {
@@ -96,5 +101,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
+
 
 @end
