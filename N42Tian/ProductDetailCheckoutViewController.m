@@ -48,13 +48,20 @@
     ProductInfo *productInfo = [[ProductInfo alloc]init];
     ProductInfoItem *item = productInfo.items[self.productIndex];
     self.productName.text = item.productName;
-    NSNumber *itemPrice = item.productPrice;
-    self.productPrice.text = [itemPrice stringValue];
     self.productImageView.image = [UIImage imageNamed:item.productImageName];
+    
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [numberFormatter setCurrencySymbol:@"$"];
+    
+    self.productPrice.text = [numberFormatter stringFromNumber:item.productPrice];
     
     NSString *qty = [self getCartProductQty:item];
     self.productQty.text = qty;
-    self.productSubtotal.text = [NSString  stringWithFormat:@"%.2f", ([qty floatValue] *item.productPrice)];
+    NSDecimalNumber * DNqty = [NSDecimalNumber decimalNumberWithString:qty];
+    NSDecimalNumber * subtotal = [DNqty decimalNumberByMultiplyingBy:item.productPrice];
+    
+    self.productSubtotal.text = [numberFormatter stringFromNumber:subtotal];
 }
 
 - (NSString *)getCartProductQty:(ProductInfoItem *)item
@@ -115,7 +122,15 @@
         if (![self.managedObjectContext save:&error]) {
             NSLog(@"Error: %@", error); abort();
         }
-        self.productSubtotal.text = [NSString stringWithFormat:@"%.2f", (info.quantity *item.productPrice)];
+        
+        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+        [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+        [numberFormatter setCurrencySymbol:@"$"];
+        
+        NSDecimalNumber * DNqty = [NSDecimalNumber decimalNumberWithString:self.productQty.text];
+        NSDecimalNumber * subtotal = [DNqty decimalNumberByMultiplyingBy:item.productPrice];
+        
+        self.productSubtotal.text = [numberFormatter stringFromNumber:subtotal];
         return;
     } else {
         CartProductInfo *cartItem = [NSEntityDescription insertNewObjectForEntityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
@@ -153,7 +168,14 @@
         if (info.quantity >= 2) {
             info.quantity -= 1;
             self.productQty.text = [NSString stringWithFormat:@"%hd", info.quantity];
-            self.productSubtotal.text = [NSString stringWithFormat:@"%.2f", (info.quantity *item.productPrice)];
+            
+            NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+            [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+            [numberFormatter setCurrencySymbol:@"$"];
+            
+            NSDecimalNumber * DNqty = [NSDecimalNumber decimalNumberWithString:self.productQty.text];
+            NSDecimalNumber * subtotal = [DNqty decimalNumberByMultiplyingBy:item.productPrice];
+            self.productSubtotal.text = [numberFormatter stringFromNumber:subtotal];
         } else if (info.quantity == 1) {
             [self.managedObjectContext deleteObject:info];
             self.productQty.text = @"0";
@@ -206,7 +228,14 @@
         if (![self.managedObjectContext save:&error]) {
             NSLog(@"Error: %@", error); abort();
         }
-        self.productSubtotal.text = [NSString stringWithFormat:@"%.2f", (info.quantity *item.productPrice)];
+        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+        [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+        [numberFormatter setCurrencySymbol:@"$"];
+        
+        NSDecimalNumber * DNqty = [NSDecimalNumber decimalNumberWithString:self.productQty.text];
+        NSDecimalNumber * subtotal = [DNqty decimalNumberByMultiplyingBy:item.productPrice];
+        
+        self.productSubtotal.text = [numberFormatter stringFromNumber:subtotal];
         return;
     } else {
         CartProductInfo *cartItem = [NSEntityDescription insertNewObjectForEntityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
@@ -218,7 +247,14 @@
             NSLog(@"Error: %@", error);
             abort();
         }
-        self.productSubtotal.text = [NSString stringWithFormat:@"%.2f", (cartItem.quantity *item.productPrice)];
+        NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+        [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+        [numberFormatter setCurrencySymbol:@"$"];
+        
+        NSDecimalNumber * DNqty = [NSDecimalNumber decimalNumberWithString:self.productQty.text];
+        NSDecimalNumber * subtotal = [DNqty decimalNumberByMultiplyingBy:item.productPrice];
+        
+        self.productSubtotal.text = [numberFormatter stringFromNumber:subtotal];
         return;
     }
 }
