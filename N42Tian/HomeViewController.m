@@ -8,12 +8,15 @@
 
 #import "HomeViewController.h"
 #import "ProductTableViewCell.h"
-#import "productInfo.h"
+#import "ProductInfo.h"
+#import "ProductInfoItem.h"
 #import "ProductDetailViewController.h"
 #import "CartProductInfo+CoreDataClass.h"
 
 
 static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell";
+
+
 
 @interface HomeViewController () 
 
@@ -22,9 +25,7 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
 @end
 
 @implementation HomeViewController
-{
-    NSMutableArray *_productInfos;
-}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,33 +34,7 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
     
     UINib *cellNib = [UINib nibWithNibName:ProductTableViewCellIdentifier bundle:nil];
     [self.productTableView registerNib:cellNib forCellReuseIdentifier:ProductTableViewCellIdentifier];
-    
-    _productInfos = [[NSMutableArray alloc] initWithCapacity:10];
-    ProductInfo *item;
-    
-    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-    [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-    [numberFormatter setCurrencySymbol:@"$"];
-
-
-    item = [[ProductInfo alloc] init];
-    item.productName = @"Millet1100g";
-    item.productPrice = [NSDecimalNumber decimalNumberWithString:@"9.00"];
-    item.productImageName = @"1";
-    [_productInfos addObject:item];
-    
-    item = [[ProductInfo alloc] init];
-    item.productName = @"Millet2200g";
-    item.productPrice = [NSDecimalNumber decimalNumberWithString:@"13.00"];
-    item.productImageName = @"2";
-    [_productInfos addObject:item];
-    
-    item = [[ProductInfo alloc] init];
-    item.productName = @"Millet3300g";
-    item.productPrice = [NSDecimalNumber decimalNumberWithString:@"21.00"];
-    item.productImageName = @"3";
-    [_productInfos addObject:item];
-    
+  
     UIImage* cartTabImage = [UIImage imageNamed:@"Cart"];
     [[self.tabBarController.tabBar.items objectAtIndex:2] setImage:cartTabImage];
 }
@@ -74,17 +49,18 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    ProductInfo *productInfo = [[ProductInfo alloc]init];
+    return [productInfo.items count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    ProductInfo *productInfo = [[ProductInfo alloc]init];
     ProductTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ProductTableViewCellIdentifier];
-    ProductInfo *item = _productInfos[indexPath.row];
+    ProductInfoItem *item = productInfo.items[indexPath.row];
     cell.delegate = self;   //ProductTableViewCell Delegate Definition
     
     cell.productName.text = item.productName;
-
     
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
     [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
@@ -107,12 +83,13 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
 
 #pragma mark - ProductTableViewCell Delegate
 -(void)addToCart:(ProductTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    ProductInfo *item = _productInfos[indexPath.row];
+    ProductInfo *productInfo = [[ProductInfo alloc]init];
+    ProductInfoItem *item = productInfo.items[indexPath.row];
     [self editCartForProduct:item];
     return;
 }
 
--(void)editCartForProduct:(ProductInfo *)item {
+-(void)editCartForProduct:(ProductInfoItem *)item {
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entity];
@@ -149,7 +126,7 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
 
 #pragma mark - UINavigation bar delegate 
 -(UIBarPosition)positionForBar:(id<UIBarPositioning>)bar {
-    NSLog(@"********  Personal Debug Info Below  ***********");
+
     return UIBarPositionTopAttached;
 }
 

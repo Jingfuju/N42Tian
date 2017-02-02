@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class ProductInfo;
+
 @interface ProductDetailCheckoutViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIImageView *productImageView;

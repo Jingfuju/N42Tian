@@ -13,7 +13,6 @@
 		1805D8BE1E28099200A0924F /* ProductInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8BD1E28099200A0924F /* ProductInfo.m */; };
 		1805D8CE1E299A2A00A0924F /* CartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8CC1E299A2A00A0924F /* CartTableViewCell.m */; };
 		1805D8CF1E299A2A00A0924F /* CartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1805D8CD1E299A2A00A0924F /* CartTableViewCell.xib */; };
-		1805D8D21E29A27000A0924F /* cartInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8D11E29A27000A0924F /* cartInfo.m */; };
 		18413CA71E37325A00FDECBF /* BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18413CA61E37325A00FDECBF /* BackgroundView.m */; };
 		1879B5AB1E32DEB2009AD685 /* ProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1879B5A81E32DEB2009AD685 /* ProductDetailViewController.xib */; };
 		1879B5AC1E32DEB2009AD685 /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1879B5A91E32DEB2009AD685 /* ProductDetailViewController.m */; };
@@ -46,6 +45,7 @@
 		1F6CE5EA1E3044B20070B559 /* Sound.caf in Resources */ = {isa = PBXBuildFile; fileRef = 1F6CE5E91E3044B20070B559 /* Sound.caf */; };
 		1F79BBAA1E4172ED0068F2A5 /* libMasonry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F79BBA91E4172ED0068F2A5 /* libMasonry.a */; };
 		1F79BBB11E4187CD0068F2A5 /* UIColor+hexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F79BBB01E4187CD0068F2A5 /* UIColor+hexColor.m */; };
+		1F79BBB51E4276FD0068F2A5 /* ProductInfoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F79BBB41E4276FD0068F2A5 /* ProductInfoItem.m */; };
 		1FCEE58D1E35E18E00FC4623 /* CartProductInfo+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCEE58A1E35E18E00FC4623 /* CartProductInfo+CoreDataClass.m */; };
 		1FCEE58E1E35E18E00FC4623 /* CartProductInfo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FCEE58C1E35E18E00FC4623 /* CartProductInfo+CoreDataProperties.m */; };
 		1FFEF1921E369BED00CCCF97 /* 180.png in Resources */ = {isa = PBXBuildFile; fileRef = 1FFEF1911E369BED00CCCF97 /* 180.png */; };
@@ -63,8 +63,6 @@
 		1805D8CB1E299A2A00A0924F /* CartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartTableViewCell.h; sourceTree = "<group>"; };
 		1805D8CC1E299A2A00A0924F /* CartTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartTableViewCell.m; sourceTree = "<group>"; };
 		1805D8CD1E299A2A00A0924F /* CartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartTableViewCell.xib; sourceTree = "<group>"; };
-		1805D8D01E29A27000A0924F /* cartInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cartInfo.h; sourceTree = "<group>"; };
-		1805D8D11E29A27000A0924F /* cartInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cartInfo.m; sourceTree = "<group>"; };
 		18413CA51E37325A00FDECBF /* BackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundView.h; sourceTree = "<group>"; };
 		18413CA61E37325A00FDECBF /* BackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundView.m; sourceTree = "<group>"; };
 		1879B5A81E32DEB2009AD685 /* ProductDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailViewController.xib; sourceTree = "<group>"; };
@@ -116,6 +114,8 @@
 		1F79BBA91E4172ED0068F2A5 /* libMasonry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMasonry.a; path = "Pods/../build/Debug-iphoneos/Masonry/libMasonry.a"; sourceTree = "<group>"; };
 		1F79BBAF1E4187CD0068F2A5 /* UIColor+hexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+hexColor.h"; sourceTree = "<group>"; };
 		1F79BBB01E4187CD0068F2A5 /* UIColor+hexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+hexColor.m"; sourceTree = "<group>"; };
+		1F79BBB31E4276FD0068F2A5 /* ProductInfoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductInfoItem.h; sourceTree = "<group>"; };
+		1F79BBB41E4276FD0068F2A5 /* ProductInfoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductInfoItem.m; sourceTree = "<group>"; };
 		1FCEE5891E35E18E00FC4623 /* CartProductInfo+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CartProductInfo+CoreDataClass.h"; path = "../CartProductInfo+CoreDataClass.h"; sourceTree = "<group>"; };
 		1FCEE58A1E35E18E00FC4623 /* CartProductInfo+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CartProductInfo+CoreDataClass.m"; path = "../CartProductInfo+CoreDataClass.m"; sourceTree = "<group>"; };
 		1FCEE58B1E35E18E00FC4623 /* CartProductInfo+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CartProductInfo+CoreDataProperties.h"; path = "../CartProductInfo+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -203,16 +203,16 @@
 			children = (
 				1F79BBAB1E4178F70068F2A5 /* components */,
 				1F5E156E1E3B192700248CB0 /* macros */,
-				1F4AFE811E27082F0084DB8D /* AppDelegate.h */,
-				1F4AFE821E27082F0084DB8D /* AppDelegate.m */,
-				1F4AFE8A1E27082F0084DB8D /* Main.storyboard */,
 				1F4AFE981E2709030084DB8D /* Controller */,
 				1F4AFE991E27093F0084DB8D /* Views */,
 				1F4AFE9A1E2709410084DB8D /* Models */,
-				1F4AFE8F1E27082F0084DB8D /* LaunchScreen.storyboard */,
-				1F4AFE921E27082F0084DB8D /* Info.plist */,
 				1F4AFE7E1E27082F0084DB8D /* Supporting Files */,
 				1F6CE5BC1E2C24490070B559 /* DataModel.xcdatamodeld */,
+				1F4AFE811E27082F0084DB8D /* AppDelegate.h */,
+				1F4AFE821E27082F0084DB8D /* AppDelegate.m */,
+				1F4AFE8A1E27082F0084DB8D /* Main.storyboard */,
+				1F4AFE8F1E27082F0084DB8D /* LaunchScreen.storyboard */,
+				1F4AFE921E27082F0084DB8D /* Info.plist */,
 			);
 			path = N42Tian;
 			sourceTree = "<group>";
@@ -257,8 +257,8 @@
 				1FCEE58C1E35E18E00FC4623 /* CartProductInfo+CoreDataProperties.m */,
 				1805D8BC1E28099200A0924F /* ProductInfo.h */,
 				1805D8BD1E28099200A0924F /* ProductInfo.m */,
-				1805D8D01E29A27000A0924F /* cartInfo.h */,
-				1805D8D11E29A27000A0924F /* cartInfo.m */,
+				1F79BBB31E4276FD0068F2A5 /* ProductInfoItem.h */,
+				1F79BBB41E4276FD0068F2A5 /* ProductInfoItem.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -513,7 +513,6 @@
 				1F5E15721E3B23CE00248CB0 /* TabMyHeadCell.m in Sources */,
 				1F4AFE831E27082F0084DB8D /* AppDelegate.m in Sources */,
 				1F5E157A1E3C20DD00248CB0 /* TabMyOrderItemCell.m in Sources */,
-				1805D8D21E29A27000A0924F /* cartInfo.m in Sources */,
 				1805D8BE1E28099200A0924F /* ProductInfo.m in Sources */,
 				1879B5B41E32DEC4009AD685 /* CategoryLabel.m in Sources */,
 				18BDDC791E33F69500CC53E5 /* ProductRelatedTableViewCell.m in Sources */,
@@ -527,6 +526,7 @@
 				1F5E15771E3C20C500248CB0 /* TabMyCell.m in Sources */,
 				18BDDC7E1E33F6B000CC53E5 /* ProductReviewTableViewCell.m in Sources */,
 				18BDDC741E3352B400CC53E5 /* ProductDetailTableViewCell.m in Sources */,
+				1F79BBB51E4276FD0068F2A5 /* ProductInfoItem.m in Sources */,
 				1FCEE58D1E35E18E00FC4623 /* CartProductInfo+CoreDataClass.m in Sources */,
 				1F79BBB11E4187CD0068F2A5 /* UIColor+hexColor.m in Sources */,
 				1F4AFE801E27082F0084DB8D /* main.m in Sources */,

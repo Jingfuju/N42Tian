@@ -181,6 +181,7 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     ProductDetailViewController *controller = [[ProductDetailViewController alloc] initWithNibName:@"ProductDetailViewController" bundle:nil];
+    controller.managedObjectContext = self.managedObjectContext;
     [self presentViewController:controller animated:YES completion:nil];
     
 }

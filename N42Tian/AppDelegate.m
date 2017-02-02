@@ -28,6 +28,7 @@
     
     CartViewController *cartViewController = (CartViewController *)tabBarController.viewControllers[1];
     cartViewController.managedObjectContext = self.managedObjectContext;
+    NSLog(@"********  Personal Debug Info Below  ***********");
 
     return YES;
 }

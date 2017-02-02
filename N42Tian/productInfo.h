@@ -10,8 +10,8 @@
 
 @interface ProductInfo : NSObject
 
-@property (nonatomic, copy) NSString *productName;
-@property (nonatomic, copy) NSNumber *productPrice;
-@property (nonatomic, copy) NSString *productImageName;
+@property (nonatomic, strong) NSMutableArray *items;
+
+
 
 @end

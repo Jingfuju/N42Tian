@@ -10,7 +10,8 @@
 #import "ProductDetailTableViewCell.h"
 #import "ProductRelatedTableViewCell.h"
 #import "ProductReviewTableViewCell.h"
-#import "productInfo.h"
+#import "ProductInfo.h"
+#import "ProductInfoItem.h"
 
 @interface ProductInfoViewController ()
 
@@ -19,13 +20,10 @@
 @end
 
 @implementation ProductInfoViewController
-{
-    NSMutableArray *_productInfos;
-}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self addProductInfo];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,43 +31,23 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)addProductInfo
-{
-    _productInfos = [[NSMutableArray alloc] initWithCapacity:10];
-    ProductInfo *item;
-    item = [[ProductInfo alloc] init];
-    item.productName = @"Millet1100g";
-    item.productPrice = [NSDecimalNumber decimalNumberWithString:@"55.0"];
-    item.productImageName = @"1";
-    [_productInfos addObject:item];
-    
-    item = [[ProductInfo alloc] init];
-    item.productName = @"Millet2200g";
-    item.productPrice = [NSDecimalNumber decimalNumberWithString:@"100.0"];
-    item.productImageName = @"2";
-    [_productInfos addObject:item];
-    
-    item = [[ProductInfo alloc] init];
-    item.productName = @"Millet3300g";
-    item.productPrice = [NSDecimalNumber decimalNumberWithString:@"150.0"];
-    item.productImageName = @"3";
-    [_productInfos addObject:item];
-}
+
 
 #pragma mark - UITableView Datasource
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    ProductInfo *productInfo = [[ProductInfo alloc]init];
     if (_index == 0) {
         ProductDetailTableViewCell *cell = [ProductDetailTableViewCell productDetailTableViewCellWith:tableView indexPath:indexPath];
-        ProductInfo *item = _productInfos[_productIndex];
+        ProductInfoItem *item = productInfo.items[_productIndex];
         cell.productName.text = item.productName;
         NSDecimalNumber *itemPrice = item.productPrice;
         cell.productPrice.text = [itemPrice stringValue];
         return cell;
     } else if (_index == 1) {
         ProductRelatedTableViewCell *cell= [ProductRelatedTableViewCell productRelatedTableViewCellWith:tableView indexPath:indexPath];
-        ProductInfo *item = _productInfos[_productIndex];
+        ProductInfoItem *item = productInfo.items[_productIndex];
         cell.productRelatedImage.image = [UIImage imageNamed:item.productImageName];
         return cell;
     } else {

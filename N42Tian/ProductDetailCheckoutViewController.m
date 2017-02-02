@@ -10,7 +10,8 @@
 #import "ProductDetailViewController.h"
 #import "BackgroundView.h"
 #import "HomeViewController.h"
-#import "productInfo.h"
+#import "ProductInfo.h"
+#import "ProductInfoItem.h"
 #import "CartProductInfo+CoreDataClass.h"
 
 @interface ProductDetailCheckoutViewController () <UIGestureRecognizerDelegate, UITextFieldDelegate>
@@ -20,7 +21,6 @@
 @implementation ProductDetailCheckoutViewController
 {
     UIView *_backgroundView;
-    NSMutableArray *_productInfos;
 }
 
 - (void)viewDidLoad {
@@ -33,8 +33,7 @@
     gestureRecognizer.cancelsTouchesInView = NO;
     gestureRecognizer.delegate = self;
     [self.view addGestureRecognizer:gestureRecognizer];
-    
-    [self loadProductInfo];
+
     [self loadDataWithIndex];
 }
 
@@ -43,32 +42,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)loadProductInfo
-{
-    _productInfos = [[NSMutableArray alloc] initWithCapacity:10];
-    ProductInfo *item;
-    item = [[ProductInfo alloc] init];
-    item.productName = @"Millet1100g";
-    item.productPrice = [NSDecimalNumber decimalNumberWithString:@"55.0" ];
-    item.productImageName = @"1";
-    [_productInfos addObject:item];
-    
-    item = [[ProductInfo alloc] init];
-    item.productName = @"Millet2200g";
-    item.productPrice = [NSDecimalNumber decimalNumberWithString:@"100.0" ];
-    item.productImageName = @"2";
-    [_productInfos addObject:item];
-    
-    item = [[ProductInfo alloc] init];
-    item.productName = @"Millet3300g";
-    item.productPrice = [NSDecimalNumber decimalNumberWithString:@"155.0" ];
-    item.productImageName = @"3";
-    [_productInfos addObject:item];
-}
 
 - (void)loadDataWithIndex
 {
-    ProductInfo *item = _productInfos[self.productIndex];
+    ProductInfo *productInfo = [[ProductInfo alloc]init];
+    ProductInfoItem *item = productInfo.items[self.productIndex];
     self.productName.text = item.productName;
     NSNumber *itemPrice = item.productPrice;
     self.productPrice.text = [itemPrice stringValue];
@@ -77,7 +55,7 @@
     self.productQty.text = [self getCartProductQty:item];
 }
 
-- (NSString *)getCartProductQty:(ProductInfo *)item
+- (NSString *)getCartProductQty:(ProductInfoItem *)item
 {
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -114,10 +92,11 @@
 }
 
 - (IBAction)addQty:(id)sender {
-    [self addOneMore:_productInfos[self.productIndex]];
+     ProductInfo *productInfo = [[ProductInfo alloc]init];
+    [self addOneMore:productInfo.items[self.productIndex]];
 }
 
-- (void)addOneMore:(ProductInfo *)item
+- (void)addOneMore:(ProductInfoItem *)item
 {
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -151,10 +130,11 @@
 }
 
 - (IBAction)minusQty:(id)sender {
-    [self removeOneMore:_productInfos[self.productIndex]];
+    ProductInfo *productInfo = [[ProductInfo alloc]init];
+    [self removeOneMore:productInfo.items[self.productIndex]];
 }
 
-- (void)removeOneMore:(ProductInfo *)item
+- (void)removeOneMore:(ProductInfoItem *)item
 {
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
@@ -197,11 +177,12 @@
 }
 
 - (IBAction)setQty:(id)sender {
-    [self setQuantity:_productInfos[self.productIndex]];
+    ProductInfo *productInfo = [[ProductInfo alloc]init];
+    [self setQuantity:productInfo.items[self.productIndex]];
     
 }
 
-- (void)setQuantity:(ProductInfo *)item
+- (void)setQuantity:(ProductInfoItem *)item
 {
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
