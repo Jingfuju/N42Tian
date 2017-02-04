@@ -22,7 +22,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = [self rootController];
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+    
+    
     HomeViewController *homeViewController = (HomeViewController *)tabBarController.viewControllers[0];
     homeViewController.managedObjectContext = self.managedObjectContext;
     
@@ -115,6 +123,38 @@
 }
 
 
+#pragma mark - methods
 
+- (UITabBarController *)rootController {
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    
+    //home tab
+    HomeViewController *homeController = [[HomeViewController alloc] init];
+    homeController.tabBarItem = [self createTabBarItem:@"Home" imageNamed:@"rsz_home" selectedImageNamed:@"rsz_home"];
+    UINavigationController *homeNavController = [[UINavigationController alloc] initWithRootViewController:homeController];
+//
+    //topic tab
+    CartViewController *cartController = [[CartViewController alloc] init];
+    cartController.tabBarItem = [self createTabBarItem:@"cart" imageNamed:@"rsz_cart" selectedImageNamed:@"rsz_cart"];
+    UINavigationController *cartNavController = [[UINavigationController alloc] initWithRootViewController:cartController];
+//
+    //cart tab
+    InfoViewController *infoController = [[InfoViewController alloc] init];
+    infoController.tabBarItem = [self createTabBarItem:@"Me" imageNamed:@"rsz_account" selectedImageNamed:@"rsz_account"];
+    UINavigationController *infoNavController = [[UINavigationController alloc] initWithRootViewController:infoController];
+    
+    tabBarController.viewControllers = @[homeController, cartController, infoController];
+    return tabBarController;
+}
+
+
+- (UITabBarItem *)createTabBarItem:(NSString *)title imageNamed:(NSString *)imageNamed selectedImageNamed:selectedImageNamed {
+    UIImage *image = [[UIImage imageNamed:imageNamed] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UIImage *selectedImage = [[UIImage imageNamed:selectedImageNamed] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UITabBarItem *tabBarItem = [[UITabBarItem alloc] initWithTitle:title
+                                                             image:image
+                                                     selectedImage:selectedImage];
+    return tabBarItem;
+}
 
 @end

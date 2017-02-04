@@ -31,7 +31,7 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     self.productTableView.rowHeight = 200;
-    
+    self.title = @"Home";
     UINib *cellNib = [UINib nibWithNibName:ProductTableViewCellIdentifier bundle:nil];
     [self.productTableView registerNib:cellNib forCellReuseIdentifier:ProductTableViewCellIdentifier];
   
