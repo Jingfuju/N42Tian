@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "N42Tian/AppDelegate.m"
-            timestampString = "507840242.608701"
+            timestampString = "507948214.121219"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "-applicationWillResignActive:"
             landmarkType = "7">
          </BreakpointContent>

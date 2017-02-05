@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+
+#import "TabBarController.h"
 #import "HomeViewController.h"
 #import "InfoViewController.h"
 #import "CartViewController.h"

@@ -29,19 +29,19 @@ typedef enum {
     UITableView *_tableView;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    NSLog(@"Initialize the first Tab");
-    
-    if (self) {
-        //set the title for the tab
-        self.title = @"My Info";
-        //set the image icon for the tab
-        self.tabBarItem.image = [UIImage imageNamed:@"rsz_account.png"];
-    }
-    return self;
-}
+//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+//{
+//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+//    NSLog(@"Initialize the first Tab");
+//    
+//    if (self) {
+//        //set the title for the tab
+//        self.title = @"My Info";
+//        //set the image icon for the tab
+//        self.tabBarItem.image = [UIImage imageNamed:@"rsz_account.png"];
+//    }
+//    return self;
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
