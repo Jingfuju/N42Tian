@@ -14,6 +14,7 @@
 		1805D8CE1E299A2A00A0924F /* CartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805D8CC1E299A2A00A0924F /* CartTableViewCell.m */; };
 		1805D8CF1E299A2A00A0924F /* CartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1805D8CD1E299A2A00A0924F /* CartTableViewCell.xib */; };
 		18413CA71E37325A00FDECBF /* BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18413CA61E37325A00FDECBF /* BackgroundView.m */; };
+		187730581E43FC44000543DA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187730571E43FC44000543DA /* LoginViewController.m */; };
 		1879B5AB1E32DEB2009AD685 /* ProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1879B5A81E32DEB2009AD685 /* ProductDetailViewController.xib */; };
 		1879B5AC1E32DEB2009AD685 /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1879B5A91E32DEB2009AD685 /* ProductDetailViewController.m */; };
 		1879B5B21E32DEC4009AD685 /* ProductInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1879B5AE1E32DEC4009AD685 /* ProductInfoViewController.m */; };
@@ -67,6 +68,8 @@
 		1805D8CD1E299A2A00A0924F /* CartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartTableViewCell.xib; sourceTree = "<group>"; };
 		18413CA51E37325A00FDECBF /* BackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundView.h; sourceTree = "<group>"; };
 		18413CA61E37325A00FDECBF /* BackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundView.m; sourceTree = "<group>"; };
+		187730561E43FC44000543DA /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		187730571E43FC44000543DA /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		1879B5A81E32DEB2009AD685 /* ProductDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailViewController.xib; sourceTree = "<group>"; };
 		1879B5A91E32DEB2009AD685 /* ProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailViewController.m; sourceTree = "<group>"; };
 		1879B5AA1E32DEB2009AD685 /* ProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailViewController.h; sourceTree = "<group>"; };
@@ -292,6 +295,8 @@
 			children = (
 				1805D8B11E27110C00A0924F /* InfoViewController.h */,
 				1805D8B21E27110C00A0924F /* InfoViewController.m */,
+				187730561E43FC44000543DA /* LoginViewController.h */,
+				187730571E43FC44000543DA /* LoginViewController.m */,
 			);
 			name = InfoViewController;
 			sourceTree = "<group>";
@@ -519,6 +524,7 @@
 				1F79BBC31E42E56B0068F2A5 /* DrawView.m in Sources */,
 				1879B5B21E32DEC4009AD685 /* ProductInfoViewController.m in Sources */,
 				1F6CE5E11E2E08690070B559 /* QuantityPickerViewController.m in Sources */,
+				187730581E43FC44000543DA /* LoginViewController.m in Sources */,
 				18BDDC831E35DACE00CC53E5 /* ProductDetailCheckoutViewController.m in Sources */,
 				1F5E15721E3B23CE00248CB0 /* TabMyHeadCell.m in Sources */,
 				1F4AFE831E27082F0084DB8D /* AppDelegate.m in Sources */,

@@ -12,6 +12,7 @@
 #import "QuantityPickerViewController.h"
 #import "ProductDetailViewController.h"
 #import "HomeViewController.h"
+#import "LoginViewController.h"
 
 static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
 
@@ -25,7 +26,7 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
 @implementation CartViewController {
     NSFetchedResultsController *_fetchedResultsController;
     NSInteger _numberOfProducts;
-    
+
 }
 
 -(NSFetchedResultsController *) fetchedResultsController {
@@ -84,7 +85,14 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     [self.tabBarController setSelectedIndex:0];
 }
 
-
+- (IBAction)checkout:(id)sender
+{
+    BOOL isLogin = YES;   // temporary determine the login states
+    if (isLogin) {
+        LoginViewController *controller = [[LoginViewController alloc] init];
+        [self presentViewController:controller animated:YES completion:nil];
+    }
+}
 
 -(void)dealloc {
     NSLog(@"CartViewController is deallocated");

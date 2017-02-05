@@ -27,5 +27,7 @@
 -(NSFetchedResultsController *) fetchedResultsController;
 -(IBAction)popHomeView:(id)sender;
 
+- (IBAction)checkout:(id)sender;
+
 @end
 
