@@ -7,10 +7,13 @@
 //
 
 #import "TabMyHeadCell.h"
+#import "View+MASAdditions.h"
 
 
 
-@implementation TabMyHeadCell
+@implementation TabMyHeadCell {
+      UIImageView *_vImage;
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -25,7 +28,7 @@
 
 
 +(CGFloat)height {
-    return 120;
+    return 140;
 }
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -44,7 +47,18 @@
     //Load Head BackGround Image
     [self setBackgroundView:imageView];
     
-    //
+    CGFloat vImageWidth = 60;
+    CGFloat vImageHeight = 60;
+    _vImage = [UIImageView new];
+    _vImage.image = [UIImage imageNamed:@"head"];
+    [self addSubview:_vImage];
+    [_vImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).with.offset(20);
+        make.centerY.equalTo(self);
+        make.width.mas_equalTo(vImageWidth);
+        make.height.mas_equalTo(vImageHeight);
+    }];
+
     
     
     return self;

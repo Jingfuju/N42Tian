@@ -22,7 +22,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    TabBarController *tabBarController = [[TabBarController alloc]init];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = tabBarController;
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+    
+    
     HomeViewController *homeViewController = (HomeViewController *)tabBarController.viewControllers[0];
     homeViewController.managedObjectContext = self.managedObjectContext;
     
@@ -90,7 +97,7 @@
 {
     if (_persistentStoreCoordinator == nil) {
         NSURL *storeURL = [NSURL fileURLWithPath:[self dataStorePath]];
-//        NSLog(@"The StoreURL is %@", storeURL);
+        NSLog(@"The StoreURL is %@", storeURL);
         _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
         
         NSError *error;
@@ -113,7 +120,6 @@
     }
     return _managedObjectContext;
 }
-
 
 
 
