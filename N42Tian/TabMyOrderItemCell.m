@@ -33,6 +33,7 @@
     }
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
+    self.frame = CGRectMake(0, 0, kScreenWidth, 44);  //Fixed icon in TabMyInfo is not distributed equally
     CGFloat gridWidth = self.frame.size.width / 3;
     UIButton *grid1 = [UIButton new];
     UIButton *grid2 = [UIButton new];

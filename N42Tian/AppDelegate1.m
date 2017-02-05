@@ -10,7 +10,6 @@
 #import "HomeViewController.h"
 #import "CartViewController.h"
 
-
 @interface AppDelegate ()
 
 @property (nonatomic, strong)NSManagedObjectContext *managedObjectContext;
@@ -23,36 +22,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    UINavigationController *navController;
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    HomeViewController *homeViewController = (HomeViewController *)tabBarController.viewControllers[0];
+    homeViewController.managedObjectContext = self.managedObjectContext;
     
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"IsFirstLaunch"])
-    {
-        NSLog(@"Already Run");
-        TabBarController *tabBarController = [[TabBarController alloc]init];
-        navController = [[UINavigationController alloc] initWithRootViewController:tabBarController];
+    CartViewController *cartViewController = (CartViewController *)tabBarController.viewControllers[1];
+    cartViewController.managedObjectContext = self.managedObjectContext;
+    NSLog(@"********  Personal Debug Info Below  ***********");
+    
 
-        HomeViewController *homeViewController = (HomeViewController *)tabBarController.viewControllers[0];
-        homeViewController.managedObjectContext = self.managedObjectContext;
-        
-        CartViewController *cartViewController = (CartViewController *)tabBarController.viewControllers[1];
-        cartViewController.managedObjectContext = self.managedObjectContext;
-        NSLog(@"********  Personal Debug Info Below  ***********");
-        
-    }
-    else
-    {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"IsFirstLaunch"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        
-        self.firstLauScreen = [[FirstTimeLaunchScreen alloc] initWithNibName:@"FirstTimeLaunchScreen" bundle:nil];
-        self.firstLauScreen.managedObjectContext = self.managedObjectContext;
-        navController=[[UINavigationController alloc]initWithRootViewController:self.firstLauScreen];
-    }
-
-    self.window.rootViewController=navController;
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
     return YES;
 }
 
@@ -112,7 +90,7 @@
 {
     if (_persistentStoreCoordinator == nil) {
         NSURL *storeURL = [NSURL fileURLWithPath:[self dataStorePath]];
-        NSLog(@"The StoreURL is %@", storeURL);
+//        NSLog(@"The StoreURL is %@", storeURL);
         _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
         
         NSError *error;
@@ -135,6 +113,7 @@
     }
     return _managedObjectContext;
 }
+
 
 
 

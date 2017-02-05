@@ -89,8 +89,8 @@ typedef enum {
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *identifier;
-    NSInteger *section = indexPath.section;
-    NSInteger *row = indexPath.row;
+    long section = indexPath.section;
+    long row = indexPath.row;
     
     //sectionHead
     if (section == sectionHead) {
@@ -179,6 +179,10 @@ typedef enum {
     if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
         [cell setLayoutMargins:UIEdgeInsetsZero];
     }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end
