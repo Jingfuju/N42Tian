@@ -13,8 +13,6 @@
     SystemSoundID _soundID;
 }
 
-
-
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self loadSoundEffect];
@@ -46,7 +44,7 @@
     
     OSStatus error = AudioServicesCreateSystemSoundID((__bridge CFURLRef)fileURL, &_soundID);
     if (error != kAudioServicesNoError) {
-        NSLog(@"Error code %ld loading sound at path: %@", error, path);
+        NSLog(@"Error code %d loading sound at path: %@", error, path);
               return;
     }
 }

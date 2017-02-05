@@ -31,18 +31,13 @@
     if (self) {
         homeController = [[HomeViewController alloc] init];
         homeController.tabBarItem = [self createTabBarItem:@"Home" imageNamed:@"rsz_home" selectedImageNamed:@"rsz_home"];
-        UINavigationController *homeNavController = [[UINavigationController alloc] initWithRootViewController:homeController];
-        //
-        //topic tab
+
         cartController = [[CartViewController alloc] init];
         cartController.tabBarItem = [self createTabBarItem:@"cart" imageNamed:@"rsz_cart" selectedImageNamed:@"rsz_cart"];
-        UINavigationController *cartNavController = [[UINavigationController alloc] initWithRootViewController:cartController];
-        //
-        //cart tab
+
         infoController = [[InfoViewController alloc] init];
         infoController.tabBarItem = [self createTabBarItem:@"Me" imageNamed:@"rsz_account" selectedImageNamed:@"rsz_account"];
-        UINavigationController *infoNavController = [[UINavigationController alloc] initWithRootViewController:infoController];
-        
+
         self.delegate = self;
         self.viewControllers = @[homeController, cartController, infoController];
     }

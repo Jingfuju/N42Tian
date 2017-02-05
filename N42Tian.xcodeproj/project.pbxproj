@@ -238,13 +238,9 @@
 		1F4AFE981E2709030084DB8D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				1FF0027B1E469FF70075BB62 /* TabBarController.h */,
-				1FF0027C1E469FF70075BB62 /* TabBarController.m */,
+				1FF0027F1E46E67B0075BB62 /* MainTabController */,
 				1805D8C21E2818E000A0924F /* ProductDetailViewController */,
 				1F6CE5DD1E2E081A0070B559 /* QuantityPickerViewController */,
-				1F4AFE9B1E2709620084DB8D /* HomeViewController */,
-				1F4AFE9C1E2709930084DB8D /* CartViewController */,
-				1F4AFE9D1E2709D40084DB8D /* InfoViewController */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -252,10 +248,8 @@
 		1F4AFE991E27093F0084DB8D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1FF002801E46E6A00075BB62 /* MainTabViews */,
 				18BDDC631E334EE900CC53E5 /* ProductDetailViewController */,
-				1F4AFEA11E271BF70084DB8D /* HomeViewController */,
-				1F4AFE9F1E271BC90084DB8D /* CartViewController */,
-				1F4AFE9E1E271B970084DB8D /* InfoViewController */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -377,6 +371,36 @@
 			);
 			name = components;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		1FF0027E1E46E6670075BB62 /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				1FF0027B1E469FF70075BB62 /* TabBarController.h */,
+				1FF0027C1E469FF70075BB62 /* TabBarController.m */,
+			);
+			name = TabBarController;
+			sourceTree = "<group>";
+		};
+		1FF0027F1E46E67B0075BB62 /* MainTabController */ = {
+			isa = PBXGroup;
+			children = (
+				1FF0027E1E46E6670075BB62 /* TabBarController */,
+				1F4AFE9B1E2709620084DB8D /* HomeViewController */,
+				1F4AFE9C1E2709930084DB8D /* CartViewController */,
+				1F4AFE9D1E2709D40084DB8D /* InfoViewController */,
+			);
+			name = MainTabController;
+			sourceTree = "<group>";
+		};
+		1FF002801E46E6A00075BB62 /* MainTabViews */ = {
+			isa = PBXGroup;
+			children = (
+				1F4AFEA11E271BF70084DB8D /* HomeViewController */,
+				1F4AFE9F1E271BC90084DB8D /* CartViewController */,
+				1F4AFE9E1E271B970084DB8D /* InfoViewController */,
+			);
+			name = MainTabViews;
 			sourceTree = "<group>";
 		};
 		5C2CC74D244D2B9C8237A8FB /* Pods */ = {

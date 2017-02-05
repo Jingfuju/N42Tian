@@ -29,20 +29,6 @@ typedef enum {
     UITableView *_tableView;
 }
 
-//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-//{
-//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-//    NSLog(@"Initialize the first Tab");
-//    
-//    if (self) {
-//        //set the title for the tab
-//        self.title = @"My Info";
-//        //set the image icon for the tab
-//        self.tabBarItem.image = [UIImage imageNamed:@"rsz_account.png"];
-//    }
-//    return self;
-//}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -103,8 +89,8 @@ typedef enum {
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *identifier;
-    NSInteger *section = indexPath.section;
-    NSInteger *row = indexPath.row;
+    long section = indexPath.section;
+    long row = indexPath.row;
     
     //sectionHead
     if (section == sectionHead) {
@@ -193,6 +179,10 @@ typedef enum {
     if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
         [cell setLayoutMargins:UIEdgeInsetsZero];
     }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end
