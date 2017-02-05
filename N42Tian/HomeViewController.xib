@@ -30,9 +30,12 @@
                     <items>
                         <navigationItem title="Home" id="fcx-yg-3DC"/>
                     </items>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="g8C-kZ-dsu"/>
+                    </connections>
                 </navigationBar>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yyT-0E-ody">
-                    <rect key="frame" x="0.0" y="62" width="375" height="29"/>
+                    <rect key="frame" x="16" y="62" width="343" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>
                         <segment title="All"/>

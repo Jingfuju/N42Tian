@@ -28,6 +28,7 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.productTableView.rowHeight = 200;
     self.title = @"Home";
     UINib *cellNib = [UINib nibWithNibName:ProductTableViewCellIdentifier bundle:nil];

@@ -31,6 +31,7 @@
         NSLog(@"Already Run");
         TabBarController *tabBarController = [[TabBarController alloc]init];
         navController = [[UINavigationController alloc] initWithRootViewController:tabBarController];
+        
 
         HomeViewController *homeViewController = (HomeViewController *)tabBarController.viewControllers[0];
         homeViewController.managedObjectContext = self.managedObjectContext;
@@ -51,6 +52,7 @@
     }
 
     self.window.rootViewController=navController;
+    [navController setNavigationBarHidden:YES];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
