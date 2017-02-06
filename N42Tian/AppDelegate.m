@@ -26,11 +26,12 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     UINavigationController *navController;
     
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"IsFirstLaunch"])
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"NotFirstLaunch"])
     {
         NSLog(@"Already Run");
         TabBarController *tabBarController = [[TabBarController alloc]init];
         navController = [[UINavigationController alloc] initWithRootViewController:tabBarController];
+        
 
         HomeViewController *homeViewController = (HomeViewController *)tabBarController.viewControllers[0];
         homeViewController.managedObjectContext = self.managedObjectContext;
@@ -42,7 +43,7 @@
     }
     else
     {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"IsFirstLaunch"];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"NotFirstLaunch"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
         self.firstLauScreen = [[FirstTimeLaunchScreen alloc] initWithNibName:@"FirstTimeLaunchScreen" bundle:nil];
@@ -51,6 +52,7 @@
     }
 
     self.window.rootViewController=navController;
+    [navController setNavigationBarHidden:YES];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

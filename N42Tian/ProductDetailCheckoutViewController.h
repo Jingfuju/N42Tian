@@ -24,6 +24,7 @@
 - (IBAction)addQty:(id)sender;
 - (IBAction)minusQty:(id)sender;
 - (IBAction)setQty:(id)sender;
+- (IBAction)continue:(id)sender;
 
 - (void)presentInParentViewController:(UIViewController *)parentViewController;
 - (void)dismissFromParentViewController;

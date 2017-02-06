@@ -11,7 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FirstTimeLaunchScreen">
             <connections>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="pageControl" destination="120-rE-uLh" id="Xd8-jQ-pcp"/>
+                <outlet property="scrollView" destination="LoJ-it-RSl" id="YJV-CR-YEz"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="wyk-6i-seM"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -19,23 +21,26 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FirstTime Launch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V2g-PF-o0f">
-                    <rect key="frame" x="121" y="136" width="132" height="21"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LoJ-it-RSl">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4l6-re-izS">
-                    <rect key="frame" x="169" y="547" width="37" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Enter"/>
                     <connections>
-                        <action selector="enter:" destination="-1" eventType="touchUpInside" id="10Q-pm-cNl"/>
+                        <outlet property="delegate" destination="-1" id="ss0-Ru-sMU"/>
                     </connections>
-                </button>
+                </scrollView>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="120-rE-uLh">
+                    <rect key="frame" x="0.0" y="600" width="375" height="37"/>
+                    <connections>
+                        <action selector="pageChanged:" destination="-1" eventType="valueChanged" id="F4D-57-6Qh"/>
+                    </connections>
+                </pageControl>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="120-rE-uLh" secondAttribute="bottom" constant="30" id="9DE-RW-mIf"/>
+                <constraint firstItem="120-rE-uLh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="C9I-ZI-zhR"/>
+                <constraint firstAttribute="trailing" secondItem="120-rE-uLh" secondAttribute="trailing" id="bYl-Oh-kLg"/>
+            </constraints>
             <point key="canvasLocation" x="32.5" y="101.5"/>
         </view>
     </objects>

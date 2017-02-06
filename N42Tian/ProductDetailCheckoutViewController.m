@@ -35,6 +35,24 @@
     [self.view addGestureRecognizer:gestureRecognizer];
 
     [self loadDataWithIndex];
+    
+    UIToolbar* numberToolbar = [[UIToolbar alloc]initWithFrame:CGRectMake(0, 0, 320, 50)];
+    numberToolbar.barStyle = UISearchBarStyleDefault;
+    numberToolbar.items = @[[[UIBarButtonItem alloc]initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancelNumberPad)],
+                            [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil],
+                            [[UIBarButtonItem alloc]initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doneWithNumberPad)]];
+    [numberToolbar sizeToFit];
+    self.productQty.inputAccessoryView = numberToolbar;
+}
+
+
+-(void)cancelNumberPad{
+    [self.productQty resignFirstResponder];
+    self.productQty.text = @"";
+}
+
+-(void)doneWithNumberPad{
+    [self.productQty resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -103,6 +121,10 @@
 - (IBAction)addQty:(id)sender {
      ProductInfo *productInfo = [[ProductInfo alloc]init];
     [self addOneMore:productInfo.items[self.productIndex]];
+}
+
+- (IBAction)continue:(id)sender {
+    [self dismissFromParentViewController];
 }
 
 - (void)addOneMore:(ProductInfoItem *)item

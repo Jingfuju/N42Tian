@@ -35,6 +35,8 @@
 		1F4AFE861E27082F0084DB8D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4AFE851E27082F0084DB8D /* HomeViewController.m */; };
 		1F4AFE891E27082F0084DB8D /* CartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4AFE881E27082F0084DB8D /* CartViewController.m */; };
 		1F4AFE911E27082F0084DB8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F4AFE8F1E27082F0084DB8D /* LaunchScreen.storyboard */; };
+		1F550D5F1E484FD9005FE084 /* CartMirrorController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F550D5D1E484FD9005FE084 /* CartMirrorController.m */; };
+		1F550D601E484FD9005FE084 /* CartMirrorController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F550D5E1E484FD9005FE084 /* CartMirrorController.xib */; };
 		1F5E15721E3B23CE00248CB0 /* TabMyHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5E15711E3B23CE00248CB0 /* TabMyHeadCell.m */; };
 		1F5E15771E3C20C500248CB0 /* TabMyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5E15761E3C20C500248CB0 /* TabMyCell.m */; };
 		1F5E157A1E3C20DD00248CB0 /* TabMyOrderItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5E15791E3C20DD00248CB0 /* TabMyOrderItemCell.m */; };
@@ -108,6 +110,9 @@
 		1F4AFE881E27082F0084DB8D /* CartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CartViewController.m; sourceTree = "<group>"; };
 		1F4AFE901E27082F0084DB8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F4AFE921E27082F0084DB8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F550D5C1E484FD9005FE084 /* CartMirrorController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartMirrorController.h; sourceTree = "<group>"; };
+		1F550D5D1E484FD9005FE084 /* CartMirrorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartMirrorController.m; sourceTree = "<group>"; };
+		1F550D5E1E484FD9005FE084 /* CartMirrorController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartMirrorController.xib; sourceTree = "<group>"; };
 		1F5E156F1E3B196100248CB0 /* common_macro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = common_macro.h; sourceTree = "<group>"; };
 		1F5E15701E3B23CE00248CB0 /* TabMyHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabMyHeadCell.h; sourceTree = "<group>"; };
 		1F5E15711E3B23CE00248CB0 /* TabMyHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabMyHeadCell.m; sourceTree = "<group>"; };
@@ -297,6 +302,9 @@
 				1F4AFE871E27082F0084DB8D /* CartViewController.h */,
 				1F4AFE881E27082F0084DB8D /* CartViewController.m */,
 				1FF002761E45804D0075BB62 /* CartViewController.xib */,
+				1F550D5C1E484FD9005FE084 /* CartMirrorController.h */,
+				1F550D5D1E484FD9005FE084 /* CartMirrorController.m */,
+				1F550D5E1E484FD9005FE084 /* CartMirrorController.xib */,
 			);
 			name = CartViewController;
 			sourceTree = "<group>";
@@ -503,6 +511,7 @@
 				1FF002771E45804D0075BB62 /* CartViewController.xib in Resources */,
 				18BDDC841E35DACE00CC53E5 /* ProductDetailCheckoutViewController.xib in Resources */,
 				18BDDC7A1E33F69500CC53E5 /* ProductRelatedTableViewCell.xib in Resources */,
+				1F550D601E484FD9005FE084 /* CartMirrorController.xib in Resources */,
 				1FF002751E4579000075BB62 /* HomeViewController.xib in Resources */,
 				18BDDC7F1E33F6B000CC53E5 /* ProductReviewTableViewCell.xib in Resources */,
 				18BDDC751E3352B400CC53E5 /* ProductDetailTableViewCell.xib in Resources */,
@@ -586,6 +595,7 @@
 				1F4AFE831E27082F0084DB8D /* AppDelegate.m in Sources */,
 				1F5E157A1E3C20DD00248CB0 /* TabMyOrderItemCell.m in Sources */,
 				1805D8BE1E28099200A0924F /* ProductInfo.m in Sources */,
+				1F550D5F1E484FD9005FE084 /* CartMirrorController.m in Sources */,
 				1879B5B41E32DEC4009AD685 /* CategoryLabel.m in Sources */,
 				18BDDC791E33F69500CC53E5 /* ProductRelatedTableViewCell.m in Sources */,
 				1FCEE58E1E35E18E00FC4623 /* CartProductInfo+CoreDataProperties.m in Sources */,

@@ -57,6 +57,8 @@
     [tabBarView setAlpha:0.5];
     [[self tabBar] addSubview:tabBarView];
     
+
+    
     
 }
 
