@@ -10,6 +10,7 @@
 #import "HomeViewController.h"
 #import "CartViewController.h"
 #import "InfoViewController.h"
+#import "LoginViewController.h"
 #import "common_macro.h"
 
 
@@ -75,7 +76,10 @@
     return tabBarItem;
 }
 
-
+- (BOOL)isLogin
+{
+    return NO;
+}
 
 #pragma mark = UITabBarDelegate
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(nonnull UIViewController *)viewController {
@@ -84,7 +88,16 @@
     } else if (viewController == cartController) {
         [tabBarController setSelectedIndex:1];
     } else {
-        [tabBarController setSelectedIndex:2];
+        if (![self isLogin]) {
+            LoginViewController * controller = [[LoginViewController alloc] init];
+            controller.hidesBottomBarWhenPushed = YES;
+            self.navigationController.navigationBar.hidden = YES;
+            self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+            [self.navigationController pushViewController:controller animated:YES];
+//            [self presentViewController:controller animated:YES completion:nil];
+        } else {
+            [tabBarController setSelectedIndex:2];
+        }
     }
 }
 
