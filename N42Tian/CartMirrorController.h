@@ -4,6 +4,8 @@
 //
 //  Created by Jingfu Ju on 1/11/17.
 //  Copyright © 2017 N42Tian. All rights reserved.
+
+// This file is not exactly same with CartViewController
 //
 
 #import <UIKit/UIKit.h>
