@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "SignupViewController.h"
 #import "View+MASAdditions.h"
 #import "common_macro.h"
 
@@ -38,9 +39,6 @@
     
     UIImageView * imageView = [[UIImageView alloc] init];
     imageView.frame = CGRectMake((kScreenWidth - imageViewWidth) / 2, (kScreenHeight - imageViewWidth) / 2 - 120, imageViewWidth, imageViewWidth);
-    //    [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-    //        make.left.equalTo(kScreenWidth)
-    //    }]
     
     imageView.image = [UIImage imageNamed:@"portrait"];
     [self setHeadPortrait:imageView];
@@ -138,14 +136,15 @@
     imageView.layer.borderColor = [UIColor whiteColor].CGColor;
 }
 
-- (void)backToParentView
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (void)backToParentView{
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)goToNextPage
 {
-    // signup page
+    SignupViewController * controller = [[SignupViewController alloc] init];
+    self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
