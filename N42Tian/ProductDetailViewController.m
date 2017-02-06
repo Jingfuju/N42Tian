@@ -56,11 +56,13 @@
     [controller presentInParentViewController:self];
 }
 
-- (IBAction)goToCart:(id)sender  // !!! don't konw how to jump to the CartViewController
+- (IBAction)goToCart:(id)sender
 { 
     CartMirrorController *cartMirrorController = [[CartMirrorController alloc]init];
     cartMirrorController.managedObjectContext = self.managedObjectContext;
-    [self presentViewController:cartMirrorController animated:YES completion:nil];
+    // add a navigationController for cartMirrorController
+    UINavigationController * ncRoot = [[UINavigationController alloc] initWithRootViewController:cartMirrorController];
+    [self presentViewController:ncRoot animated:YES completion:nil];
 }
 
 #pragma mark - private method

@@ -57,7 +57,6 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     
     UINib *cellNib = [UINib nibWithNibName:CartTableViewCellIdentifier bundle:nil];
     [self.cartTableView registerNib:cellNib forCellReuseIdentifier:CartTableViewCellIdentifier];
-    
 }
 
 -(void)performFetch {
@@ -90,7 +89,9 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     BOOL isLogin = YES;   // temporary determine the login states
     if (isLogin) {
         LoginViewController *controller = [[LoginViewController alloc] init];
-        [self presentViewController:controller animated:YES completion:nil];
+        self.navigationController.navigationBar.hidden = YES;  // hide the system navigation bar
+        self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+        [self.navigationController pushViewController:controller animated:YES];
     }
 }
 
