@@ -117,29 +117,6 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
 {
     id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections] [section];
     _numberOfProducts = [sectionInfo numberOfObjects];
-    
-    //Toolbar totalQty && total price
-    int totalQuantity = 0;
-    double totalPrice = 0;
-    int singleQuantity = 0;
-    double subtotal = 0;
-    for (NSManagedObject *object in [sectionInfo objects]) {
-        totalQuantity += [[object valueForKey:@"quantity"] intValue];
-        singleQuantity = [[object valueForKey:@"quantity"] intValue];
-        subtotal = [[object valueForKey:@"price"] floatValue] * singleQuantity;
-        
-        
-        totalPrice += subtotal;
-    }
-    self.totalQty.text = [NSString stringWithFormat:@"%d", totalQuantity];
-    
-    
-    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-    [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-    [numberFormatter setCurrencySymbol:@"$"];
-    NSDecimalNumber *itemPrice = [NSDecimalNumber numberWithDouble:totalPrice];
-    self.totalPrice.text = [numberFormatter stringFromNumber:itemPrice];
-
     [self decidedCartSubviewbyNumberofProducts];
     return _numberOfProducts;
 }
@@ -150,10 +127,12 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     CartTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CartTableViewCellIdentifier];
     cell.delegate = self;
     [self configureCell:cell atIndexPath:indexPath];
-    
+    [self calculateCheckoutBarItems];
+
     return cell;
 }
 
+#pragma mark - UITableView Delegate
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return 2;
@@ -163,26 +142,41 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     return 0.3;
 }
 
-#pragma mark - UITableView Delegate
-
 -(void)configureCell:(CartTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     CartProductInfo *cartItem = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
-
     cell.cartItemName.text = cartItem.name;
     cell.quantityLabel.text = [NSString stringWithFormat:@"%d",cartItem.quantity];
-    
+    cell.cartItemPrice.text = [self formatMoneyNumberWithDoubleValue:cartItem.price]; //covert to
+    cell.cartImageView.image = [UIImage imageNamed:cartItem.productImage];
+    cell.cartSubTotalQty.titleLabel.text = @"";
+    cell.cartSubTotalPrice.text = [self formatMoneyNumberWithDoubleValue:cartItem.price * cartItem.quantity];
+}
+
+- (void)calculateCheckoutBarItems
+{
+    // Monitor cart item changes all the time
+    int totalQuantity = 0;
+    double total = 0;
+    int singleQuantity = 0;
+    double subtotal = 0;
+    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections] [0];
+    for (NSManagedObject *object in [sectionInfo objects]) {
+        totalQuantity += [[object valueForKey:@"quantity"] intValue];
+        singleQuantity = [[object valueForKey:@"quantity"] intValue];
+        subtotal = [[object valueForKey:@"price"] floatValue] * singleQuantity;
+        total += subtotal;
+    }
+    self.totalQty.text = [NSString stringWithFormat:@"%d", totalQuantity];
+    self.totalPrice.text = [self formatMoneyNumberWithDoubleValue:total];
+
+}
+
+- (NSString *)formatMoneyNumberWithDoubleValue:(double)value {
+    NSDecimalNumber *decimalValue = [NSDecimalNumber numberWithDouble:value];
     NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
     [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
     [numberFormatter setCurrencySymbol:@"$"];
-    NSDecimalNumber *itemPrice = [NSDecimalNumber numberWithDouble:cartItem.price];
-
-    cell.cartItemPrice.text = [numberFormatter stringFromNumber:itemPrice]; //covert to
-    cell.cartImageView.image = [UIImage imageNamed:cartItem.productImage];
-    
-    cell.cartSubTotalQty.titleLabel.text = @"";
-    
-    cell.cartSubTotalQty.titleLabel.text =@"";
+    return [numberFormatter stringFromNumber:decimalValue];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
