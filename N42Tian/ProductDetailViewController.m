@@ -15,6 +15,7 @@
 #import "AppDelegate.h"
 #import "productInfo.h"
 #import "common_macro.h"
+#import "CartMirrorController.h"
 
 @interface ProductDetailViewController ()
 
@@ -56,12 +57,10 @@
 }
 
 - (IBAction)goToCart:(id)sender  // !!! don't konw how to jump to the CartViewController
-{
-//    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//    UITabBarController *controller = (UITabBarController *)appDelegate.window.rootViewController;
-//    CartViewController *cartController = (CartViewController *)controller.viewControllers[2];
-//    [self presentViewController:cartController animated:YES completion:nil];
-    
+{ 
+    CartMirrorController *cartMirrorController = [[CartMirrorController alloc]init];
+    cartMirrorController.managedObjectContext = self.managedObjectContext;
+    [self presentViewController:cartMirrorController animated:YES completion:nil];
 }
 
 #pragma mark - private method
