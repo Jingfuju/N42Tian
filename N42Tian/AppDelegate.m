@@ -26,7 +26,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     UINavigationController *navController;
     
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"IsFirstLaunch"])
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"NotFirstLaunch"])
     {
         NSLog(@"Already Run");
         TabBarController *tabBarController = [[TabBarController alloc]init];
@@ -43,7 +43,7 @@
     }
     else
     {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"IsFirstLaunch"];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"NotFirstLaunch"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         
         self.firstLauScreen = [[FirstTimeLaunchScreen alloc] initWithNibName:@"FirstTimeLaunchScreen" bundle:nil];

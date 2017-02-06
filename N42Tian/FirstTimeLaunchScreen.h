@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-
-
-@interface FirstTimeLaunchScreen : UIViewController
+@interface FirstTimeLaunchScreen : UIViewController 
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
--(IBAction)enter:(id)sender;
+@property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, strong) IBOutlet UIPageControl *pageControl;
 
+- (IBAction)enter:(id)sender;
+- (IBAction)pageChanged:(id)sender;
 @end
