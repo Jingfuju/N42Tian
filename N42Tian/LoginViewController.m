@@ -125,6 +125,9 @@
     [forgotPw.titleLabel setAdjustsFontSizeToFitWidth:YES];
     
     [self.view addSubview:forgotPw];
+    
+    NSLog(@"Login %@", self.navigationController);
+
 }
 
 // set head portrait style

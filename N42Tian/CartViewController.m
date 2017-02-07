@@ -56,8 +56,7 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     [self.cartToolbar setFrame:CGRectMake(0, self.view.frame.size.height-98, self.view.frame.size.width, 49)];
     
     UINib *cellNib = [UINib nibWithNibName:CartTableViewCellIdentifier bundle:nil];
-    [self.cartTableView registerNib:cellNib forCellReuseIdentifier:CartTableViewCellIdentifier];
-    
+    [self.cartTableView registerNib:cellNib forCellReuseIdentifier:CartTableViewCellIdentifier];    
 }
 
 -(void)performFetch {

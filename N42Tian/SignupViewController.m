@@ -49,7 +49,7 @@
     [self.view addSubview:phoneNumber];
     
     UIButton * idButton = [[UIButton alloc] init];
-    [idButton setTitle:@"Identification" forState:UIControlStateNormal];
+    [idButton setTitle:@"Verification" forState:UIControlStateNormal];
     idButton.titleLabel.font = [UIFont systemFontOfSize:14.0];
     idButton.titleLabel.textAlignment = 1;
     [idButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -59,7 +59,7 @@
     [self.view addSubview:idButton];
     
     UITextField * idCode = [[UITextField alloc] init];
-    idCode.placeholder = @"Identification Code";
+    idCode.placeholder = @"Verification Code";
     idCode.font = [UIFont systemFontOfSize:14.0];
     
     idCode.frame = CGRectMake(phoneNumber.frame.origin.x, phoneNumber.frame.origin.y + textFieldHeight + 1, textFieldWidth, textFieldHeight);
