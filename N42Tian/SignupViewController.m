@@ -132,7 +132,7 @@
     
     UIButton *qq = [UIButton new];
     UIButton *weChat = [UIButton new];
-    UIButton *gmail = [UIButton new];
+    UIButton *linkedin = [UIButton new];
     
     qq.frame = CGRectMake(gridButtonInit, gridY, buttonWidth, buttonWidth);
     [qq setImage:[UIImage imageNamed:@"qq"] forState:0];  // set the button image
@@ -146,11 +146,11 @@
     [weChat.layer setCornerRadius:buttonWidth / 2];  // set radius if button corner
     [self.view addSubview:weChat];
     
-    gmail.frame = CGRectMake(gridButtonInit + gridWidth * 2, gridY, buttonWidth, buttonWidth);
-    [gmail setImage:[UIImage imageNamed:@"gmail"] forState:0];  // set the button image
-    [gmail.layer setMasksToBounds:YES];
-    [gmail.layer setCornerRadius:buttonWidth / 2];  // set radius if button corner
-    [self.view addSubview:gmail];
+    linkedin.frame = CGRectMake(gridButtonInit + gridWidth * 2, gridY, buttonWidth, buttonWidth);
+    [linkedin setImage:[UIImage imageNamed:@"linkedIn"] forState:0];  // set the button image
+    [linkedin.layer setMasksToBounds:YES];
+    [linkedin.layer setCornerRadius:buttonWidth / 2];  // set radius if button corner
+    [self.view addSubview:linkedin];
     
     // touch no keyboard area to resign the keyboard
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeKeyboard:)];
