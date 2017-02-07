@@ -154,6 +154,7 @@
 }
 
 - (void)backToParentView{
+    [self dismissViewControllerAnimated:YES completion:nil]; //Maybe it's a weird solution, but it works
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
