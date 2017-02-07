@@ -131,7 +131,7 @@
     if (currentImageIndex == kImageViewCount) {
         _imgVRight.image = [UIImage imageNamed:[NSString stringWithFormat:@"1.png"]];
     } else {
-        _imgVRight.image = [UIImage imageNamed:[NSString stringWithFormat:@"%ld,png", (long)(currentImageIndex + 1)]];
+        _imgVRight.image = [UIImage imageNamed:[NSString stringWithFormat:@"%ld.png", (long)(currentImageIndex + 1)]];
     }
 }
 

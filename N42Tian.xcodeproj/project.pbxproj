@@ -16,6 +16,8 @@
 		18413CA71E37325A00FDECBF /* BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18413CA61E37325A00FDECBF /* BackgroundView.m */; };
 		187730581E43FC44000543DA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187730571E43FC44000543DA /* LoginViewController.m */; };
 		1877305E1E47D822000543DA /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1877305D1E47D822000543DA /* SignupViewController.m */; };
+		187730681E4A8613000543DA /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 187730631E4A8612000543DA /* libWeChatSDK.a */; };
+		187730691E4A8613000543DA /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 187730641E4A8612000543DA /* README.txt */; };
 		1879B5AB1E32DEB2009AD685 /* ProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1879B5A81E32DEB2009AD685 /* ProductDetailViewController.xib */; };
 		1879B5AC1E32DEB2009AD685 /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1879B5A91E32DEB2009AD685 /* ProductDetailViewController.m */; };
 		1879B5B21E32DEC4009AD685 /* ProductInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1879B5AE1E32DEC4009AD685 /* ProductInfoViewController.m */; };
@@ -79,6 +81,12 @@
 		187730571E43FC44000543DA /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		1877305C1E47D822000543DA /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
 		1877305D1E47D822000543DA /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
+		187730631E4A8612000543DA /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		187730641E4A8612000543DA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		187730651E4A8612000543DA /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		187730661E4A8612000543DA /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		187730671E4A8613000543DA /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		1877306A1E4A8640000543DA /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		1879B5A81E32DEB2009AD685 /* ProductDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailViewController.xib; sourceTree = "<group>"; };
 		1879B5A91E32DEB2009AD685 /* ProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailViewController.m; sourceTree = "<group>"; };
 		1879B5AA1E32DEB2009AD685 /* ProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailViewController.h; sourceTree = "<group>"; };
@@ -159,6 +167,7 @@
 			files = (
 				1F79BBBA1E42E0F90068F2A5 /* CoreGraphics.framework in Frameworks */,
 				1F79BBAA1E4172ED0068F2A5 /* libMasonry.a in Frameworks */,
+				187730681E4A8613000543DA /* libWeChatSDK.a in Frameworks */,
 				1F6CE5E71E30417C0070B559 /* AudioToolbox.framework in Frameworks */,
 				1F6CE5E51E30416F0070B559 /* CoreData.framework in Frameworks */,
 				6327FA58E73DA06290B444CC /* libPods-N42Tian.a in Frameworks */,
@@ -181,6 +190,18 @@
 				1879B5AF1E32DEC4009AD685 /* ProductInfoViewController.xib */,
 			);
 			name = ProductDetailViewController;
+			sourceTree = "<group>";
+		};
+		187730621E4A8612000543DA /* WechatOpenSDK1.7.6 */ = {
+			isa = PBXGroup;
+			children = (
+				187730631E4A8612000543DA /* libWeChatSDK.a */,
+				187730641E4A8612000543DA /* README.txt */,
+				187730651E4A8612000543DA /* WechatAuthSDK.h */,
+				187730661E4A8612000543DA /* WXApi.h */,
+				187730671E4A8613000543DA /* WXApiObject.h */,
+			);
+			path = WechatOpenSDK1.7.6;
 			sourceTree = "<group>";
 		};
 		18BDDC631E334EE900CC53E5 /* ProductDetailViewController */ = {
@@ -214,6 +235,7 @@
 				1F6CE5E91E3044B20070B559 /* Sound.caf */,
 				1F4AFE7D1E27082F0084DB8D /* N42Tian */,
 				1F4AFE7C1E27082F0084DB8D /* Products */,
+				187730621E4A8612000543DA /* WechatOpenSDK1.7.6 */,
 				1F6CE5E31E30416F0070B559 /* Frameworks */,
 				5C2CC74D244D2B9C8237A8FB /* Pods */,
 			);
@@ -376,6 +398,7 @@
 		1F6CE5E31E30416F0070B559 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1877306A1E4A8640000543DA /* CoreTelephony.framework */,
 				1F79BBB91E42E0F90068F2A5 /* CoreGraphics.framework */,
 				1F79BBA91E4172ED0068F2A5 /* libMasonry.a */,
 				1F6CE5E61E30417C0070B559 /* AudioToolbox.framework */,
@@ -518,6 +541,7 @@
 				1879B5B31E32DEC4009AD685 /* ProductInfoViewController.xib in Resources */,
 				1F4AFE911E27082F0084DB8D /* LaunchScreen.storyboard in Resources */,
 				1805D8B81E27227400A0924F /* ProductTableViewCell.xib in Resources */,
+				187730691E4A8613000543DA /* README.txt in Resources */,
 				1F6CE5EA1E3044B20070B559 /* Sound.caf in Resources */,
 				1879B5AB1E32DEB2009AD685 /* ProductDetailViewController.xib in Resources */,
 				1FFEF1921E369BED00CCCF97 /* 180.png in Resources */,
@@ -739,6 +763,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/Masonry",
+					"$(PROJECT_DIR)/WechatOpenSDK1.7.6",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = N42Tian.com.N42Tian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -759,6 +784,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos/Masonry",
+					"$(PROJECT_DIR)/WechatOpenSDK1.7.6",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = N42Tian.com.N42Tian;
 				PRODUCT_NAME = "$(TARGET_NAME)";

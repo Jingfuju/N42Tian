@@ -47,6 +47,7 @@
     phoneNumber.layer.cornerRadius = 2;
     phoneNumber.textAlignment = 1;
     [self.view addSubview:phoneNumber];
+    phoneNumber.delegate = self;
     
     UIButton * idButton = [[UIButton alloc] init];
     [idButton setTitle:@"Verification" forState:UIControlStateNormal];
@@ -67,6 +68,7 @@
     idCode.layer.cornerRadius = 2;
     idCode.textAlignment = 1;
     [self.view addSubview:idCode];
+    idCode.delegate = self;
     
     // Created name and password textField
     UITextField * userName = [[UITextField alloc] init];
@@ -78,6 +80,7 @@
     userName.layer.cornerRadius = 2;
     userName.textAlignment = 1;
     [self.view addSubview:userName];
+    userName.delegate = self;
     
     UITextField * userPassword = [[UITextField alloc] init];
     userPassword.placeholder = @"Create a password";
@@ -88,6 +91,7 @@
     userPassword.layer.cornerRadius = 2;
     userPassword.textAlignment = 1;
     [self.view addSubview:userPassword];
+    userPassword.delegate = self;
     
     UITextField * rePassword = [[UITextField alloc] init];
     rePassword.placeholder = @"Re-enter the password";
@@ -98,6 +102,7 @@
     rePassword.layer.cornerRadius = 2;
     rePassword.textAlignment = 1;
     [self.view addSubview:rePassword];
+    rePassword.delegate = self;
     
     // Created login Button
     NSInteger signupWidth = textFieldWidth - 20;
@@ -146,6 +151,12 @@
     [gmail.layer setMasksToBounds:YES];
     [gmail.layer setCornerRadius:buttonWidth / 2];  // set radius if button corner
     [self.view addSubview:gmail];
+    
+    // touch no keyboard area to resign the keyboard
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeKeyboard:)];
+    tap.numberOfTapsRequired = 1;
+    tap.numberOfTouchesRequired = 1;
+    [self.view addGestureRecognizer:tap];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -157,4 +168,15 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (void)closeKeyboard:(id)sender
+{
+    [self.view endEditing:YES];
+}
 @end

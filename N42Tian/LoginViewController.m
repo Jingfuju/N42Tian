@@ -16,6 +16,10 @@
 @end
 
 @implementation LoginViewController
+{
+    UITextField * _userName;
+    UITextField * _userPassword;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -48,23 +52,25 @@
     NSInteger nameWidth = kScreenWidth - 100;
     NSInteger nameHeight = 31;
     
-    UITextField * userName = [[UITextField alloc] init];
-    userName.placeholder = @"Name";
+    _userName = [[UITextField alloc] init];
+    _userName.placeholder = @"Name";
     
-    userName.frame = CGRectMake((kScreenWidth - nameWidth) / 2, (kScreenHeight - nameHeight) / 2 - 40, nameWidth, nameHeight);
-    userName.backgroundColor = [UIColor whiteColor];
-    userName.layer.cornerRadius = 2;
-    userName.textAlignment = 1; // NSTextAlignmentCenter
-    [self.view addSubview:userName];
+    _userName.frame = CGRectMake((kScreenWidth - nameWidth) / 2, (kScreenHeight - nameHeight) / 2 - 40, nameWidth, nameHeight);
+    _userName.backgroundColor = [UIColor whiteColor];
+    _userName.layer.cornerRadius = 2;
+    _userName.textAlignment = 1; // NSTextAlignmentCenter
+    [self.view addSubview:_userName];
+    _userName.delegate = self;
     
-    UITextField * userPassword = [[UITextField alloc] init];
-    userPassword.placeholder = @"Password";
+    _userPassword = [[UITextField alloc] init];
+    _userPassword.placeholder = @"Password";
     
-    userPassword.frame = CGRectMake(userName.frame.origin.x, userName.frame.origin.y + userName.frame.size.height + 1, userName.frame.size.width, userName.frame.size.height);
-    userPassword.backgroundColor = [UIColor whiteColor];
-    userPassword.layer.cornerRadius = 2;
-    userPassword.textAlignment = 1;
-    [self.view addSubview:userPassword];
+    _userPassword.frame = CGRectMake(_userName.frame.origin.x, _userName.frame.origin.y + _userName.frame.size.height + 1, _userName.frame.size.width, _userName.frame.size.height);
+    _userPassword.backgroundColor = [UIColor whiteColor];
+    _userPassword.layer.cornerRadius = 2;
+    _userPassword.textAlignment = 1;
+    [self.view addSubview:_userPassword];
+    _userPassword.delegate = self;
     
     // Created login Button
     NSInteger loginWidth = nameWidth - 20;
@@ -75,10 +81,11 @@
     loginButton.titleLabel.textAlignment = 1;
     loginButton.titleLabel.textColor = [UIColor whiteColor];
     
-    loginButton.frame = CGRectMake((kScreenWidth - loginWidth) / 2, userPassword.frame.origin.y + userPassword.frame.size.height + 10, loginWidth, loginHight);
+    loginButton.frame = CGRectMake((kScreenWidth - loginWidth) / 2, _userPassword.frame.origin.y + _userPassword.frame.size.height + 10, loginWidth, loginHight);
     loginButton.backgroundColor = [UIColor colorWithRed:0/255. green:128/255. blue:255/255. alpha:1.0];
     loginButton.layer.cornerRadius = 2;
     [self.view addSubview:loginButton];
+    [loginButton addTarget:self action:@selector(login:) forControlEvents:UIControlEventTouchUpInside];
     
     // Created Wechat login part
     UILabel * line = [[UILabel alloc] init];
@@ -126,8 +133,15 @@
     
     [self.view addSubview:forgotPw];
     
-    NSLog(@"Login %@", self.navigationController);
+    // touch no keyboard area to resign the keyboard
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeKeyboard:)];
+    tap.numberOfTapsRequired = 1;
+    tap.numberOfTouchesRequired = 1;
+    [self.view addGestureRecognizer:tap];
+}
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
 }
 
 // set head portrait style
@@ -150,8 +164,31 @@
     [self.navigationController pushViewController:controller animated:YES];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+- (IBAction)login:(UIButton *)sender
+{
+    if ([_userName.text length] == 0 || _userName.text == nil ||
+        [_userPassword.text length] == 0 || _userPassword.text == nil) {
+        UIAlertView *alertView = [[UIAlertView alloc]
+                                  initWithTitle:@"Login Error"
+                                  message:@"User name or password cannot be empty!"
+                                  delegate:nil
+                                  cancelButtonTitle: @"OK"
+                                  otherButtonTitles: nil, nil];
+        alertView.delegate = self;
+        [alertView show];
+    }
+}
+
+#pragma mark - UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (void)closeKeyboard:(id)sender
+{
+    [self.view endEditing:YES];
 }
 
 @end
