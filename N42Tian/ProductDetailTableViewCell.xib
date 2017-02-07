@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cpv-Wv-RQf">
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpv-Wv-RQf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -26,20 +26,24 @@
                             <outlet property="delegate" destination="-1" id="aPg-V6-l5O"/>
                         </connections>
                     </scrollView>
-                    <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="cZi-Vj-GAq">
-                        <rect key="frame" x="168" y="154.5" width="39" height="37"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="cZi-Vj-GAq">
+                        <rect key="frame" x="0.0" y="155" width="375" height="37"/>
                         <connections>
                             <action selector="pageChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="06l-Uc-1pd"/>
                         </connections>
                     </pageControl>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="cZi-Vj-GAq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Ra4-sR-CRn"/>
+                    <constraint firstAttribute="bottom" secondItem="cZi-Vj-GAq" secondAttribute="bottom" constant="7" id="S3s-tK-PL7"/>
+                    <constraint firstAttribute="trailing" secondItem="cZi-Vj-GAq" secondAttribute="trailing" id="kUT-lq-EqB"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="pageControl" destination="cZi-Vj-GAq" id="VhP-BH-xhy"/>
                 <outlet property="scrollView" destination="cpv-Wv-RQf" id="v23-ha-9KK"/>
             </connections>
-            <point key="canvasLocation" x="-49" y="-108"/>
+            <point key="canvasLocation" x="-49.5" y="-108"/>
         </tableViewCell>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="productDetailTableViewCellSecond" id="7rr-hs-v1z" userLabel="SecondProductDetailTableViewCell" customClass="ProductDetailTableViewCell">
             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
