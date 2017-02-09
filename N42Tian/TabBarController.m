@@ -45,8 +45,6 @@
     return self;
 }
 
-
-
 - (void)viewDidLoad {
     NSLog(@"TabBarController");
     [super viewDidLoad];
@@ -57,9 +55,7 @@
     [tabBarView setAlpha:0.5];
     [[self tabBar] addSubview:tabBarView];
     
-
-    
-    
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
 }
 
 - (void)didReceiveMemoryWarning {

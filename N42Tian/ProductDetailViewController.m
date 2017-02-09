@@ -62,6 +62,7 @@
     cartMirrorController.managedObjectContext = self.managedObjectContext;
     // add a navigationController for cartMirrorController
     UINavigationController * ncRoot = [[UINavigationController alloc] initWithRootViewController:cartMirrorController];
+    self.navigationController.navigationBar.hidden = YES;
     [self presentViewController:ncRoot animated:YES completion:nil];
 }
 

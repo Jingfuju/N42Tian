@@ -49,11 +49,14 @@
         self.firstLauScreen = [[FirstTimeLaunchScreen alloc] initWithNibName:@"FirstTimeLaunchScreen" bundle:nil];
         self.firstLauScreen.managedObjectContext = self.managedObjectContext;
         navController=[[UINavigationController alloc]initWithRootViewController:self.firstLauScreen];
+        
+        [[UIApplication sharedApplication] setStatusBarHidden:YES];
     }
-
+    
     self.window.rootViewController=navController;
     [navController setNavigationBarHidden:YES];
     self.window.backgroundColor = [UIColor whiteColor];
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
