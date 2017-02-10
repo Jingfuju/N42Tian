@@ -50,7 +50,7 @@
         self.firstLauScreen.managedObjectContext = self.managedObjectContext;
         navController=[[UINavigationController alloc]initWithRootViewController:self.firstLauScreen];
         
-        [[UIApplication sharedApplication] setStatusBarHidden:YES];
+        [[UIApplication sharedApplication] setStatusBarHidden:YES]; // hide status ber
     }
     
     self.window.rootViewController=navController;

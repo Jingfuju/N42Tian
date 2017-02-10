@@ -55,7 +55,7 @@
     [tabBarView setAlpha:0.5];
     [[self tabBar] addSubview:tabBarView];
     
-    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO]; // display the status bar
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,7 +88,7 @@
     } else {
         if (![self isLogin]) {
             LoginViewController * controller = [[LoginViewController alloc] init];
-            controller.hidesBottomBarWhenPushed = YES;
+            controller.hidesBottomBarWhenPushed = YES;  
             self.navigationController.navigationBar.hidden = YES;
             self.navigationController.interactivePopGestureRecognizer.enabled = YES;
             [self.navigationController pushViewController:controller animated:YES];

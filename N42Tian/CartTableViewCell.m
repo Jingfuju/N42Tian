@@ -11,9 +11,7 @@
 @implementation CartTableViewCell
 
 - (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
-}
+    [super awakeFromNib];}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
@@ -35,6 +33,11 @@
 -(IBAction)pickerController:(id)sender {
     NSIndexPath *indexPath = [self.delegate getButtonIndexPath:sender];
     [self.delegate popUpNumberPickerControlerFrom:self atIndexPath:indexPath];
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
 }
 
 @end

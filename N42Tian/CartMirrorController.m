@@ -51,6 +51,7 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     [super viewDidLoad];
     [self performFetch];
     
+    self.navigationController.navigationBar.hidden = YES;
     
     self.cartTableView.rowHeight = 120;
     [self.cartToolbar setFrame:CGRectMake(0, self.view.frame.size.height-98, self.view.frame.size.width, 49)];
