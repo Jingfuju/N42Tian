@@ -23,8 +23,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *totalPrice;
 @property (nonatomic, weak) IBOutlet UILabel *totalQty;
 
-
-
 //Added this method to header file, use other Controller involve it;
 - (NSFetchedResultsController *) fetchedResultsController;
 - (IBAction)checkout:(id)sender;

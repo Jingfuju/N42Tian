@@ -87,8 +87,8 @@
 - (void)addNavigateLabel
 {
     for (int i = 0; i < self.categories.count; i++) {
-        CGFloat lblW = 90;
-        CGFloat lblX = (self.smallScrollView.frame.size.width - lblW * self.categories.count) / 2 + i * lblW;
+        CGFloat lblW = (kScreenWidth - 120) / 3;
+        CGFloat lblX = 120 / 2 + i * lblW;
         CategoryLabel *lbl1 = [[CategoryLabel alloc] init];
         UIViewController *vc = self.childViewControllers[i];
         lbl1.content = vc.title;
@@ -96,7 +96,7 @@
         lbl1.tag = i;
         [self.smallScrollView addSubview:lbl1];
         [lbl1 addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(lblClick:)]];
-        self.smallScrollView.contentSize = CGSizeMake(90 * (i + 1), 0);
+        self.smallScrollView.contentSize = CGSizeMake(lblW * (i + 1), 0);
     }
 }
 

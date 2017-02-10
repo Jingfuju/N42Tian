@@ -7,6 +7,7 @@
 //
 
 #import "CategoryLabel.h"
+#import "common_macro.h"
 
 @interface CategoryLabel ()
 
@@ -46,7 +47,8 @@
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:self.font, NSFontAttributeName, nil];
     CGSize fontSize = [self.text sizeWithAttributes:dic];
     CGRect frame = self.lineView.frame;
-    frame = CGRectMake(fabs(90 - fontSize.width)/2, 43, fontSize.width, 1);
+    NSInteger lbw = (kScreenWidth - 120) / 3;
+    frame = CGRectMake(fabs(lbw - fontSize.width)/2, 43, fontSize.width, 1);
     self.lineView.frame = frame;
 }
 
