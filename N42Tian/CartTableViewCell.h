@@ -27,7 +27,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *cartSubTotalQty;
 @property (weak, nonatomic) IBOutlet UILabel *quantityLabel;
 
-
 @property (weak,nonatomic) id <CartTableViewCellDelegate> delegate;
 
 - (IBAction)cartAddQty:(id)sender;

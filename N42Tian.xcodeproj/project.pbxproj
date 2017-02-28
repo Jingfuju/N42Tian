@@ -16,13 +16,10 @@
 		18413CA71E37325A00FDECBF /* BackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18413CA61E37325A00FDECBF /* BackgroundView.m */; };
 		187730581E43FC44000543DA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187730571E43FC44000543DA /* LoginViewController.m */; };
 		1877305E1E47D822000543DA /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1877305D1E47D822000543DA /* SignupViewController.m */; };
-		187730681E4A8613000543DA /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 187730631E4A8612000543DA /* libWeChatSDK.a */; };
 		187730691E4A8613000543DA /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 187730641E4A8612000543DA /* README.txt */; };
 		1877306C1E4A8677000543DA /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1877306A1E4A8640000543DA /* CoreTelephony.framework */; };
 		1877306E1E4A8684000543DA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1877306D1E4A8684000543DA /* SystemConfiguration.framework */; };
-		187730701E4A8694000543DA /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1877306F1E4A8694000543DA /* libsqlite3.0.tbd */; };
-		187730721E4A86A4000543DA /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 187730711E4A86A4000543DA /* libz.tbd */; };
-		187730741E4A86AE000543DA /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 187730731E4A86AE000543DA /* libc++.tbd */; };
+		187730781E4C3B99000543DA /* CrossDissolveTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 187730771E4C3B99000543DA /* CrossDissolveTransitionAnimator.m */; };
 		1879B5AB1E32DEB2009AD685 /* ProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1879B5A81E32DEB2009AD685 /* ProductDetailViewController.xib */; };
 		1879B5AC1E32DEB2009AD685 /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1879B5A91E32DEB2009AD685 /* ProductDetailViewController.m */; };
 		1879B5B21E32DEC4009AD685 /* ProductInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1879B5AE1E32DEC4009AD685 /* ProductInfoViewController.m */; };
@@ -96,6 +93,8 @@
 		1877306F1E4A8694000543DA /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		187730711E4A86A4000543DA /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		187730731E4A86AE000543DA /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		187730761E4C3B99000543DA /* CrossDissolveTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrossDissolveTransitionAnimator.h; sourceTree = "<group>"; };
+		187730771E4C3B99000543DA /* CrossDissolveTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrossDissolveTransitionAnimator.m; sourceTree = "<group>"; };
 		1879B5A81E32DEB2009AD685 /* ProductDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailViewController.xib; sourceTree = "<group>"; };
 		1879B5A91E32DEB2009AD685 /* ProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailViewController.m; sourceTree = "<group>"; };
 		1879B5AA1E32DEB2009AD685 /* ProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailViewController.h; sourceTree = "<group>"; };
@@ -174,10 +173,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				187730681E4A8613000543DA /* libWeChatSDK.a in Frameworks */,
-				187730741E4A86AE000543DA /* libc++.tbd in Frameworks */,
-				187730721E4A86A4000543DA /* libz.tbd in Frameworks */,
-				187730701E4A8694000543DA /* libsqlite3.0.tbd in Frameworks */,
 				1877306E1E4A8684000543DA /* SystemConfiguration.framework in Frameworks */,
 				1877306C1E4A8677000543DA /* CoreTelephony.framework in Frameworks */,
 				1F79BBBA1E42E0F90068F2A5 /* CoreGraphics.framework in Frameworks */,
@@ -216,6 +211,15 @@
 				187730671E4A8613000543DA /* WXApiObject.h */,
 			);
 			path = WechatOpenSDK1.7.6;
+			sourceTree = "<group>";
+		};
+		187730751E4C3B5D000543DA /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				187730761E4C3B99000543DA /* CrossDissolveTransitionAnimator.h */,
+				187730771E4C3B99000543DA /* CrossDissolveTransitionAnimator.m */,
+			);
+			name = Animation;
 			sourceTree = "<group>";
 		};
 		18BDDC631E334EE900CC53E5 /* ProductDetailViewController */ = {
@@ -266,6 +270,7 @@
 		1F4AFE7D1E27082F0084DB8D /* N42Tian */ = {
 			isa = PBXGroup;
 			children = (
+				187730751E4C3B5D000543DA /* Animation */,
 				1F79BBAB1E4178F70068F2A5 /* components */,
 				1F5E156E1E3B192700248CB0 /* macros */,
 				1F4AFE981E2709030084DB8D /* Controller */,
@@ -656,6 +661,7 @@
 				1FCEE58D1E35E18E00FC4623 /* CartProductInfo+CoreDataClass.m in Sources */,
 				1F79BBB11E4187CD0068F2A5 /* UIColor+hexColor.m in Sources */,
 				1F4AFE801E27082F0084DB8D /* main.m in Sources */,
+				187730781E4C3B99000543DA /* CrossDissolveTransitionAnimator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

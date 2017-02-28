@@ -24,31 +24,36 @@
     self.scrollView.contentSize = CGSizeMake(kScreenWidth * 3, 0);
     self.scrollView.backgroundColor = [UIColor blackColor];
     self.scrollView.showsVerticalScrollIndicator = NO;
+    self.scrollView.showsHorizontalScrollIndicator = NO;
+
     self.scrollView.pagingEnabled = YES;
     
     self.pageControl.numberOfPages = 3;
     self.pageControl.currentPage = 0;
     
-    UIImageView *firstPageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"rsz_home.png"]];
-    firstPageView.frame = CGRectMake(kScreenWidth / 2 - 20, 100, 60, 60);
+    UIImageView *firstPageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"grassland"]];
+    firstPageView.frame = CGRectMake(0, -20, kScreenWidth, kScreenHeight + 20);
     [self.scrollView addSubview:firstPageView];
     
-    UIImageView *secondPageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"rsz_cart.png"]];
-    secondPageView.frame = CGRectMake(kScreenWidth + kScreenWidth / 2 - 20, 100, 60, 60);
+    UIImageView *secondPageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"green_corn"]];
+    secondPageView.frame = CGRectMake(kScreenWidth, -20, kScreenWidth, kScreenHeight + 20);
     [self.scrollView addSubview:secondPageView];
     
-    UIImageView *thirdPageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"rsz_account.png"]];
-    thirdPageView.frame = CGRectMake(kScreenWidth * 2 + kScreenWidth / 2 - 20, 100, 60, 60);
+    UIImageView *thirdPageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"yellow_corn"]];
+    thirdPageView.frame = CGRectMake(kScreenWidth * 2, -20, kScreenWidth, kScreenHeight + 20);
     [self.scrollView addSubview:thirdPageView];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     [button setTitle:@"Enter" forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont fontWithName:@"AvenirNext-Heavy" size:26.0];
+    button.titleLabel.textAlignment = 1;
     
     [button addTarget:self action:@selector(enter:) forControlEvents:UIControlEventTouchUpInside];
     
-    button.frame = CGRectMake(kScreenWidth * 2 + kScreenWidth / 2 - 20, kScreenHeight - 60, 60, 60);
+    button.frame = CGRectMake(kScreenWidth * 2 + kScreenWidth / 2 - 50,  kScreenHeight - 120, 100, 100);
+    
     [self.scrollView addSubview:button];
-                                                                      
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,6 +72,7 @@
 
 - (IBAction)enter:(id)sender{
     TabBarController *tabBarController = [[TabBarController alloc] init];
+    
     [self presentViewController:tabBarController animated:YES completion:nil];
     
     HomeViewController *homeViewController = (HomeViewController *)tabBarController.viewControllers[0];
@@ -75,7 +81,5 @@
     CartViewController *cartViewController = (CartViewController *)tabBarController.viewControllers[1];
     cartViewController.managedObjectContext = self.managedObjectContext;
 }
-
-
 
 @end

@@ -33,6 +33,7 @@
     
     UIBarButtonItem * navLeftButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"arrow_20"] style:UIBarButtonItemStylePlain target:self action:@selector(backToParentView)];
     navItem.leftBarButtonItem = navLeftButton;
+    
     UIBarButtonItem * navRightButton = [[UIBarButtonItem alloc] initWithTitle:@"Signup" style:UIBarButtonItemStylePlain target:self action:@selector(goToNextPage)];
     navItem.rightBarButtonItem = navRightButton;
     
