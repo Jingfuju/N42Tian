@@ -28,18 +28,39 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+   
     self.productTableView.rowHeight = 200;
     self.title = @"Home";
     UINib *cellNib = [UINib nibWithNibName:ProductTableViewCellIdentifier bundle:nil];
     [self.productTableView registerNib:cellNib forCellReuseIdentifier:ProductTableViewCellIdentifier];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(NSString *)badgeNumber {
+    long totalQuantity = 0;
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    NSError *error;
+    [request setEntity:entity];
+    NSArray *result = [self.managedObjectContext executeFetchRequest:request error:&error];
+    for (NSManagedObject *object in result) {
+        totalQuantity += [[object valueForKey:@"quantity"] intValue];
+    }
+    
+    if (totalQuantity == 0) {
+        return @"";
+    } else {
+        return [NSString stringWithFormat:@"%ld",totalQuantity];
+    }
+}
+
+-(void)updateCartBadge {
+    [self tabBarController].viewControllers[1].tabBarItem.badgeValue = [self badgeNumber];
 }
 
 
@@ -84,6 +105,7 @@ static NSString * const ProductTableViewCellIdentifier = @"ProductTableViewCell"
     ProductInfo *productInfo = [[ProductInfo alloc]init];
     ProductInfoItem *item = productInfo.items[indexPath.row];
     [self editCartForProduct:item];
+    [self updateCartBadge];
     return;
 }
 

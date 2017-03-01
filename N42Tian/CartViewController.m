@@ -111,6 +111,29 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     }
 }
 
+-(NSString *)badgeNumber {
+    long totalQuantity = 0;
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"CartProductInfo" inManagedObjectContext:self.managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
+    NSError *error;
+    [request setEntity:entity];
+    NSArray *result = [self.managedObjectContext executeFetchRequest:request error:&error];
+    for (NSManagedObject *object in result) {
+        totalQuantity += [[object valueForKey:@"quantity"] intValue];
+    }
+    
+    if (totalQuantity == 0) {
+        return @"";
+    } else {
+        return [NSString stringWithFormat:@"%ld",totalQuantity];
+    }
+}
+
+-(void)updateCartBadge {
+    [self tabBarController].viewControllers[1].tabBarItem.badgeValue = [self badgeNumber];
+}
+
 
 #pragma mark - UITableView Data Source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -247,6 +270,7 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     info.quantity +=1;
     
     [self saveToCoreData];
+    [self updateCartBadge];
     return;
 }
 
@@ -255,6 +279,7 @@ static NSString * const CartTableViewCellIdentifier = @"CartTableViewCell";
     if (info.quantity >= 2) {
         info.quantity -=1;
         [self saveToCoreData];
+        [self updateCartBadge];
     } else if (info.quantity == 1) {
 
         self.indexMentioned = indexPath;
